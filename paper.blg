@@ -3,11 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: paper.aux
 The style file: apj.bst
 Database file #1: paperNotes.bib
-Database file #2: test.bib
+Database file #2: biblio.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 4 entries,
             3085 wiz_defined-function locations,
-            672 strings with 5074 characters,
+            672 strings with 5076 characters,
 and the built_in function-call counts, 1956 in all, are:
 = -- 172
 > -- 128
