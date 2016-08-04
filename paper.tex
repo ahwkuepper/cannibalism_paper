@@ -13,6 +13,7 @@
 \usepackage{babel}
 \usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage[all]{hypcap}
+%\usepackage{siunitx}
 
 \makeatletter
 
@@ -54,21 +55,21 @@
 
 
 \subsection{Merger tree}
-- Where we got the merger data from and how we extracted it.
-Our merger tree data came from cosmological simulations of Kulier
-- Using Andrea Kulier's cosmological simulation, we plotted galaxy masses as a function of time.
+Our merger tree data came from the SMBH evolution simulations of \citet{2015ApJ...799..178K}, which used the large-scale hydrodynamical galaxy simulations outlined by \citet{2011ApJ...741...99C}, \citet{2011ApJ...742L..33C}, \citet{2012ApJ...753...17C}, \citet{2012ApJ...748..121C} and \citet{2013ApJ...770..139C}.  The following cosmological parameters were used in their simulation:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.  The SMBHs were evolved from $4\geq z \geq 0$.
 
-- We took the data from the three most massive galaxies (ie, most massive at redshift z=0).
+The merger tree data was in two primary files.  One file was centered around SMBHs at each redshift slice, giving information for the black hole's seed mass, accreted and seed mass, its host galaxy, the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).  The other file was centered on galaxies at each redshift slice, prociding information on the galaxyies' stellar mass, dark matter mass, its central BH, and any orbiting black holes within the galaxy.
 
-- We curve-fit each galaxy's mass to polynomial functions of time.
+Starting with this data, we plotted the galaxy masses as a function of time.  Since the raw data was given in terms of redshift, we converted redshift to time with the help of a 'cosmology calculator', courtesy of Ned Wright and James Schombert (\url{http://www.astro.ucla.edu/~wright/CosmoCalc.html}).  We chose three galaxies to run our simulations.  The galaxies were chosen using the following basic criteria:
+\begin{itemize}
+\item The galaxies had to exist through the entire simulation, from $z=4$ to $z=0$.
+\item They had to have a central SMBH.
+\item They had to have at least XXX orbiting black holes.
+\item We ordered the galaxies by decreasing mass at $z=0$, and starting with the largest tier of mass (~$10^{14} M_{\odot}$), we spaced their masses by approximately 1-2 orders of magnitude.
+\end{itemize}
 
-- We also curve-fit each galaxy's (accreted+seeded) central black hole mass to exponential functions of time.
-
-- We added those functions to the Fortran hermite code
+After finding our subject galaxies, we curve-fit their total masses as a function of time using a simple $7^{th}$-order polynomial fit, so as to be able to use their masses in the AR-Chain code.  Additionally, we curve-fit each galaxy's accreted+seed central black hole mass to exponential functions of time.
 
 - We implemented the SO potential-density pair (using the m200, r200 from the fitting functions above, getting half-mass radius from NFW profile, and using it as half-mass radius for the SO profile).
-
-Simulation of Cen et al. (have to look up the year)
 
 
 \subsection{AR-Chain code}

@@ -1,6 +1,21 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{{Cen}(2011{\natexlab{a}})}]{2011ApJ...741...99C}
+{Cen}, R. 2011{\natexlab{a}}, \apj, 741, 99
+
+\bibitem[{{Cen}(2011{\natexlab{b}})}]{2011ApJ...742L..33C}
+---. 2011{\natexlab{b}}, \apjl, 742, L33
+
+\bibitem[{{Cen}(2012{\natexlab{a}})}]{2012ApJ...753...17C}
+---. 2012{\natexlab{a}}, \apj, 753, 17
+
+\bibitem[{{Cen}(2012{\natexlab{b}})}]{2012ApJ...748..121C}
+---. 2012{\natexlab{b}}, \apj, 748, 121
+
+\bibitem[{{Cen}(2013)}]{2013ApJ...770..139C}
+---. 2013, \apj, 770, 139
+
 \bibitem[{{Kulier} {et~al.}(2015){Kulier}, {Ostriker}, {Natarajan}, {Lackner},
   \& {Cen}}]{2015ApJ...799..178K}
 {Kulier}, A., {Ostriker}, J.~P., {Natarajan}, P., {Lackner}, C.~N., \& {Cen},
