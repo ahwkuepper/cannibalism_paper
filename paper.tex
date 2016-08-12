@@ -69,9 +69,6 @@ Starting with this data, we plotted the galaxy masses as a function of time.  Si
 
 After finding our subject galaxies, we curve-fit their total masses as a function of time using a simple $7^{th}$-order polynomial fit, so as to be able to use their masses in the AR-Chain code.  Additionally, we curve-fit each galaxy's accreted+seed central black hole mass to exponential functions of time.
 
-- We implemented the SO potential-density pair (using the m200, r200 from the fitting functions above, getting half-mass radius from NFW profile, and using it as half-mass radius for the SO profile).
-
-
 \subsection{AR-Chain code}
 Summary of the code and the modifications we made.
 
@@ -79,6 +76,26 @@ For the numerical simulations presented here, we used a modified version of the 
 
 
 \subsubsection{Galaxy background potential}
+The simulations from which we obtained the merger tree data considered only dark matter distributions and were run using the Navarro-Frenk-White (NFW) profile described in \citet{1997ApJ...490..493N}.  Since our study is more interested SMBH mergers at the center of galaxies, dynamical friction, and hence baryonic matter, was of considerable importance.  Therefore, NFW background potential was less suitable for our application.
+
+In considering a suitable potential-density pair, characteristics that were important were:
+\begin{itemize}
+\item It must take into account baryonic mater
+\item It must have a finite density in the center out to a scale radius
+\item Declining density that drops more sharply out to a second scale radius
+\item An even sharper decline in density beyond the second scale radius
+\item It must be easily parametrized and written in analytic, closed form
+\end{itemize}
+
+For our simulations, the Jerry profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, was used.  In order to fully parametrize the Jerry profile so as to use it in our simulations, we needed to match the stellar and halo mass data from the Kulier et al simulations, to the velocity dispersion at the galaxy's effective radius.  In Kulier's simulations, a galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
+\begin{equation}
+R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
+\end{equation}
+\begin{equation}
+\sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47}
+\end{equation}
+
+Given the galaxy's stellar mass $M_{*}$ at redshift z from Kulier's simulations, we can calculate the effective radius and velocity dispersion.  We can then equate these values to the analytic expressions for $\sigma(R_{e})$ in the Jerry profile.  Using a core radius $r_c$ = 100, we can solve for the halo radius $r_h$ using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
 
 \subsubsection{Phase-space diffusion}
 Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy.
