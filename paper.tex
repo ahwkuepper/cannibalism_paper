@@ -80,7 +80,7 @@ The simulations from which we obtained the merger tree data considered only dark
 
 In considering a suitable potential-density pair, characteristics that were important were:
 \begin{itemize}
-\item It must take into account baryonic mater
+\item It must take into account baryonic matter
 \item It must have a finite density in the center out to a scale radius
 \item Declining density that drops more sharply out to a second scale radius
 \item An even sharper decline in density beyond the second scale radius
@@ -88,10 +88,10 @@ In considering a suitable potential-density pair, characteristics that were impo
 \end{itemize}
 
 For our simulations, the Jerry profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, was used.  In order to fully parametrize the Jerry profile so as to use it in our simulations, we needed to match the stellar and halo mass data from the Kulier et al simulations, to the velocity dispersion at the galaxy's effective radius.  In Kulier's simulations, a galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
-\begin{equation}
+\begin{equation} \label{re}
 R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
 \end{equation}
-\begin{equation}
+\begin{equation} \label{sig}
 \sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47}
 \end{equation}
 
@@ -109,6 +109,7 @@ Black holes can also eject each other via strong three-body interactions. We rem
 \subsection{Simulation setup}
 Injection, merging, escape, effective radius, set of galaxies
 
+Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}).  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
 \section{Results}\label{sec:results}
 
