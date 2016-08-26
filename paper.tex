@@ -121,7 +121,21 @@ Injection, merging, escape, effective radius, set of galaxies
 
 Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}).  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
+Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller than 100 times the Hubble time.
+
+
 \section{Results}\label{sec:results}
+\begin{figure*}[htbp]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/radius_A.png}
+\includegraphics[width=0.45\textwidth]{plots/radius_B.png}\\
+\includegraphics[width=0.45\textwidth]{plots/radius_C.png}
+\includegraphics[width=0.45\textwidth]{plots/radius_D.png}\\
+\caption{default}
+\label{default}
+\end{center}
+\end{figure*}
+
 \begin{figure*}[htbp]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{plots/orbiting_bh_mass_histogram_gal_1.png}
@@ -134,10 +148,24 @@ Using the merger tree data, orbiting black holes were injected into its host gal
 \end{figure*}
 
 \subsection{Mergers}
+\noindent A: two mergers early on, and then two more at around 10-12 Gyr\\
+B: 4 mergers across the final 8 Gyr\\
+C: two mergers in the final Gyrs\\
+D: ?\\
+
 
 \subsection{Ejections}
+No complete ejections, but kicks to higher energy orbits.
+\noindent A: one in a three-body encoutner\\
+B: 7-ish kicks, some in nearly 4-body encounters\\
+C: none\\
+D: ?\\
 
 \subsection{Stalling SMBH binaries}
+A: two periods of BH binary in center for > Gyr, up to 6 Gyr\\
+B: two short periods of BHBs\\
+C: 2 classic BHB periods of about 1 Gyr each\\
+D: ?
 
 \subsection{Stalling SMBHs in the halo}
 \begin{figure*}[htbp]
@@ -151,7 +179,10 @@ Using the merger tree data, orbiting black holes were injected into its host gal
 \end{center}
 \end{figure*}
 
-
+A: 95\% never make it into the central kpc\\
+B: still about 90\% are in the halo\\
+C: \\
+D: ?
 
 
 
