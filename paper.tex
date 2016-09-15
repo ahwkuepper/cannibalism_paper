@@ -11,9 +11,10 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{babel}
+%\usepackage{siunitx}
+%\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 \usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage[all]{hypcap}
-%\usepackage{siunitx}
 
 \makeatletter
 
@@ -69,7 +70,7 @@ Our merger tree data came from the SMBH evolution simulations of \citet{2015ApJ.
 
 The merger tree data was in two primary files.  One file was centered around SMBHs at each redshift slice, giving information for the black hole's seed mass, accreted and seed mass, its host galaxy, the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).  The other file was centered on galaxies at each redshift slice, prociding information on the galaxyies' stellar mass, dark matter mass, its central BH, and any orbiting black holes within the galaxy.
 
-Starting with this data, we plotted the galaxy masses as a function of time.  Since the raw data was given in terms of redshift, we converted redshift to time with the help of a 'cosmology calculator', courtesy of Ned Wright and James Schombert (\url{http://www.astro.ucla.edu/~wright/CosmoCalc.html}).  We chose three galaxies to run our simulations.  The galaxies were chosen using the following basic criteria:
+Starting with this data, we plotted the galaxy masses as a function of time.  Since the raw data was given in terms of redshift, we converted redshift to time with the help of a 'cosmology calculator', courtesy of Ned Wright and James Schombert (\url{http://www.astro.ucla.edu/~wright/CosmoCalc.html}).  We chose four galaxies to run our simulations.  The galaxies were chosen using the following basic criteria:
 \begin{itemize}
 \item The galaxies had to exist through the entire simulation, from $z=4$ to $z=0$.
 \item They had to have a central SMBH.
@@ -123,6 +124,34 @@ Using the merger tree data, orbiting black holes were injected into its host gal
 
 Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller than 100 times the Hubble time.
 
+\subsection{Description of Simulations}
+\begin{table}
+\caption{Merger Results}
+\begin{tabular}{c c c c}
+\hline\hline \\
+Galaxy & Orbiting BHs & $t_{fric}<100*t_H$ & Simulation Mergers \\
+A & 206 & 19 & 4 \\
+B & 29 & 12 & 4 \\
+C & 3 & 3 & 2 \\
+D & 4 & 4 & 2 \\
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\caption{Galaxies used in Simulation}
+\begin{tabular}{c| c c| c c| c c|}
+\hline\hline \\
+& \multicolumn{2}{c}{$M_{gal}$ [$M_{\odot}$]} & 
+\multicolumn{2}{c}{$M_{*}$ [$M_{\odot}$]} & 
+\multicolumn{2}{c}{$M_{BH}$ [$M_{\odot}$]} \\
+Galaxy & Init & Final & Init & Final & Init & Final \\
+A & $7.42\mathrm{e}{11}$ & $1.09\mathrm{e}{14}$  & $1.22\mathrm{e}{11}$ & $1.75\mathrm{e}{13}$ & $4.80\mathrm{e}{06}$ & $2.19\mathrm{e}{09}$\\
+B & $1.11\mathrm{e}{12}$ & $3.41\mathrm{e}{13}$ & $1.80\mathrm{3}{11}$ & $5.58\mathrm{e}{12}$ & $1.94\mathrm{e}{08}$ & $1.46\mathrm{e}{09}$\\
+C & $7.23\mathrm{e}{10}$ & $3.48\mathrm{e}{12}$ & $1.18\mathrm{e}{10}$ & $5.68\mathrm{e}{11}$ & $9.47\mathrm{e}{04}$ & $2.70\mathrm{e}{08}$\\
+D & $3.92\mathrm{e}{10}$ & $1.34\mathrm{e}{12}$ & $6.47\mathrm{e}{9}$ & $2.20\mathrm{e}{11}$ & $9.95\mathrm{e}{05}$ & $8.32\mathrm{e}{07}$\\
+\end{tabular}
+\end{table}
 
 \section{Results}\label{sec:results}
 \begin{figure*}[htbp]
@@ -155,6 +184,9 @@ Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller 
 \label{default}
 \end{center}
 \end{figure}
+
+
+
 
 \noindent A: two mergers early on, and then two more at around 10-12 Gyr\\
 B: 4 mergers across the final 8 Gyr\\
