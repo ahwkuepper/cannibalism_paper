@@ -70,9 +70,15 @@ This paper is organized as follows: in Section \ref{sec:methods} we are going to
 
 
 \subsection{Merger tree}
-Our merger tree data came from the SMBH evolution simulations of \citet{2015ApJ...799..178K}, which used the large-scale hydrodynamical galaxy simulations outlined in \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C}.  The following cosmological parameters were used in their simulation:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.  The SMBHs were evolved from $4\geq z \geq 0$.
+Our merger tree data came from two sources:
+\begin{itemize}
+\item Galactic merger tree data from simulations of \citet{2012MNRAS.425..641L} (hereafter Lackner12), which was centered on galaxies at each redshift slice, providing information on the galaxies' stellar mass, dark matter mass, central BH, and any orbiting black holes within the galaxy.
+\item SMBH evolution simulations of \citet{2015ApJ...799..178K} (hereafter Kulier15), which used the large-scale hydrodynamical galaxy simulations outlined in \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C}.  The data was centered around SMBHs at each redshift slice between $z=4$ to $z=0$, giving information for each SMBH's seed mass, accreted and seed mass, its host galaxy (categorically defined), the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).
+\end{itemize}
 
-The merger tree data was in two primary files.  One file was centered around SMBHs at each redshift slice, giving information for the black hole's seed mass, accreted and seed mass, its host galaxy, the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).  The other file was centered on galaxies at each redshift slice, providing information on the galaxies' stellar mass, dark matter mass, central BH, and any orbiting black holes within the galaxy.
+The following cosmological parameters were used in the simulations of both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
+
+Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  In order to adjust our stellar masses to levels more in line with current observations, we used observational data from \citet{2018AstL...44....8K}, in particular Figure 11. (SHOULD I ADD PLOT OF OUR ORIGINAL STELLAR DATA?  THE PLOT FROM KRAVTSOV WAS RECREATED BY EYEBALL WITH A FEW STRAIGHT LINES TO APPROXIMATE HIS CURVE.  HOW TO INCORPORATE THAT?)
 
 Starting with this data, we plotted the galaxy masses as a function of time.  Since the raw data was given in terms of redshift, we converted redshift to time with the help of a 'cosmology calculator', courtesy of Ned Wright and James Schombert (\url{http://www.astro.ucla.edu/~wright/CosmoCalc.html}).  We chose four galaxies to run our simulations.  The galaxies were chosen using the following basic criteria:
 \begin{itemize}
@@ -84,11 +90,14 @@ Starting with this data, we plotted the galaxy masses as a function of time.  Si
 
 After finding our subject galaxies, we curve-fit their total masses as a function of time using a simple $7^{th}$-order polynomial fit, so as to be able to use their masses in the AR-Chain code.  Additionally, we curve-fit each galaxy's accreted+seed central black hole mass to exponential functions of time.
 
+
+
 \subsection{AR-Chain code}
 Summary of the code and the modifications we made.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
+As in the simulations from Kulier12, the SMBHs were evolved from $z=4$ to $z=0$.
 
 \subsubsection{Galaxy background potential}
 The simulations from which we obtained the merger tree data considered only dark matter distributions and were run using the Navarro-Frenk-White (NFW) profile described in \citet{1997ApJ...490..493N}.  Since our study is more interested SMBH mergers at the center of galaxies, dynamical friction, and hence baryonic matter, was of considerable importance.  Therefore, the NFW background potential was less suitable for our application.
@@ -280,7 +289,7 @@ What do we want to say?
 
 \section*{Acknowledgements}
 
-The authors would like to thank Andrea Kulier for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555. 
+The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555. 
 
 \bibliographystyle{apj}
 \bibliography{biblio}
