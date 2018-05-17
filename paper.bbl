@@ -16,6 +16,11 @@
 \bibitem[{{Cen}(2013)}]{2013ApJ...770..139C}
 ---. 2013, \apj, 770, 139
 
+\bibitem[{{Inayoshi} {et~al.}(2018){Inayoshi}, {Li}, \&
+  {Haiman}}]{2018arXiv180403143I}
+{Inayoshi}, K., {Li}, M., \& {Haiman}, Z. 2018, ArXiv e-prints,
+  arXiv:1804.03143
+
 \bibitem[{{Kravtsov} {et~al.}(2018){Kravtsov}, {Vikhlinin}, \&
   {Meshcheryakov}}]{2018AstL...44....8K}
 {Kravtsov}, A.~V., {Vikhlinin}, A.~A., \& {Meshcheryakov}, A.~V. 2018,
@@ -42,6 +47,10 @@
 {Lousto}, C.~O., {Zlochower}, Y., {Dotti}, M., \& {Volonteri}, M. 2012, \prd,
   85, 084015
 
+\bibitem[{{McWilliams} {et~al.}(2014){McWilliams}, {Ostriker}, \&
+  {Pretorius}}]{2014ApJ...789..156M}
+{McWilliams}, S.~T., {Ostriker}, J.~P., \& {Pretorius}, F. 2014, \apj, 789, 156
+
 \bibitem[{{Mikkola} \& {Merritt}(2006)}]{2006MNRAS.372..219M}
 {Mikkola}, S., \& {Merritt}, D. 2006, \mnras, 372, 219
 
@@ -51,6 +60,11 @@
 \bibitem[{{Navarro} {et~al.}(1997){Navarro}, {Frenk}, \&
   {White}}]{1997ApJ...490..493N}
 {Navarro}, J.~F., {Frenk}, C.~S., \& {White}, S.~D.~M. 1997, \apj, 490, 493
+
+\bibitem[{{Ryu} {et~al.}(2018){Ryu}, {Perna}, {Haiman}, {Ostriker}, \&
+  {Stone}}]{2018MNRAS.473.3410R}
+{Ryu}, T., {Perna}, R., {Haiman}, Z., {Ostriker}, J.~P., \& {Stone}, N.~C.
+  2018, \mnras, 473, 3410
 
 \bibitem[{{Stone} \& {Ostriker}(2015)}]{2015ApJ...806L..28S}
 {Stone}, N.~C., \& {Ostriker}, J.~P. 2015, \apjl, 806, L28

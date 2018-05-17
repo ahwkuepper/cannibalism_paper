@@ -6,45 +6,45 @@ Database file #1: paperNotes.bib
 Database file #2: biblio.bib
 Warning--I didn't find a database entry for "Binney08"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 14 entries,
+You've used 17 entries,
             3085 wiz_defined-function locations,
-            755 strings with 7063 characters,
-and the built_in function-call counts, 5988 in all, are:
-= -- 525
-> -- 352
+            778 strings with 7799 characters,
+and the built_in function-call counts, 7437 in all, are:
+= -- 651
+> -- 458
 < -- 8
-+ -- 119
-- -- 123
-* -- 473
-:= -- 1126
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 87
-chr.to.int$ -- 12
-cite$ -- 14
-duplicate$ -- 256
-empty$ -- 392
-format.name$ -- 142
-if$ -- 1202
++ -- 155
+- -- 164
+* -- 597
+:= -- 1396
+add.period$ -- 17
+call.type$ -- 17
+change.case$ -- 110
+chr.to.int$ -- 15
+cite$ -- 17
+duplicate$ -- 314
+empty$ -- 476
+format.name$ -- 184
+if$ -- 1488
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 14
-newline$ -- 46
-num.names$ -- 56
-pop$ -- 82
+missing$ -- 17
+newline$ -- 55
+num.names$ -- 68
+pop$ -- 108
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 110
 quote$ -- 0
-skip$ -- 221
+skip$ -- 265
 stack$ -- 0
-substring$ -- 291
+substring$ -- 347
 swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 126
+type$ -- 153
 warning$ -- 0
-while$ -- 55
+while$ -- 66
 width$ -- 0
-write$ -- 143
+write$ -- 173
 (There was 1 warning)
