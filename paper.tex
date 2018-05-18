@@ -69,7 +69,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we are going to
 %\end{figure*}
 
 \subsection{Overview of simulation}
-Our simulations focused on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Ostriker-Stone profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved between $0 < z < 4$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed.
+Our simulations focused on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Ostriker-Stone profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved between $0 < z < 4$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
@@ -83,19 +83,18 @@ Our merger tree data came from two sources:
 
 SHOULD I INCLUDE PLOTS AND/OR HISTOGRAMS OF THE DISTRIBUTION OF GALAXY MASSES, STELLAR MASSES, ETC AT Z=0?
 
-The following cosmological parameters were used in the simulations of both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
-
-Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  In order to adjust our stellar masses to levels more in line with current observations, we used observational data from \citet{2018AstL...44....8K}, in particular Figure 11. (SHOULD I ADD PLOT OF OUR ORIGINAL STELLAR DATA?  THE PLOT FROM KRAVTSOV WAS RECREATED BY EYEBALL WITH A FEW STRAIGHT LINES TO APPROXIMATE HIS CURVE.  HOW TO INCORPORATE THAT?)
-
-Starting with this data, we plotted the galaxy masses as a function of time.  Since the raw data was given in terms of redshift, we converted redshift to time.  We chose four galaxies to run our simulations.  The galaxies were chosen using the following basic criteria:
+The merger tree data from Lackner12 and Kulier15 provided 1,830 galaxies in total.  However, not all the galaxies were useful for our simulations.  We placed further:
 \begin{itemize}
 \item The galaxies had to exist through the entire simulation ($0 < z < 4$).
 \item They had to have a central SMBH.
-\item They had to have at least XXX orbiting black holes.
 \item We ordered the galaxies by decreasing mass at $z=0$, and starting with the largest tier of mass (~$10^{14} M_{\odot}$), we spaced their masses by approximately 1-2 orders of magnitude.  We chose the four largest galaxies that also satisfied the above criteria.
 \end{itemize}
 
 After finding our subject galaxies, we curve-fit their total masses as a function of time using a $7^{th}$-order polynomial fit, so as to be able to use their masses in the AR-Chain code.  Additionally, we curve-fit each galaxy's accreted+seed central black hole mass to exponential functions of time.
+
+The following cosmological parameters were used in the simulations of both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
+
+Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  In order to adjust our stellar masses to levels more in line with current observations, we used observational data from \citet{2018AstL...44....8K}, in particular Figure 11. (SHOULD I ADD PLOT OF OUR ORIGINAL STELLAR DATA?  THE PLOT FROM KRAVTSOV WAS RECREATED BY EYEBALL WITH A FEW STRAIGHT LINES TO APPROXIMATE HIS CURVE.  HOW TO INCORPORATE THAT?)
 
 
 
@@ -105,7 +104,7 @@ Summary of the code and the modifications we made.
 
 
 \subsubsection{Galaxy background potential}
-The simulations from which we obtained the merger tree data considered only dark matter distributions and were run using the Navarro-Frenk-White (NFW) profile \citet{1997ApJ...490..493N}.  Since our study is more interested SMBH mergers at the center of galaxies, dynamical friction, and hence baryonic matter, was of considerable importance.  Therefore, the NFW background potential was less suitable for our application.
+The simulations from which we obtained the merger tree data were run using the Navarro-Frenk-White (NFW) profile \citet{1997ApJ...490..493N}.  Since our study is more interested SMBH mergers at the center of galaxies, dynamical friction, and hence baryonic matter, was of considerable importance.  Therefore, the NFW background potential was less suitable for our application.
 
 In considering a suitable potential-density pair, characteristics that were important were:
 \begin{itemize}
