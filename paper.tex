@@ -109,18 +109,13 @@ Lackner12 noted that the efficiency of star formation in their simulations, defi
 Summary of the code and the modifications we made.
 
 \subsubsection{Galaxy background potential}
-The simulations from which we obtained the merger tree data were run using the Navarro-Frenk-White (NFW) profile \citet{1997ApJ...490..493N}.  Since our study is more interested SMBH mergers at the center of galaxies, dynamical friction, and hence baryonic matter, was of considerable importance.  Therefore, the NFW background potential was less suitable for our application.
+For our simulations, the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  It is essentially an analytic form of a finite, cored isothermal mass distribution:
+\begin{equation} \label{jerry}
+\rho(r) = \frac{\rho_c}{(1+r^2/r_{c}^2)(1+r^2/r_{h}^2)}
+\end{equation}
+Here $\rho_c$ is the central density, $r_c$ is the core radius, and $r_h$ is the outer halo radius.
 
-In considering a suitable potential-density pair, characteristics that were important were:
-\begin{itemize}
-\item It must take into account baryonic matter
-\item It must have a finite density in the center out to a scale radius
-\item Declining density that drops more sharply out to a second scale radius
-\item An even sharper decline in density beyond the second scale radius
-\item It must be easily parametrized and written in analytic, closed form
-\end{itemize}
-
-For our simulations, the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, was used.  It is essentially an analytic form of a finite, cored isothermal mass distribution.  In order to fully parametrize this profile so as to use it in our simulations, we needed to match the stellar and halo mass data from the Kulier et al simulations, to the velocity dispersion at the galaxy's effective radius.  In Kulier's simulations, a galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
+In order to parametrize this profile, $r_c$ was given an arbitrary initial value of 100 pc.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In Kulier12, the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
 \begin{equation} \label{re}
 R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
 \end{equation}
@@ -128,10 +123,18 @@ R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
 \sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47}
 \end{equation}
 
-Given the galaxy's stellar mass $M_{*}$ at redshift z from Kulier's simulations, we can calculate the effective radius and velocity dispersion.  We can then equate these values to the analytic expressions for $\sigma(R_{e})$ in the Stone-Ostriker profile.  Using a core radius $r_c$ = 100, we can solve for the halo radius $r_h$ using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
+We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma(R_{e})$ in the Stone-Ostriker profile (Eqns 9 and A1-A4).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from Stone-Ostriker is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
 
-\subsubsection{Phase-space diffusion}
-Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{Binney08}, the diffusion coefficients can be expressed as 
+The central density, $\rho_c$, can be found from Equation 5 in Stone-Ostriker:
+\begin{equation} \label{rhoc}
+M_{tot} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c},
+\end{equation}
+where $M_{tot}$ is the total dark matter mass.
+
+At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole gets within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy is updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker.
+
+\subsubsection{Phase-space diffusion} \label{psd}
+Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
 \begin{eqnarray}
 D[\Delta v_\parallel] & = & -\frac{4\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma^2}f(\chi),\label{eq:df}\\
 D[(\Delta v_\parallel)^2] & = & \frac{4\sqrt{2}\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma}\frac{f(\chi)}{\chi},\\
@@ -170,7 +173,7 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes PN terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in \citet{2015ApJ...799..178K}, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs gets smaller than 1.0 Schwarzschild radii. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. This results in kick velocities of up to several thousand km\,s$^{-1}$, with a median kick of $\approx 290$\,km\,s$^{-1}$. Since our simulations focus on NSC with relatively low escape velocities, this implies that a majority of the merging SBHs escape from the NSCs. 
+The code \textsc{AR-Chain} includes PN terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs gets smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. This results in kick velocities of up to several thousand km\,s$^{-1}$, with a median kick of $\approx 290$\,km\,s$^{-1}$. Since our simulations focus on NSC with relatively low escape velocities, this implies that a majority of the merging SBHs escape from the NSCs. 
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond 1\,kpc from the NSC, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
 
