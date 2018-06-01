@@ -69,7 +69,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 %\end{figure*}
 
 \subsection{Overview of simulation}
-Our simulations focused on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Ostriker-Stone profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
+Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Ostriker-Stone profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
@@ -80,8 +80,6 @@ Our merger tree data came from two sources:
 \item Galactic merger tree data from simulations of \citet{2012MNRAS.425..641L} (hereafter Lackner12), which was centered on galaxies at each redshift slice, providing information on the galaxies' stellar mass, dark matter mass, central BH, and any orbiting black holes within the galaxy.
 \item SMBH evolution simulations of \citet{2015ApJ...799..178K} (hereafter Kulier15), which used the large-scale hydrodynamical galaxy simulations outlined in \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C}.  The data was centered around SMBHs at each redshift slice from $4 > z > 0$, giving information for each SMBH's seed mass, accreted and seed mass, its host galaxy (categorically defined), the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).
 \end{itemize}
-
-SHOULD I INCLUDE PLOTS AND/OR HISTOGRAMS OF THE DISTRIBUTION OF GALAXY MASSES, STELLAR MASSES, ETC AT Z=0?
 
 The merger tree data from Lackner12 and Kulier15 provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
 \begin{itemize}
@@ -96,7 +94,7 @@ After finding our subject galaxies, we curve-fit their total masses as a functio
 The following cosmological parameters were used in the simulations of both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
 
 \subsubsection{Galactic Stellar Mass Adjustment}
-Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  In order to adjust our stellar masses to levels more in line with current observations, we used observational data from \citet{2018AstL...44....8K}, in particular Figure 11.
+Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  We used observational data from \citet{2018AstL...44....8K}, in particular Figure 11, to rescale the stellar masses to the observed range.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{plots/stellar_to_halo_ratio.png}
@@ -115,7 +113,7 @@ For our simulations, the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), w
 \end{equation}
 Here $\rho_c$ is the central density, $r_c$ is the core radius, and $r_h$ is the outer halo radius.
 
-In order to parametrize this profile, $r_c$ was given an arbitrary initial value of 100 pc.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In Kulier12, the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
+In order to parametrize this profile, $r_c$ was given an initial value of 100 pc, which is reasonable for a cored massive system.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In Kulier12, the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
 \begin{equation} \label{re}
 R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
 \end{equation}
@@ -142,11 +140,11 @@ D[(\Delta \vec{v}_\bot)^2] & = & \frac{4\sqrt{2}\pi G^2\rho(r)M_\bullet\ln\Lambd
 \end{eqnarray} 
 where $\Delta v_\parallel \equiv \Delta \vec{v}\cdot\vec{v}/v$ is the velocity change in direction of motion, and $\Delta \vec{v}_\bot \equiv \Delta \vec{v} - \Delta v_\parallel \cdot\vec{v}/v$ is the velocity change perpendicular to the direction of motion. Here, $M_\bullet$ is the mass of the black hole, and $\chi = \frac{v}{\sqrt{2}\sigma(r)}$. The function $f(\chi)$ is given by 
 \begin{equation}
-f(\chi) = \frac{1}{2\chi^2}\left(\mbox{erf}(\chi)-\frac{2\chi}{\sqrt{\pi}}\exp\left(-\chi^2\right)\right).
+f(\chi) \equiv \frac{1}{2\chi^2}\left(\mbox{erf}(\chi)-\frac{2\chi}{\sqrt{\pi}}\exp\left(-\chi^2\right)\right).
 \end{equation}
 We approximate the factor $\Lambda$ in the Coulomb logarithm as
 \begin{equation}
-\Lambda = \left(\frac{M_{NSC}}{M_\bullet}\right)\left(\frac{r}{r_h}\right).
+\Lambda \equiv \left(\frac{M_{NSC}}{M_\bullet}\right)\left(\frac{r}{r_h}\right).
 \end{equation}
 We can identify Equation \ref{eq:df} as the dynamical friction term. The second term introduces a variance of the friction term, and even allows the SBHs to be accelerated when the velocity of a SBH gets sufficiently small. The third term introduces a change in velocity perpendicular to the direction of motion of the SBH. It is a randomly oriented vector, and hence causes the SBHs to execute a random walk in phase space. The last two terms will establish that the SBHs are ultimately in energy equipartition with the background stars.
 The velocity changes $\Delta v_\parallel$ and $\Delta\vec{v}_\bot$ per unit time $\Delta t$ can be computed with the above equations. Both changes are normally distributed, where the mean, $\mu$, and the variance, $\Sigma$, of the distributions are given by
