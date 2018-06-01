@@ -49,9 +49,11 @@
 
 
 \section{Introduction}\label{sec:introduction}
+What is the ultimate fate of the supermassive black holes (SMBH) resident at the centers of all massive galaxies?  For the galaxies themselves we know that mergers are frequent from the observed (ADD VAN DOKKUM PAPER) evolution of the size and mass of these systems.  But assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2015ApJ...799..178K}, PRETONOS & OSTRIKER, SESANA, NATARJAN).  But we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  What we argue in this paper is that as a result of the N-body interactions among the infalling black holes some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge but we do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
+
 A majority of all galaxies with masses $>10^8\msun$ at $z=0$ are believed to host super-massive black holes (SMBHs) in their cores. In a $\Lambda$CDM universe, galaxies at the high end of the galaxy-mass function are merger products of numerous such massive galaxies. Even if only a small fraction of merging galaxies hosted an SMBH in their core at the time of merging, it is reasonable to assume that, during a Hubble time of continuous growth, these galaxies will have substantial phases in which they contain two or more SMBHs at the same time. 
 
-Here we look at the merger history of four exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs diffuse into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses  have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.  Several papers (\citet{2018arXiv180403143I}, \citet{2014ApJ...789..156M})have shown that if all galaxy mergers lead to black hole mergers, the resulting PTA signal would be roughly twice the current limits.  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution.
+Here we look at the merger history of XX exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs diffuse into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses  have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.  Several papers (\citet{2018arXiv180403143I}, \citet{2014ApJ...789..156M}) have shown that if all galaxy mergers lead to black hole mergers, the resulting PTA signal would be roughly twice the current limits.  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution.
 
 This paper is organized as follows: in Section \ref{sec:methods} we are going to describe the cosmological simulation from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our four exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. The final Section \ref{sec:conclusions} contains a discussion of the result and our conclusions.
 
@@ -135,8 +137,8 @@ At each iteration in the code, $r_h$ is updated according to the stellar mass an
 
 \subsubsection{Phase-space diffusion} \label{psd}
 Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
-\begin{eqnarray}
-D[\Delta v_\parallel] & = & -\frac{4\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma^2}f(\chi),\label{eq:df}\\
+\begin{eqnarray}\label{eq:df}
+D[\Delta v_\parallel] & = & -\frac{4\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma^2}f(\chi),\\
 D[(\Delta v_\parallel)^2] & = & \frac{4\sqrt{2}\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma}\frac{f(\chi)}{\chi},\\
 D[(\Delta \vec{v}_\bot)^2] & = & \frac{4\sqrt{2}\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma}\left[\frac{\mbox{erf}(\chi)-f(\chi)}{\chi}\right],
 \end{eqnarray} 
@@ -148,8 +150,8 @@ We approximate the factor $\Lambda$ in the Coulomb logarithm as
 \begin{equation}
 \Lambda = \left(\frac{M_{NSC}}{M_\bullet}\right)\left(\frac{r}{r_h}\right).
 \end{equation}
-We can identify Eq.~\ref{eq:df} as the dynamical friction term, that is, if we assumed $D[(\Delta v_\parallel)^2]  = D[(\Delta \vec{v}_\bot)^2]  = 0$, we would get Chandrasekhar's dynamical friction formula. The second term introduces a variance of the friction term, and even allows the SBHs to be accelerated when the velocity of a SBH gets sufficiently small. The third term introduces a change in velocity perpendicular to the direction of motion of the SBH. It is a randomly oriented vector, and hence causes the SBHs to execute a random walk in phase space. The last two terms will establish that the SBHs are ultimately in energy equipartition with the background stars.
-The velocity changes $\Delta v_\parallel$ and $\Delta\vec{v}_\bot$ per unit time $\Delta t$ can be computed with the above equations. Both changes are normal distributed, where the mean, $\mu$, and the variance, $\Sigma$, of the distributions are given by
+We can identify Equation \ref{eq:df} as the dynamical friction term. The second term introduces a variance of the friction term, and even allows the SBHs to be accelerated when the velocity of a SBH gets sufficiently small. The third term introduces a change in velocity perpendicular to the direction of motion of the SBH. It is a randomly oriented vector, and hence causes the SBHs to execute a random walk in phase space. The last two terms will establish that the SBHs are ultimately in energy equipartition with the background stars.
+The velocity changes $\Delta v_\parallel$ and $\Delta\vec{v}_\bot$ per unit time $\Delta t$ can be computed with the above equations. Both changes are normally distributed, where the mean, $\mu$, and the variance, $\Sigma$, of the distributions are given by
 \begin{eqnarray}
 \mu_\parallel &=& D[\Delta v_\parallel]\Delta t,\\
 \Sigma_\parallel &=& D[(\Delta v_\parallel)^2]\Delta t,\\
@@ -173,13 +175,12 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes PN terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs gets smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. This results in kick velocities of up to several thousand km\,s$^{-1}$, with a median kick of $\approx 290$\,km\,s$^{-1}$. Since our simulations focus on NSC with relatively low escape velocities, this implies that a majority of the merging SBHs escape from the NSCs. 
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs gets smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. This results in kick velocities of up to several thousand km\,s$^{-1}$, with a median kick of $\approx 290$\,km\,s$^{-1}$. Since our simulations focus on NSC with relatively low escape velocities, this implies that a majority of the merging SBHs escape from the NSCs. 
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond 1\,kpc from the NSC, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
 
-
 \subsection{Simulation setup}
-Injection, merging, escape, effective radius, set of galaxies
+Note to discuss:  Injection, merging, escape, effective radius, set of galaxies
 
 Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}).  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
@@ -255,7 +256,7 @@ D & 4 & 4 & 2 \\
 
 
 
-
+Note to work on:
 \noindent A: two mergers early on, and then two more at around 10-12 Gyr
 B: 4 mergers across the final 8 Gyr
 C: two mergers in the final Gyrs
