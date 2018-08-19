@@ -4,50 +4,45 @@ The top-level auxiliary file: paper.aux
 The style file: apj.bst
 Database file #1: paperNotes.bib
 Database file #2: biblio.bib
-Repeated entry---line 234 of file biblio.bib
- : @article{2014ApJ...789..156M
- :                             ,
-I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 21 entries,
+You've used 22 entries,
             3085 wiz_defined-function locations,
-            803 strings with 8889 characters,
-and the built_in function-call counts, 9146 in all, are:
-= -- 800
-> -- 560
+            809 strings with 9145 characters,
+and the built_in function-call counts, 9699 in all, are:
+= -- 847
+> -- 606
 < -- 10
-+ -- 189
-- -- 200
-* -- 729
-:= -- 1713
-add.period$ -- 21
-call.type$ -- 21
-change.case$ -- 136
-chr.to.int$ -- 19
-cite$ -- 21
-duplicate$ -- 388
-empty$ -- 597
-format.name$ -- 226
-if$ -- 1835
++ -- 205
+- -- 219
+* -- 779
+:= -- 1816
+add.period$ -- 22
+call.type$ -- 22
+change.case$ -- 145
+chr.to.int$ -- 20
+cite$ -- 22
+duplicate$ -- 407
+empty$ -- 625
+format.name$ -- 244
+if$ -- 1943
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 67
-num.names$ -- 84
-pop$ -- 138
+missing$ -- 22
+newline$ -- 70
+num.names$ -- 88
+pop$ -- 147
 preamble$ -- 1
-purify$ -- 136
+purify$ -- 145
 quote$ -- 0
-skip$ -- 329
+skip$ -- 345
 stack$ -- 0
-substring$ -- 418
+substring$ -- 439
 swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 186
+type$ -- 195
 warning$ -- 0
-while$ -- 81
+while$ -- 85
 width$ -- 0
-write$ -- 213
-(There was 1 error message)
+write$ -- 223
