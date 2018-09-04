@@ -52,11 +52,11 @@
 \section{Introduction}\label{sec:introduction}
 What happens to the massive black holes centrally located in galaxies when those galaxies merge with others?  There are three possibilities: they merge, they are ejected, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with the spin induced kick at merger leading to an ejection or extended orbit of the merged black hole.  We now know from pulsar timing measurements (ADD REFERENCES) that the gravitational wave background is probably too low for most galaxy mergers (mass-weighted) (but see \cite{2018NatCo...9..573M}) to lead to BH mergers, but the outcome remains uncertain.  We will argue in this paper that a very common outcome--especially for the lower mass black holes--is for the injected objects to remain as orbiting X-ray sources in normal massive galaxies waiting to be identified by current observational techniques.
 
-A majority of all galaxies with masses $>10^8\msun$ at $z=0$ are believed to host super-massive black holes (SMBHs) in their cores.  What is the ultimate fate of the supermassive black holes (SMBH) resident at the centers of these massive galaxies?  For the galaxies themselves we know that mergers are frequent from the observed (VAN DOKKUM PAPERS??) evolution of the size and mass of these systems.  But assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  But we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that as a result of the N-body interactions among the infalling black holes some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge but we do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
+How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (VAN DOKKUM PAPERS??) evolution of the size and mass of these systems.  But assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  But we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that as a result of the N-body interactions among the infalling black holes some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
 
-Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs diffuse into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs diffuse into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
-This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulation from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. The final Section \ref{sec:conclusions} contains a discussion of the result and our conclusions.
+This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
 
 \section{Methods}\label{sec:methods}
@@ -72,7 +72,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 %\end{figure*}
 
 \subsection{Overview of simulation}
-Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Ostriker-Stone profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
+Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a background potential based on the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
@@ -97,11 +97,11 @@ After finding our subject galaxies, we curve-fit their total masses as a functio
 The following cosmological parameters were used in the simulations of both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
 
 \subsubsection{Galactic Stellar Mass Adjustment}
-Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  We used observational data from \citet{2018AstL...44....8K}, in particular Figure 11, to rescale the stellar masses to the observed range.
+Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  We used observational data from \citet{2018AstL...44....8K}, in particular Figure 11, to rescale the stellar masses to the observed range (see Figure \ref{fig:stellar1}).
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{plots/stellar_to_halo_ratio.png}
-\caption{Original and rescaled stellar masses}
+\caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  X's shown is example of our rescaled stellar masses}
 \label{fig:stellar1}
 \end{center}
 \end{figure}
@@ -174,13 +174,11 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. This results in kick velocities of up to several thousand km\,s$^{-1}$, with a median kick of $\approx 290$\,km\,s$^{-1}$. Since our simulations focus on NSC with relatively low escape velocities, this implies that a majority of the merging SBHs escape from the NSCs. 
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned.
 
-Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond 1\,kpc from the NSC, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
+Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
 
 \subsection{Simulation setup}
-Note to discuss:  Injection, merging, escape, effective radius, set of galaxies
-
 Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}).  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.  Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller than 100 times the Hubble time.
 
 
@@ -214,91 +212,6 @@ D & $3.92\times10^{10}$ & $1.34\times10^{12}$ & $6.47\times10^{9}$ & $2.20\times
 \label{fig:meosmbh}
 \end{center}
 \end{figure}
-
-\begin{table*}
-\centering
-\caption{SMBH statistics}
-\begin{tabular}{c| c |c |c}
-Galaxy & Infalling SMBHs & SMBHs with $t_{fric}<100\,t_H$ & Mergers \\
-\hline
-A & 206 & 19 & 4 \\
-B & 29 & 12 & 4 \\
-C & 3 & 3 & 2 \\
-D & 4 & 4 & 2 \\
-\end{tabular}
-\end{table*}
-
-\begin{figure*}[htbp]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{plots/radius_A.png}
-\includegraphics[width=0.45\textwidth]{plots/radius_B.png}\\
-\includegraphics[width=0.45\textwidth]{plots/radius_C.png}
-\includegraphics[width=0.45\textwidth]{plots/radius_D.png}\\
-\caption{default}
-\label{default2}
-\end{center}
-\end{figure*}
-
-\begin{figure*}[htbp]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{plots/orbiting_bh_mass_histogram_gal_1.png}
-\includegraphics[width=0.45\textwidth]{plots/orbiting_bh_mass_histogram_gal_65.png}\\
-\includegraphics[width=0.45\textwidth]{plots/orbiting_bh_mass_histogram_gal_187.png}
-\includegraphics[width=0.45\textwidth]{plots/orbiting_bh_mass_histogram_gal_217.png}\\
-\caption{default}
-\label{default3}
-\end{center}
-\end{figure*}
-
-\subsection{Mergers}
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{plots/masses_ABCD.png}
-\caption{default}
-\label{default4}
-\end{center}
-\end{figure}
-
-
-
-Note to work on:
-\noindent A: two mergers early on, and then two more at around 10-12 Gyr
-B: 4 mergers across the final 8 Gyr
-C: two mergers in the final Gyrs
-D: ?
-
-
-\subsection{Ejections}
-No complete ejections, but kicks to higher energy orbits.
-\noindent A: one in a three-body encoutner\\
-B: 7-ish kicks, some in nearly 4-body encounters\\
-C: none\\
-D: ?\\
-
-\subsection{Stalling SMBH binaries}
-A: two periods of BH binary in center for > Gyr, up to 6 Gyr\\
-B: two short periods of BHBs\\
-C: 2 classic BHB periods of about 1 Gyr each\\
-D: ?
-
-\subsection{Stalling SMBHs in the halo}
-\begin{figure*}[htbp]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{plots/t_at_center_histogram_gal_1.png}
-\includegraphics[width=0.45\textwidth]{plots/t_at_center_histogram_gal_65.png}\\
-\includegraphics[width=0.45\textwidth]{plots/t_at_center_histogram_gal_187.png}
-\includegraphics[width=0.45\textwidth]{plots/t_at_center_histogram_gal_217.png}\\
-\caption{default}
-\label{default5}
-\end{center}
-\end{figure*}
-
-A: 95\% never make it into the central kpc\\
-B: still about 90\% are in the halo\\
-C: \\
-D: ?
-
-
 
 \section{Conclusions}\label{sec:conclusions}
 What do we want to say?
