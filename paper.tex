@@ -77,20 +77,28 @@ Our simulations focus on elliptical galaxies with central SMBHs. The galaxies we
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
 
-\subsection{Merger tree}
-Our merger tree data came from two sources, each of which in turn used the large-scale hydrodynamical galaxy simulations outlined in \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C}:
+\subsection{Merger tree Data}
+The merger tree data that was used as the input to our simulations is the result of previous work by \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C} (hereafter Cen11), \citet{2012MNRAS.425..641L} (hereafter Lackner12), and \citet{2015ApJ...799..178K} (hereafter Kulier15).  A brief synopsis of the work that led to our input data is described below.
+
+Cen11 studied the "cosmic downsizing" effect (e.g., \citet{1996AJ....112..839C}) using high-resolution large-scale hydrodynamic galaxy formation simulations.  His work produced physical parameters for galaxies such as position, velocity, total mass, stellar mass, gas mass, mean formation time, mean stellar metallicity, mean gas metallicity, SFR, luminosities, etc.
+
+Lackner12, using Cen11's work as a basis, created galactic merger trees that compared the properties of in situ and accreted stellar mass of galaxies at redshift snapshots between $4 > z > 0$.
+
+Kulier15 furthered the merger tree data produced by Lackner12 by estimating the evolution of the SMBH population, based on assumptions about the relationship between the properties of SMBHs and those of their host galaxies.
+
+The primary data we extracted from the above work was organized as follows:
 \begin{itemize}
-\item Galactic merger tree data from simulations of \citet{2012MNRAS.425..641L} (hereafter Lackner12).  In this paper, the authors simulated and compared the properties of in situ and accreted stellar mass of galaxies at redshift snapshots between $4 > z > 0$.  For our simulations, we only utilized total stellar mass, without regard for whether the mass was accreted or formed in situ.
-\item SMBH evolution simulations of \citet{2015ApJ...799..178K} (hereafter Kulier15).  The data was centered around SMBHs at each redshift slice from $4 > z > 0$, giving information for each SMBH's seed mass, accreted and seed mass, its host galaxy (categorically defined), the stellar mass in its host galaxy, and time after z=4 at which the BH entered the host galaxy (if it is not the central BH).
+    \item Galactic properties - Each galaxy was distinguished by an id number, with properties such as stellar mass, dark matter mass, central black hole id number, and orbiting black hole id numbers, recorded at 37 redshift slices between $4 > z > 0$.
+    \item Black Holes properties - Each black hole was also distinguished by an id number, with properties such as seed mass, accreted mass, its host galaxy id number, and time after $z=4$ at which the black hole entered its host galaxy, if it was not the central black hole.
 \end{itemize}
 
 The merger tree data from Lackner12 and Kulier15 provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
 \begin{itemize}
 \item The galaxies had to exist through the entire simulation ($4 > z > 0$).  If they merged with other galaxies, they had to have been the "surviving" galaxy at each merger.
-\item They had to have accumulated orbiting black holes by z = 0.
+\item They had to have accumulated orbiting black holes by $z = 0$.
 \end{itemize}
 
-The above criteria narrowed the field of eligible galaxies down to 53.
+The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the top 13 galaxies in terms of number of black holes to run the simulations.  These black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
 
 The following cosmological parameters were used in our simulations, consistent with both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
 
