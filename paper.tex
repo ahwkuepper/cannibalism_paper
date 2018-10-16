@@ -12,7 +12,7 @@
 \usepackage{url}
 \usepackage{babel}
 \usepackage{float}
-%\usepackage{siunitx}
+\usepackage{siunitx}
 %\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 \usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage[all]{hypcap}
@@ -98,9 +98,34 @@ The merger tree data from Lackner12 and Kulier15 provided 1,830 galaxies in tota
 \item They had to have accumulated orbiting black holes by $z = 0$.
 \end{itemize}
 
-The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the top 13 galaxies in terms of number of black holes to run the simulations.  These black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
+The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the top 13 galaxies in terms of number of black holes to run the simulations.  The black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
 
 The following cosmological parameters were used in our simulations, consistent with both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
+
+\begin{table}[ht]
+\centering
+\caption{Galaxy characteristics at z=0}
+\begin{tabular} {|c | c | c|}
+\hline
+$M_{*}$ & $M_{DM}$ & $M_{CBH}$ \\
+\hline
+\num{1.75e13} & \num{9.18e13} & \num{2.19e9} \\ 
+\num{1.52e13} & \num{7.75e13} & \num{5.27e9} \\
+\num{4.46e12} & \num{2.29e13} & \num{1.22e9} \\
+\num{5.58e12} & \num{2.85e13} & \num{1.46e9} \\
+\num{2.32e12} & \num{1.18e13} & \num{3.62e9} \\
+\num{1.96e12} & \num{1.03e13} & \num{9.85e9} \\
+\num{4.80e12} & \num{2.48e13} & \num{2.40e9} \\
+\num{1.62e12} & \num{8.56e12} & \num{6.86e9} \\
+\num{1.74e12} & \num{8.92e12} & \num{5.60e9} \\
+\num{1.23e12} & \num{6.29e12} & \num{1.22e9} \\
+\num{1.72e12} & \num{6.94e12} & \num{2.02e9} \\
+\num{1.95e12} & \num{1.00e13} & \num{9.32e9} \\
+\num{5.52e11} & \num{1.84e12} & \num{2.21e9} \\
+\hline
+\end{tabular}
+\label{table:gal_char}
+\end{table}
 
 \subsubsection{Stellar Mass Adjustment}
 Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  We used observational data from \citet{2018AstL...44....8K}, in particular Figure 11, to rescale the stellar masses to the observed range (see Figure \ref{fig:stellar1}).
