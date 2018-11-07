@@ -102,45 +102,52 @@ The above criteria narrowed the field of eligible galaxies down to 51.  In consi
 
 The following cosmological parameters were used in our simulations, consistent with both Lackner12 and Kulier15:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
 
-\begin{table}[ht]
+\subsubsection{Stellar Mass Adjustment}
+As we will explain further in Section \ref{Galaxy background potential}, in our simulations orbiting black holes are inserted into the host galaxy at the effective radius, $R_e$, which is partially dependent on stellar mass, $M_*$ (see equation \ref{re}).  For every doubling of the stellar mass, $M_*$, $R_e$ increases by a factor of 1.66.  Additionally, the velocity dispersion at the effective radius, $\sigma(R_e)$, which is used to set the parameter $r_h$ of our dark matter profile, is also dependent on $M_*$.  In this case, a doubling of $M_*$ would increase $\sigma(R_e)$ by a factor of 1.15.  These variations have direct effects on the ability of the orbiting black holes to merge with the central black hole, and thus can affect our merger statistics and resulting characteristic strain calculations, and therefore it is important to estimate our stellar masses with reasonable accuracy.
+
+In cosmological simulations it is common to overproduce stellar mass, with a general over-efficiency in the range of 2-4 times those measured in observations (\citet{1996ApJS..105...19K}, \citet{2010MNRAS.404.1111G}, \citet{2010ApJ...725.2312O}).  One typical reason cited for this overproduction is a lack or underestimation of supernova feedback effects in the form of thermal and/or kinetic energy.  However, even when thermal energy from supernova feedback is considered, the effects may be reduced due to the energy being quickly radiated away by rapidly cooling surrounding gas (\citet{1996ApJS..105...19K}).  A second common reason for overproduction of stars in cosmological simulations is a lack of modeling for AGN feedback, which may be responsible for a phenomenon called the "cooling flow paradox" (\citet{2001MNRAS.321L..20F}) that suppresses star formation. 
+
+Lackner12, which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
+
+We also compared the stellar masses from Lackner12 to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.  In some cases, the original masses were up to 30-40 times larger than the rescaled values, which would have large implications for the ability of the orbiting black holes to reach the center of their host galaxies.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
+\caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown is example of our rescaled stellar masses}
+\label{fig:stellar1}
+\end{center}
+\end{figure}
+
+\begin{table}[htbp]
 \centering
 \caption{Galaxy characteristics at z=0}
-\begin{tabular} {|c | c | c|}
+\begin{tabular} {|c | c | c| c|}
 \hline
-$M_{*}$ & $M_{DM}$ & $M_{CBH}$ \\
+$M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
 \hline
-\num{1.75e13} & \num{9.18e13} & \num{2.19e9} \\ 
-\num{1.52e13} & \num{7.75e13} & \num{5.27e9} \\
-\num{4.46e12} & \num{2.29e13} & \num{1.22e9} \\
-\num{5.58e12} & \num{2.85e13} & \num{1.46e9} \\
-\num{2.32e12} & \num{1.18e13} & \num{3.62e9} \\
-\num{1.96e12} & \num{1.03e13} & \num{9.85e9} \\
-\num{4.80e12} & \num{2.48e13} & \num{2.40e9} \\
-\num{1.62e12} & \num{8.56e12} & \num{6.86e9} \\
-\num{1.74e12} & \num{8.92e12} & \num{5.60e9} \\
-\num{1.23e12} & \num{6.29e12} & \num{1.22e9} \\
-\num{1.72e12} & \num{6.94e12} & \num{2.02e9} \\
-\num{1.95e12} & \num{1.00e13} & \num{9.32e9} \\
-\num{5.52e11} & \num{1.84e12} & \num{2.21e9} \\
+ \num{9.18e13} 	&	 \num{2.19e9} 	&	\num{1.75e13} 	&	\num{5.14e11}  \\
+ \num{7.75e13} 	&	 \num{5.27e9}	&	\num{1.52e13} 	&	\num{4.00e11}  \\
+ \num{2.85e13} 	&	 \num{1.46e9}	&	\num{5.58e12} 	&	\num{3.30e11}  \\
+ \num{2.48e13} 	&	 \num{2.40e9}	&	\num{4.80e12} 	&	\num{2.25e11}  \\
+ \num{2.29e13} 	&	 \num{1.22e9}	&	\num{4.46e12} 	&	\num{2.68e11}  \\
+ \num{1.18e13} 	&	 \num{3.62e9}	&	\num{2.32e12} 	&	\num{2.83e11}  \\
+ \num{1.03e13} 	&	 \num{9.85e9}	&	\num{1.96e12} 	&	\num{1.62e11}  \\
+ \num{1.00e13} 	&	 \num{9.32e9}	&	\num{1.95e12} 	&	\num{2.49e11}  \\
+ \num{8.92e12} 	&	 \num{5.60e9}	&	\num{1.74e12} 	&	\num{3.20e11}  \\
+ \num{8.56e12} 	&	 \num{6.86e9}	&	\num{1.62e12} 	&	\num{1.83e11}  \\
+ \num{6.94e12} 	&	 \num{2.02e9}	&	\num{1.72e12} 	&	\num{1.51e11}  \\
+ \num{6.29e12} 	&	 \num{1.22e9}	&	\num{1.23e12} 	&	\num{1.87e11}  \\
+ \num{1.84e12} 	&	 \num{2.21e9}	&	\num{5.52e11} 	&	\num{6.42e10}  \\
 \hline
 \end{tabular}
 \label{table:gal_char}
 \end{table}
 
-\subsubsection{Stellar Mass Adjustment}
-Lackner12 noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.  We used observational data from \citet{2018AstL...44....8K}, in particular Figure 11, to rescale the stellar masses to the observed range (see Figure \ref{fig:stellar1}).
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
-\caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  X's shown is example of our rescaled stellar masses}
-\label{fig:stellar1}
-\end{center}
-\end{figure}
-
 \subsection{AR-Chain code}
 Summary of the code and the modifications we made.
 
-\subsubsection{Galaxy background potential}
+\subsubsection{Galaxy background potential} \label{Galaxy background potential}
 For our simulations, the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  It is essentially an analytic form of a finite, cored isothermal mass distribution:
 \begin{equation} \label{jerry}
 \rho(r) = \frac{\rho_c}{(1+r^2/r_{c}^2)(1+r^2/r_{h}^2)}
@@ -236,7 +243,7 @@ D & $3.92\times10^{10}$ & $1.34\times10^{12}$ & $6.47\times10^{9}$ & $2.20\times
 
 
 \section{Results}\label{sec:results}
-\begin{figure}[h!]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{"plots/Fractions All Galaxies".png}
 \caption{Fractions Merged/Ejected/Orbiting at z=0, by mass bin}
