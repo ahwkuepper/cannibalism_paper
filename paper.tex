@@ -12,7 +12,10 @@
 \usepackage{url}
 \usepackage{babel}
 \usepackage{float}
+\usepackage{savesym}
+\savesymbol{tablenum}
 \usepackage{siunitx}
+\restoresymbol{SIX}{tablenum}
 %\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 \usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage[all]{hypcap}
@@ -24,6 +27,25 @@
 \sloppy
 
 \providecommand{\tabularnewline}{\\}
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+    \setcounter{topnumber}{2}
+    \setcounter{bottomnumber}{2}
+    \setcounter{totalnumber}{4}     % 2 may work better
+    \setcounter{dbltopnumber}{2}    % for 2-column pages
+    \renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+    \renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+    %   Parameters for FLOAT pages (not text pages):
+    \renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+    \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+	% remember to use [htp] or [htpb] for placement
 
 \begin{document}
 
@@ -54,7 +76,7 @@ What happens to the massive black holes centrally located in galaxies when those
 
 How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}) evolution of the size and mass of these systems.  But assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  But we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that as a result of the N-body interactions among the infalling black holes some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
 
-Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs diffuse into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
 This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
@@ -72,7 +94,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 %\end{figure*}
 
 \subsection{Overview of simulation}
-Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a dark matter background potential using the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
+Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a dark matter background potential using the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form, having a profile similar to that of a truncated isothermal sphere.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy following mergers and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
@@ -89,7 +111,7 @@ Kulier15 furthered the merger tree data produced by Lackner12 by estimating the 
 The primary data we extracted from the above work was organized as follows:
 \begin{itemize}
     \item Galactic properties - Each galaxy was distinguished by an id number, with properties such as stellar mass, dark matter mass, central black hole id number, and orbiting black hole id numbers, recorded at 37 redshift slices between $4 > z > 0$.
-    \item Black Holes properties - Each black hole was also distinguished by an id number, with properties such as seed mass, accreted mass, its host galaxy id number, and time after $z=4$ at which the black hole entered its host galaxy, if it was not the central black hole.
+    \item Black Hole properties - Each black hole was also distinguished by an id number, with properties such as seed mass, accreted mass, its host galaxy id number, and time after $z=4$ at which the black hole entered its host galaxy, if it was not the central black hole.
 \end{itemize}
 
 The merger tree data from Lackner12 and Kulier15 provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
@@ -109,7 +131,7 @@ In cosmological simulations it is common to overproduce stellar mass, with a gen
 
 Lackner12, which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
 
-We also compared the stellar masses from Lackner12 to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.  In some cases, the original masses were up to 30-40 times larger than the rescaled values, which would have large implications for the ability of the orbiting black holes to reach the center of their host galaxies.
+We also compared the stellar masses from Lackner12 to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -120,7 +142,6 @@ We also compared the stellar masses from Lackner12 to  observational and abundan
 \end{figure}
 
 \begin{table}[htbp]
-\centering
 \caption{Galaxy characteristics at z=0}
 \begin{tabular} {|c | c | c| c|}
 \hline
@@ -141,6 +162,7 @@ $M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
  \num{1.84e12} 	&	 \num{2.21e9}	&	\num{5.52e11} 	&	\num{6.42e10}  \\
 \hline
 \end{tabular}
+
 \label{table:gal_char}
 \end{table}
 
@@ -170,7 +192,7 @@ M_{tot} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c},
 \end{equation}
 where $M_{tot}$ is the total dark matter mass.
 
-At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole gets within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy is updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker.
+At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole gets within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker.
 
 \subsubsection{Phase-space diffusion} \label{psd}
 Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
@@ -187,7 +209,7 @@ We approximate the factor $\Lambda$ in the Coulomb logarithm as
 \begin{equation}
 \Lambda \equiv \left(\frac{M_{NSC}}{M_\bullet}\right)\left(\frac{r}{r_h}\right).
 \end{equation}
-We can identify Equation \ref{eq:df} as the dynamical friction term. The second term introduces a variance of the friction term, and even allows the SBHs to be accelerated when the velocity of a SBH gets sufficiently small. The third term introduces a change in velocity perpendicular to the direction of motion of the SBH. It is a randomly oriented vector, and hence causes the SBHs to execute a random walk in phase space. The last two terms will establish that the SBHs are ultimately in energy equipartition with the background stars.
+We can identify Equation \ref{eq:df} as the dynamical friction term. The second term introduces a variance of the friction term, and even allows the SBHs to be accelerated when the velocity of a SBH is sufficiently small. The third term introduces a change in velocity perpendicular to the direction of motion of the SBH. It is a randomly oriented vector, and hence causes the SBHs to execute a random walk in phase space. The last two terms will establish that the SBHs are ultimately in energy equipartition with the background stars.
 The velocity changes $\Delta v_\parallel$ and $\Delta\vec{v}_\bot$ per unit time $\Delta t$ can be computed with the above equations. Both changes are normally distributed, where the mean, $\mu$, and the variance, $\Sigma$, of the distributions are given by
 \begin{eqnarray}
 \mu_\parallel &=& D[\Delta v_\parallel]\Delta t,\\
@@ -212,13 +234,51 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}. To save computational time, we assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned.
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier15, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned.
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
 
 \subsection{Simulation setup}
-Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}).  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.  Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller than 100 times the Hubble time.
+Using the merger tree data, orbiting black holes were injected into its host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.  Note: we only inject the BHs into the simulation that have a $t_{fric}$ smaller than 100 times the Hubble time.
 
+\subsection{Black Hole Luminosity}
+The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
+\begin{equation}
+    T_x = 10^{(2.50*log \sigma - 6.06)}
+\end{equation}
+Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ...857...32B} according to:
+\begin{equation}
+    \rho_0 = 10^{(0.6log(\sigma) - 25)}
+\end{equation}
+The core radius of the gas model, ${r_c}$ is:
+\begin{equation}
+    r_c = 10^{(15.09log(\sigma) - 35.77)}
+\end{equation}
+Local gas density ${\rho}$ is obtained from the isothermal beta model:
+\begin{equation}
+    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}}
+\end{equation}
+Gas sound speed, ${ss}_g$, was obtained from:
+\begin{equation}
+    {ss}_g = \sqrt{1.67T_x/m_p},
+\end{equation}
+where $m_p$ is the proton mass.
+
+The black hole mass accretion rate is approximated by:
+\begin{equation}
+    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{({ss_g}^2+v^2)^{3/2}},
+\end{equation}
+where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
+
+Finally, the black hole luminosity is calculated from:
+\begin{equation}
+    L = 0.1\dot{M}_{acc}{ss_g}^2
+\end{equation}
+
+The Eddington limit is known to be:
+\begin{equation}
+    L_{edd} = \num{1.26e38} (M/M_{\odot}) erg/s
+\end{equation}
 
 \subsection{Description of Simulations}
 \begin{table*}
