@@ -133,7 +133,7 @@ Lackner(+12), which is the source of our stellar masses, noted that the efficien
 
 We also compared the stellar masses from Lackner(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
-\begin{figure}[htbp]
+\begin{figure}
 \begin{center}
 \includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
 \caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown is example of our rescaled stellar masses}
@@ -141,7 +141,7 @@ We also compared the stellar masses from Lackner(+12) to  observational and abun
 \end{center}
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}
 \caption{Galaxy characteristics at z=0}
 \begin{tabular} {|c | c | c| c|}
 \hline
@@ -248,41 +248,43 @@ The orbiting black holes were injected into their host galaxy at redshift z, at 
 \subsection{Black Hole Luminosity}
 The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
 \begin{equation}
-    T_x = 10^{(2.50*log \sigma - 6.06)}
+    T_x = 10^{2.50*log(\sigma) - 6.06} \text{  kev}
 \end{equation}
 Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ...857...32B} according to:
 \begin{equation}
-    \rho_0 = 10^{(0.6log(\sigma) - 25)}
+    \rho_0 = 10^{0.6*log(\sigma) - 25} \text{  g cm}^{-3}
 \end{equation}
 The core radius of the gas model, ${r_c}$ is:
 \begin{equation}
-    r_c = 10^{(15.09log(\sigma) - 35.77)}
+    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  cm}
 \end{equation}
 Local gas density ${\rho}$ is obtained from the isothermal beta model:
 \begin{equation}
-    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}}
+    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}
 \end{equation}
 Gas sound speed, $c_s$, was obtained from:
 \begin{equation}
-    c_s = \sqrt{1.67T_x/m_p},
+    c_s = \sqrt{1.67T_x/m_p} \text{  km s}^{-1},
 \end{equation}
 where $m_p$ is the proton mass.
 
 The black hole mass accretion rate is approximated by:
 \begin{equation}
-    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}},
+    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
 where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
 
 Finally, the black hole xray luminosity is calculated from:
 \begin{equation}
-    L_x = 0.01\dot{M}_{acc}c^2
+    L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}
 \end{equation}
 
 The Eddington limit is known to be:
 \begin{equation}
-    L_{edd} = \num{1.26e38} (M/M_{\odot}) erg/s
+    L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}
 \end{equation}
+
+\subsection{Galaxy Luminosity}
 
 \subsection{Description of Simulations}
 \begin{table*}
