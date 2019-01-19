@@ -1,13 +1,14 @@
 \documentclass[english, apj]{emulateapj}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{amstext}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+%\usepackage[nobottomtitles]{titlesec}
 \usepackage{array}
 \usepackage{rotating}
 \usepackage{units}
 \usepackage{textcomp}
-\usepackage{amsmath}
-\usepackage{amsbsy}
-\usepackage{amstext}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{babel}
@@ -114,7 +115,7 @@ The primary data we extracted from the above work was organized as follows:
     \item Black Hole properties - Each black hole was also distinguished by an id number, with properties such as seed mass, accreted mass, its host galaxy id number, and time after $z=4$ at which the black hole entered its host galaxy, if it was not the central black hole.
 \end{itemize}
 
-The merger tree data from Lackner(+12) and Kulier(+15) provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
+The merger tree data from Lackner(+12) and Kulier\-(+15) provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
 \begin{itemize}
 \item The galaxies had to exist through the entire simulation ($4 > z > 0$).  If they merged with other galaxies, they had to have been the "surviving" galaxy at each merger.
 \item They had to have accumulated orbiting black holes by $z = 0$.
@@ -131,9 +132,9 @@ In cosmological simulations it is common to overproduce stellar mass, with a gen
 
 Lackner(+12), which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
 
-We also compared the stellar masses from Lackner(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
+We also compared the stellar masses from Lackner\-(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
-\begin{figure}
+\begin{figure}[htp]
 \begin{center}
 \includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
 \caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown is example of our rescaled stellar masses}
@@ -241,7 +242,7 @@ Black holes can also eject each other via strong three-body interactions. We rem
 \subsection{Simulation setup}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
-    t_{fric} = \frac{19}{6}Gyr\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}}
+    t_{fric} = \frac{19}{6}Gyr\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  s}
 \end{equation}
 The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
@@ -259,7 +260,7 @@ The core radius of the gas model, ${r_c}$ is:
     r_c = 10^{2.1*log(\sigma) - 5.3} \text{  cm}
 \end{equation}
 Local gas density ${\rho}$ is obtained from the isothermal beta model:
-\begin{equation}
+\begin{equation} \label{beta_model}
     \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}
 \end{equation}
 Gas sound speed, $c_s$, was obtained from:
@@ -284,7 +285,15 @@ The Eddington limit is known to be:
     L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}
 \end{equation}
 
-\subsection{Galaxy Luminosity}
+\subsection{Galaxy Gas X-Ray Luminosity}
+We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
+\begin{equation}
+\begin{aligned}
+    L_x ={} \frac{\num{1.2e-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
+    \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}
+\end{aligned}
+\end{equation}
+The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
 
 \subsection{Description of Simulations}
 \begin{table*}
