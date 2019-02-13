@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-
+We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BH.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, and 59 are still orbiting at the end of the simulations.  48 BHs are kicked to a higher orbit after close interaction with the central BH, after which none of them merge with their host.  We calculate the x-ray luminosities of the orbiting BHs at z=0, and find a range of $10^{18}-10^{37}$ $erg\ s^{-1}$.
 \end{abstract}
 
 
@@ -79,7 +79,7 @@ How common are mergers of massive black holes?  For the galaxies themselves we k
 
 Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
-This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
+This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs are driven into the core of their new host galaxies and how interaction with the host black hole leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
 
 \section{Methods}\label{sec:methods}
@@ -173,16 +173,16 @@ Summary of the code and the modifications we made.
 \subsubsection{Galaxy background potential} \label{Galaxy background potential}
 In order to model the dark matter halo distribution in our simulations, we used the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair.  Quantities such as density, potential, and binding energy can be written in closed form.  It is essentially an analytic form of a finite, cored isothermal mass distribution:
 \begin{equation} \label{jerry}
-\rho(r) = \frac{\rho_c}{(1+r^2/r_{c}^2)(1+r^2/r_{h}^2)}
+\rho(r) = \frac{\rho_c}{(1+r^2/r_{c}^2)(1+r^2/r_{h}^2)}.
 \end{equation}
 Here $\rho_c$ is the central density, $r_c$ is the core radius, and $r_h$ is the outer halo radius.
 
-In order to parametrize this profile, $r_c$ was given an initial value of 100 pc, which is reasonable for a cored massive system.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In Kulier(+15), the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
+In order to parameterize this profile, $r_c$ was given an initial value of 100 pc, which is reasonable for a cored massive system.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In Kulier(+15), the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
 \begin{equation} \label{re}
-R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98}
+R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98},
 \end{equation}
 \begin{equation} \label{sig}
-\sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47}
+\sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47},
 \end{equation}
 
 We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma(R_{e})$ in the Stone-Ostriker profile (Eqns 9 and A1-A4).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from Stone-Ostriker is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
@@ -193,7 +193,7 @@ M_{tot} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c},
 \end{equation}
 where $M_{tot}$ is the total dark matter mass.
 
-At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker.
+At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker based on conservation of energy.
 
 \subsubsection{Phase-space diffusion} \label{psd}
 Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
@@ -235,33 +235,33 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned.
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. [STILL NEED TO DESCRIBE KICK AFTER MERGER].
 
-Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy.
+Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
 \subsection{Simulation setup}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
-    t_{fric} = \frac{19}{6}Gyr\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  s}
+    t_{fric} = \frac{19}{6}Gyr\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  s}.
 \end{equation}
 The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
 \subsection{Black Hole Luminosity}
 The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
 \begin{equation}
-    T_x = 10^{2.50*log(\sigma) - 6.06} \text{  kev}
+    T_x = 10^{2.50*log(\sigma) - 6.06} \text{  kev}.
 \end{equation}
 Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ...857...32B} according to:
 \begin{equation}
-    \rho_0 = 10^{0.6*log(\sigma) - 25} \text{  g cm}^{-3}
+    \rho_0 = 10^{0.6*log(\sigma) - 25} \text{  g cm}^{-3}.
 \end{equation}
 The core radius of the gas model, ${r_c}$ is:
 \begin{equation}
-    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  cm}
+    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  cm}.
 \end{equation}
-Local gas density ${\rho}$ is obtained from the isothermal beta model:
+Local gas density ${\rho}$ is obtained from the isothermal beta model [ADD REFERENCE]:
 \begin{equation} \label{beta_model}
-    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}
+    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}.
 \end{equation}
 Gas sound speed, $c_s$, was obtained from:
 \begin{equation}
@@ -269,20 +269,20 @@ Gas sound speed, $c_s$, was obtained from:
 \end{equation}
 where $m_p$ is the proton mass.
 
-The black hole mass accretion rate is approximated by:
+The net black hole mass accretion rate is approximated by [DO I REFERENCE INAYOSHI, OR ANOTHER SOURCE?]:
 \begin{equation}
-    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
+    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}} \frac{c_s^2+v^2}{c^2} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
 where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
 
-Finally, the black hole xray luminosity is calculated from:
+Finally, the black hole xray luminosity is estimated from [NEED TO ADD INAYOSHI INEFFICIENCY--PLOTS AND BACKGROUND]:
 \begin{equation}
-    L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}
+    L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}.
 \end{equation}
 
 The Eddington limit is known to be:
 \begin{equation}
-    L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}
+    L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}.
 \end{equation}
 
 \subsection{Galaxy Gas X-Ray Luminosity}
@@ -290,10 +290,18 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
 \begin{equation}
 \begin{aligned}
     L_x ={} \frac{\num{1.2e-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
-    \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}
+    \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}.
 \end{aligned}
 \end{equation}
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[width=1.0\columnwidth]{plots/Galaxy_Gas_Compared_to_Babyk.png}
+\caption{X-ray luminosity of gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
+\label{fig:galgas1}
+\end{center}
+\end{figure}
 
 \subsection{Description of Simulations}
 \begin{table*}
