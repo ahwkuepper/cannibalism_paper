@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BH.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, and 59 are still orbiting at the end of the simulations.  48 BHs are kicked to a higher orbit after close interaction with the central BH, after which none of them merge with their host.  We calculate the x-ray luminosities of the orbiting BHs at z=0, and find a range of $10^{18}-10^{37}$ $erg\ s^{-1}$.
+We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BH.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, 59 are still orbiting at the end of the simulations.  Across all galaxies, 48 BHs are kicked to a higher orbit after close interaction with the central BH, after which none of them merge with their hosts.  We calculate the x-ray luminosities of the orbiting BHs at z=0, and find a range of $10^{18}-10^{37}$ $erg\ s^{-1}$.
 \end{abstract}
 
 
@@ -75,7 +75,7 @@ We perform N-body simulations on 13 galaxies extracted from a cosmological simul
 \section{Introduction}\label{sec:introduction}
 What happens to the massive black holes centrally located in galaxies when those galaxies merge with others?  There are three possibilities: they merge, they are ejected, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with the spin induced kick at merger leading to an ejection or extended orbit of the merged black hole.  We now know from pulsar timing measurements (ADD REFERENCES) that the gravitational wave background is probably too low for most galaxy mergers (mass-weighted) (but see \cite{2018NatCo...9..573M}) to lead to BH mergers, but the outcome remains uncertain.  We will argue in this paper that a very common outcome--especially for the lower mass black holes--is for the injected objects to remain as orbiting X-ray sources in normal massive galaxies waiting to be identified by current observational techniques.
 
-How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}) evolution of the size and mass of these systems.  But assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  But we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that as a result of the N-body interactions among the infalling black holes some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
+How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}, \citet{2019MNRAS.484..595M}) evolution of the size and mass of these systems, but assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  However, we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple black holes, which eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that, as a result of the N-body interactions among the infalling black holes, some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
 
 Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
@@ -269,7 +269,7 @@ Gas sound speed, $c_s$, was obtained from:
 \end{equation}
 where $m_p$ is the proton mass.
 
-The net black hole mass accretion rate is approximated by [DO I REFERENCE INAYOSHI, OR ANOTHER SOURCE?]:
+The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019arXiv190202349I}:
 \begin{equation}
     \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}} \frac{c_s^2+v^2}{c^2} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
@@ -280,7 +280,7 @@ Finally, the black hole xray luminosity is estimated from [NEED TO ADD INAYOSHI 
     L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}.
 \end{equation}
 
-The Eddington limit is known to be:
+The Eddington limit is defined as:
 \begin{equation}
     L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}.
 \end{equation}
@@ -297,7 +297,7 @@ The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\
 
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/Galaxy_Gas_Compared_to_Babyk.png}
+\includegraphics[width=1.0\columnwidth]{plots/Lx_our_Galaxies_compared_to_Babyk_data.png}
 \caption{X-ray luminosity of gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
 \label{fig:galgas1}
 \end{center}
