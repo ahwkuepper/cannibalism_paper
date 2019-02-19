@@ -246,6 +246,42 @@ For each galaxy in the simulations, we only used black holes that would theoreti
 \end{equation}
 The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
+\section{Results}\label{sec:results}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{"plots/Fractions All Galaxies".png}
+\caption{Fractions Merged/Ejected/Orbiting at z=0, by mass bin}
+\label{fig:fmeo}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/"Summary Results All Galaxies".png}
+\caption{Histogram of merged, ejected, and orbiting SMBHs}
+\label{fig:meosmbh}
+\end{center}
+\end{figure}
+
+\subsection{Galaxy Gas X-Ray Luminosity}
+We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
+\begin{equation}
+\begin{aligned}
+    L_x ={} \frac{\num{1.2e-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
+    \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}.
+\end{aligned}
+\end{equation}
+The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[width=1.0\columnwidth]{plots/Lx_our_Galaxies_compared_to_Babyk_data.png}
+\caption{X-ray luminosity of gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
+\label{fig:galgas1}
+\end{center}
+\end{figure}
+
 \subsection{Black Hole Luminosity}
 The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
 \begin{equation}
@@ -275,7 +311,7 @@ The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1
 \end{equation}
 where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
 
-Finally, the black hole xray luminosity is estimated from [NEED TO ADD INAYOSHI INEFFICIENCY--PLOTS AND BACKGROUND]:
+Finally, the black hole xray luminosity is estimated from:
 \begin{equation}
     L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}.
 \end{equation}
@@ -285,79 +321,26 @@ The Eddington limit is defined as:
     L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}.
 \end{equation}
 
-\subsection{Galaxy Gas X-Ray Luminosity}
-We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
-\begin{equation}
-\begin{aligned}
-    L_x ={} \frac{\num{1.2e-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
-    \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}.
-\end{aligned}
-\end{equation}
-The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
-
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/Lx_our_Galaxies_compared_to_Babyk_data.png}
-\caption{X-ray luminosity of gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
-\label{fig:galgas1}
-\end{center}
-\end{figure}
-
-\subsection{Description of Simulations}
-\begin{table*}
-\centering
-\caption{Galaxy characteristics}
-\begin{tabular}{c| c c| c c| c c}
- & \multicolumn{2}{c}{$M_{gal}$ [$M_{\odot}$]} & 
-\multicolumn{2}{c}{$M_{*}$ [$M_{\odot}$]} & 
-\multicolumn{2}{c}{$M_{BH}$ [$M_{\odot}$]} \\
-\hline
-Galaxy & Init & Final & Init & Final & Init & Final \\
- \hline
-A & $7.42\times10^{11}$ & $1.09\times10^{14}$  & $1.22\times10^{11}$ & $1.75\times10^{13}$ & $4.80\times10^{6}$ & $2.19\times10^{9}$\\
-B & $1.11\times10^{12}$ & $3.41\times10^{13}$ & $1.80\mathrm{3}{11}$ & $5.58\times10^{12}$ & $1.94\times10^{8}$ & $1.46\times10^{9}$\\
-C & $7.23\times10^{10}$ & $3.48\times10^{12}$ & $1.18\times10^{10}$ & $5.68\times10^{11}$ & $9.47\times10^{4}$ & $2.70\times10^{8}$\\
-D & $3.92\times10^{10}$ & $1.34\times10^{12}$ & $6.47\times10^{9}$ & $2.20\times10^{11}$ & $9.95\times10^{5}$ & $8.32\times10^{7}$\\
-\end{tabular}
-\end{table*}
-
-
-
-
-
-\section{Results}\label{sec:results}
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{"plots/Fractions All Galaxies".png}
-\caption{Fractions Merged/Ejected/Orbiting at z=0, by mass bin}
-\label{fig:fmeo}
+\includegraphics[width=1.0\columnwidth]{plots/radiative_efficiency.png}
+\caption{Radiative efficiency of Orbiting Black Holes at z=0}
+\label{fig:rad_eff}
 \end{center}
 \end{figure}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.45\textwidth]{plots/"Summary Results All Galaxies".png}
-\caption{Histogram of merged, ejected, and orbiting SMBHs}
-\label{fig:meosmbh}
-\end{center}
-\end{figure}
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{plots/"Final Luminosities of Oriting BHs".png}
+\includegraphics[width=0.45\textwidth]{plots/"Final Luminosities of Orbiting BHs".png}
 \caption{Luminosities of Orbiting BHs at z=0}
 \label{fig:loobhs}
 \end{center}
 \end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
-What do we want to say?
 
-
-
-\section*{Acknowledgements}
-
-The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555. 
+\section{Acknowledgements}
+The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
 
 \bibliographystyle{apj}
 \bibliography{biblio}
