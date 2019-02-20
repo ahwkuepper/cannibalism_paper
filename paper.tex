@@ -167,8 +167,8 @@ $M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
 \label{table:gal_char}
 \end{table}
 
-\subsection{AR-Chain code}
-Summary of the code and the modifications we made.
+\subsection{Simulation Physics}
+In this section, we describe the underlying physics of our simulations, including choice of galaxy background potential, BH diffusion through the galaxy, and gravitational wave kicks as a result of mergers.
 
 \subsubsection{Galaxy background potential} \label{Galaxy background potential}
 In order to model the dark matter halo distribution in our simulations, we used the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair.  Quantities such as density, potential, and binding energy can be written in closed form.  It is essentially an analytic form of a finite, cored isothermal mass distribution:
@@ -242,11 +242,16 @@ Black holes can also eject each other via strong three-body interactions. We rem
 \subsection{Simulation setup}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
-    t_{fric} = \frac{19}{6}Gyr\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  s}.
+    t_{fric} = \frac{19}{6}\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  Gyr}.
 \end{equation}
-The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Eqn. \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{M(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
+The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{GM(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
 \section{Results}\label{sec:results}
+Here we review the primary results of our simulations, focusing on the various interactions of the orbiting black holes with their host SMBHs and the final luminosity characteristics of those that did not merge.
+
+\subsection{Mergers, Ejections and Kicks}
+
+Figure \ref{fig:fmeo}
 
 \begin{figure}[ht]
 \begin{center}
@@ -261,6 +266,14 @@ The orbiting black holes were injected into their host galaxy at redshift z, at 
 \includegraphics[width=0.45\textwidth]{plots/"Summary Results All Galaxies".png}
 \caption{Histogram of merged, ejected, and orbiting SMBHs}
 \label{fig:meosmbh}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/"Final Radius v Mass of Orbiting BHs_corrected_".png}
+\caption{Final Radii of remaining orbital black holes at z=0}
+\label{fig:mvr}
 \end{center}
 \end{figure}
 
@@ -311,7 +324,7 @@ The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1
 \end{equation}
 where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
 
-Finally, the black hole xray luminosity is estimated from:
+Finally, the black hole x-ray luminosity is estimated from:
 \begin{equation}
     L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}.
 \end{equation}
