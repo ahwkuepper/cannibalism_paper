@@ -85,7 +85,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 
 
 \section{Methods}\label{sec:methods}
-%\begin{figure*}[htbp]
+%\begin{figure}[htbp]
 %\begin{center}
 %\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_1.png}
 %\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_65.png}\\
@@ -136,7 +136,7 @@ Lackner(+12), which is the source of our stellar masses, noted that the efficien
 
 We also compared the stellar masses from Lackner\-(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
-\begin{figure}[htp]
+\begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
 \caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown is example of our rescaled stellar masses}
@@ -144,7 +144,8 @@ We also compared the stellar masses from Lackner\-(+12) to  observational and ab
 \end{center}
 \end{figure}
 
-\begin{table}
+\begin{table}[htbp]
+\begin{center}
 \caption{Galaxy characteristics at z=0}
 \begin{tabular} {|c | c | c| c|}
 \hline
@@ -163,7 +164,7 @@ $M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
  \num{1.84e12} 	&	 \num{2.21e9}	&	\num{5.52e11} 	&	\num{6.42e10}  \\
 \hline
 \end{tabular}
-
+\end{center}
 \label{table:gal_char}
 \end{table}
 
@@ -249,8 +250,26 @@ The orbiting black holes were injected into their host galaxy at redshift z, at 
 \section{Results}\label{sec:results}
 Here we review the primary results of our simulations, focusing on the various interactions of the orbiting black holes with their host SMBHs and the final luminosity characteristics of those that did not merge.
 
-\subsection{Mergers, Ejections and Kicks}
-Figure \ref{fig:meosmbh} shows the distribution of merged, ejected and orbiting black holes across all galaxy simulations as a function of guest black hole mass.  Given the log distribution of masses and using $10^7\, M_{\odot}$ as the approximate midpoint, one can see the general trend of larger mass BHs tending to merge with their respective host BH, with     the lower mass BHs continuing to wander at $z=0$.
+\subsection{Mergers, Ejections/Kicks and Orbiting SMBHs}
+
+\subsubsection{Overview of Results}\label{sec:results_overview}
+Figure \ref{fig:meosmbh} shows the distribution of merged, ejected and orbiting black holes across all galaxy simulations as a function of guest black hole mass.
+
+Of the 86 SMBHs used for the simulations, 37 black holes merged with their respective host black hole within a Hubble time, 42 remained orbiting at the end of the simulations, and 7 were ejected from their galaxies as a result of sufficiently large kicks due to three-body interactions with the host and other black holes.
+
+Given the log distribution of masses, one can see the general trend of larger mass BHs ($\gtrapprox\, 10^7\, M_{\odot}$) tending to merge with their respective host BH, while lower mass BHs continue to wander at $z=0$.  However, there is some overlap with some BHs greater than $10^7\, M_{\odot}$ still orbiting and those less than $10^7\, M_{\odot}$ having merged.
+
+\subsubsection{Mergers}\label{sec:mergers}
+The tendency of larger mass black holes to merge with their host can perhaps be more clearly seen by looking at the merger mass ratio between the incoming black hole and the host.  Figure \ref{fig:q_merge_fraction} displays the fraction of galaxy mergers that result in black hole mergers versus the merger mass ratio, defined as $m_2/m_1$, where $m_2$ is the orbiting black hole and $m_1$ is the host black hole.  The plot monotonically increases with increasing mass ratio, reaching nearly unity for mass ratio of $10^{-1}$, meaning nearly all galaxy mergers with a black hole mass ratio of $10^{-1}$ resulted in the orbiting black hole merging with the host.
+
+In figure \ref{fig:time_to_merge} we present the time it took for the merging guest black holes to merge with their host.  As can be seen in the plot, although there is a fair amount of variation, the general trend is a decreasing time to merge as orbiting black hole mass increases.
+
+\subsubsection{Kicked, Ejected and Orbiting Black Holes}\label{sec:kicked_orbiting}
+Of the 34 orbiting black holes at $z=0$, all but 8 of them were kicked to higher orbits at some point in their traversal of their host galaxy.  If one counts the 7 ejected black holes, then of the 41 SMBHs that had not eventually merged with their host, 33 of them were kicked out of the galactic core as a result of three-body interactions.  If they didn't merge, it wasn't for a lack of effort.
+
+Figure \ref{fig:kicked_stats} shows the mass distribution of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\gtrapprox\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
+
+Figure \ref{fig:mvr} is a realization of the final radii of the remaining wandering black holes at $z=0$.  There does not appear to be a correlation between mass and final radius.  However, it is evident from the plot that all but one of the black holes that had not been kicked by $z=0$ have mostly approached and entered within the galactic core radius, $r_c$.
 
 \begin{figure}[ht]
 \begin{center}
@@ -262,16 +281,6 @@ Figure \ref{fig:meosmbh} shows the distribution of merged, ejected and orbiting 
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.45\textwidth]{plots/kicked_stats.png}
-\caption{Histogram of kicked SMBHs at z=0.}
-\label{fig:kicked_stats}
-\end{center}
-\end{figure}
-
-As can be seen in Figure \ref{fig:kicked_stats}, the vast majority of larger SMBHs ($\gtrapprox\, 10^7\, M_{\odot}$) are not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass brackets.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  in our simulations, no black holes that are kicked to higher orbits ever merged with their central host SMBH.
-
-\begin{figure}[ht]
-\begin{center}
 \includegraphics[width=0.45\textwidth]{plots/q_merger_fraction.png}
 \caption{Fraction of mergers per BH mass ratio.  Each point represents the fraction of galaxy mergers that led to BH mergers for each BH merger ratio bin.  Note that a "bin" at each point is comprised of the mass ratio at that point up to, but not including, the next point on the x-axis.}
 \label{fig:q_merge_fraction}
@@ -279,6 +288,22 @@ As can be seen in Figure \ref{fig:kicked_stats}, the vast majority of larger SMB
 \end{figure}
 
 \begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/time_to_merge.png}
+\caption{Time required for BHs to merge with host SMBH}
+\label{fig:time_to_merge}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/kicked_stats.png}
+\caption{Histogram of kicked and not-kicked SMBHs at z=0.}
+\label{fig:kicked_stats}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{plots/"Final Radius v Mass of Orbiting BHs_corrected_".png}
 \caption{Final Radii of remaining orbital black holes at z=0}
@@ -294,9 +319,10 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
     \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}.
 \end{aligned}
 \end{equation}
+
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
 
-\begin{figure}[htp]
+\begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1.0\columnwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
 \caption{X-ray luminosity of gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
