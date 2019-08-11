@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, 59 are still orbiting at the end of the simulations.  Across all galaxies, 48 BHs are kicked to a higher orbit after close interactions with the central BH, after which none of them merge with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{23}-10^{37}$ $erg\ s^{-1}$, with median value $10^{29}$ $erg\ s^{-1}$.
+We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, and 59 are still orbiting at the end of the simulations.  Across all galaxies, 48 BHs are kicked to a higher orbit after close interactions with the central BHs, after which none of them merge with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{23}-10^{37}$ $erg\ s^{-1}$, with median value $10^{29}$ $erg\ s^{-1}$.
 \end{abstract}
 
 
@@ -236,7 +236,7 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SBHs becomes smaller than 1.0 Schwarzschild radius. At the moment of the merger, we assume that the spin vectors of the two SBHs are randomly aligned. [STILL NEED TO DESCRIBE KICK AFTER MERGER].
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than 1.0x the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned. [STILL NEED TO DESCRIBE KICK AFTER MERGER].
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
@@ -377,11 +377,27 @@ The Eddington limit is defined as:
 \end{center}
 \end{figure}
 
+%\begin{figure}[ht]
+%\begin{center}
+%\includegraphics[width=0.45\%textwidth]{plots/"Final %Luminosities of Orbiting %BHs".png}
+%\caption{Luminosities of %Orbiting BHs at z=0}
+%\label{fig:loobhs}
+%\end{center}
+%\end{figure}
+
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.45\textwidth]{plots/"Final Luminosities of Orbiting BHs".png}
-\caption{Luminosities of Orbiting BHs at z=0}
+\includegraphics[width=0.45\textwidth]{plots/"luminosities_final".png}
+\caption{Kohei Ratios of Orbiting BHs at z=0}
 \label{fig:loobhs}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{plots/"Final Luminosities using Kohei factor".png}
+\caption{Luminosity Distribution of Orbiting BHs at z=0}
+\label{fig:ldobhs}
 \end{center}
 \end{figure}
 
