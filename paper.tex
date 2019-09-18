@@ -311,6 +311,15 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \end{center}
 \end{figure}
 
+\begin{figure}[htbp]
+\vspace{20pt}%
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
+\caption{X-ray luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
+\label{fig:galgas1}
+\end{center}
+\end{figure}
+
 \subsection{Galaxy Gas X-Ray Luminosity}
 We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
 \begin{equation}
@@ -321,14 +330,6 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
 \end{equation}
 
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
-\caption{X-ray luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
-\label{fig:galgas1}
-\end{center}
-\end{figure}
 
 \subsection{Black Hole Luminosity}
 The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
@@ -347,6 +348,7 @@ Local gas density ${\rho}$ is obtained from the isothermal beta model [ADD REFER
 \begin{equation} \label{beta_model}
     \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}.
 \end{equation}
+
 Gas sound speed, $c_s$, was obtained from:
 \begin{equation}
     c_s = \sqrt{1.67T_x/m_p} \text{  km s}^{-1},
