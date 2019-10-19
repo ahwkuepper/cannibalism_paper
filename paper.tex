@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-We perform N-body simulations on 13 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  We track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 120 orbiting BHs, we find that 50 merge with their host central BHs, 11 are ejected from their respective host galaxies, and 59 are still orbiting at the end of the simulations.  Across all galaxies, 48 BHs are kicked to a higher orbit after close interactions with the central BHs, after which none of them merge with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{23}-10^{37}$ $erg\ s^{-1}$, with median value $10^{29}$ $erg\ s^{-1}$.
+We perform N-body simulations on 11 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  After mergers, we track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 86 orbiting BHs, we find that 36 merge with their host central BHs, 13 are ejected from their respective host galaxies, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BHs, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with median value $10^{32}$ $erg\ s^{-1}$.
 \end{abstract}
 
 
@@ -79,9 +79,9 @@ There is no "final parsec problem," and the opposite problem of too many BH merg
 
 How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}, \citet{2019MNRAS.484..595M}) evolution of the size and mass of these systems, but assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  However, we do not often see multiple SMBHs at the centers of massive ellipticals.  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that, as a result of the N-body interactions among the infalling black holes, some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and the orbiting ones should be detectable via their ability to accrete gas and emit radiation.
 
-Here we look at the merger history of 13 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+Here we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
-This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our XX exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
+This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
 
 \section{Methods}\label{sec:methods}
@@ -255,7 +255,7 @@ Here we review the primary results of our simulations, focusing on the various i
 \subsubsection{Overview of Results}\label{sec:results_overview}
 Figure \ref{fig:meosmbh} shows the distribution of merged, ejected and orbiting black holes across all galaxy simulations as a function of guest black hole mass.
 
-Of the 86 SMBHs used for the simulations, 37 black holes merged with their respective host black hole within a Hubble time, 42 remained orbiting at the end of the simulations, and 7 were ejected from their galaxies as a result of sufficiently large kicks due to three-body interactions with the host and other black holes.
+Of the 86 SMBHs used for the simulations, 36 black holes merged with their respective host black hole within a Hubble time, 37 remained orbiting at the end of the simulations, and 13 were ejected from their galaxies as a result of sufficiently large kicks due to three-body interactions with the host and other black holes.
 
 Given the log distribution of masses, one can see the general trend of larger mass BHs ($\gtrapprox\, 10^7\, M_{\odot}$) tending to merge with their respective host BH, while lower mass BHs continue to wander at $z=0$.  However, there is some overlap with some BHs greater than $10^7\, M_{\odot}$ still orbiting and those less than $10^7\, M_{\odot}$ having merged.
 
@@ -265,7 +265,7 @@ The tendency of larger mass black holes to merge with their host can perhaps be 
 In figure \ref{fig:time_to_merge} we present the time it took for the merging guest black holes to merge with their host.  As can be seen in the plot, although there is a fair amount of variation, the general trend is a decreasing time to merge as orbiting black hole mass increases.
 
 \subsubsection{Kicked, Ejected and Orbiting Black Holes}\label{sec:kicked_orbiting}
-Of the 34 orbiting black holes at $z=0$, all but 8 of them were kicked to higher orbits at some point in their traversal of their host galaxy.  If one counts the 7 ejected black holes, then of the 41 SMBHs that had not eventually merged with their host, 33 of them were kicked out of the galactic core as a result of three-body interactions.  If they didn't merge, it wasn't for a lack of effort.
+Of the 37 orbiting black holes at $z=0$, 18 of them were kicked to higher orbits at some point in their traversal of their host galaxy.  If one counts the 13 ejected black holes, then of the 50 SMBHs that had not eventually merged with their host, 32 of them were kicked out of the galactic core as a result of three-body interactions.  If they didn't merge, it wasn't for a lack of effort.
 
 Figure \ref{fig:kicked_stats} shows the mass distribution of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\gtrapprox\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
 
@@ -342,7 +342,7 @@ Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ..
 \end{equation}
 The core radius of the gas model, ${r_c}$ is:
 \begin{equation}
-    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  cm}.
+    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  kpc}.
 \end{equation}
 Local gas density ${\rho}$ is obtained from the isothermal beta model [ADD REFERENCE]:
 \begin{equation} \label{beta_model}
@@ -351,13 +351,13 @@ Local gas density ${\rho}$ is obtained from the isothermal beta model [ADD REFER
 
 Gas sound speed, $c_s$, was obtained from:
 \begin{equation}
-    c_s = \sqrt{1.67T_x/m_p} \text{  km s}^{-1},
+    C_s = \sqrt{1.67T_x/m_p} \text{  km s}^{-1},
 \end{equation}
 where $m_p$ is the proton mass.
 
 The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019arXiv190202349I}:
 \begin{equation}
-    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(c_s^2+v^2)^{3/2}} \frac{c_s^2+v^2}{c^2} \text{  M}_\odot \text{ Myr}^{-1},
+    \dot{M}_{acc} = \frac{4{\pi}G^2M^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
 where M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
 
@@ -392,6 +392,27 @@ The Eddington limit is defined as:
 \includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
 \caption{Xray Luminosity Distribution of Orbiting BHs at z=0.}
 \label{fig:ldobhs}
+\end{center}
+\end{figure}
+
+
+\subsection{Central Black Hole Influence}
+Within the influence radius of the central black hole, which is defined as the radius at which the total mass of the galaxy within that radius (stars + dark matter) equals the mass of the central black hole, the gas density is much higher than otherwise (NEED REFERENCES?).  {WHAT DO WE SAY ABOUT THE VELOCITY FOLLOWING THE KEPLER PROFILE WITHIN THE INFLUENCE RADIUS?}.  Starting with the equation for hydrostatic equilibrium, 
+\begin{equation}
+    C_{s}^2\frac{dln\rho}{dr}= -\frac{GM(r)}{r^2},
+\end{equation}
+we can integrate with respect to r, leading to 
+\begin{equation}
+    ln\frac{\rho}{\rho_1} = \frac{GM}{C_{s}^2}\left(\frac{1}{r} - \frac{1}{r_1}\right),
+\end{equation}
+where $\rho$ is the gas density at the location of the wandering black hole, $\rho_1$ is the density at the radius where the central black hole mass equals the galaxy mass, $r$ is the distance of the wandering black hole from the center, and $r_1$ is the radius where the central black hole mass equals the galaxy mass.
+
+Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
+\caption{Difference in x-ray luminosity of wandering black holes within the influence radius of the central black hole.  Red dots are the originally calculated luminosity, not taking the CBH influence into account.  Green dots are the final luminosities, taking the central BH influence into account.}
+\label{fig:wui}
 \end{center}
 \end{figure}
 
