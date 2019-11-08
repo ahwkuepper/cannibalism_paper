@@ -1,4 +1,5 @@
-\documentclass[english, apj]{emulateapj}
+%\documentclass[english, apj]{emulateapj}
+\documentclass[english, backref,breaklinks,colorlinks,citecolor=blue, usenatbib]{mnras}
 \usepackage{amsbsy}
 \usepackage{amsmath}
 \usepackage{amstext}
@@ -18,8 +19,8 @@
 \usepackage{siunitx}
 \restoresymbol{SIX}{tablenum}
 %\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
-\usepackage[backref,breaklinks,colorlinks,citecolor=blue]{hyperref}
-\usepackage[all]{hypcap}
+\usepackage{hyperref}
+\usepackage{hypcap}
 
 \makeatletter
 
@@ -53,11 +54,14 @@
 \title{The Fates of Merging Supermassive Black Holes and A Proposal for a New Class of X-Ray Sources}
 
 
-\author{Charles Zivancev\altaffilmark{1}, Jeremiah P. Ostriker\altaffilmark{1,3}, Andreas H.W. K\"upper\altaffilmark{1,2}}
-\altaffiltext{1}{Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA}
-\altaffiltext{2}{Hubble Fellow}
-\altaffiltext{3}{Princeton University, New Jersey, USA}
-\email{Correspondence to: csz2104@columbia.edu}
+\author{Charles Zivancev,$^{1}$ 
+Jeremiah P. Ostriker,$^{1,3}$ 
+Andreas H.W. K\"upper$^{1,2}$
+\\
+$^{1}$Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA\\
+$^{2}$Hubble Fellow\\
+$^{3}$Princeton University, New Jersey, USA}
+\thanks{Correspondence to: csz2104@columbia.edu}
 
 
 
@@ -67,7 +71,9 @@ We perform N-body simulations on 11 galaxies extracted from a cosmological simul
 \end{abstract}
 
 
-\keywords{Galaxy: kinematics and dynamics}
+\begin{keywords}
+Galaxy: kinematics and dynamics
+\end{keywords}
 
 
 
@@ -85,7 +91,7 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 
 
 \section{Methods}\label{sec:methods}
-%\begin{figure}[htbp]
+%\begin{figure}
 %\begin{center}
 %\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_1.png}
 %\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_65.png}\\
@@ -132,19 +138,19 @@ As we will explain further in Section \ref{Galaxy background potential}, in our 
 
 In cosmological simulations it is common to overproduce stellar mass, with a general over-efficiency in the range of 2-4 times those measured in observations (\citet{1996ApJS..105...19K}, \citet{2010MNRAS.404.1111G}, \citet{2010ApJ...725.2312O}).  One typical reason cited for this overproduction is a lack or underestimation of supernova feedback effects in the form of thermal and/or kinetic energy.  However, even when thermal energy from supernova feedback is considered, the effects may be reduced due to the energy being quickly radiated away by rapidly cooling surrounding gas (\citet{1996ApJS..105...19K}).  A second common reason for overproduction of stars in cosmological simulations is a lack of modeling for AGN feedback, which may be responsible for solving the phenomenon called the "cooling flow paradox" (\citet{2001MNRAS.321L..20F}) that suppresses star formation. 
 
-Lackner(+12), which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \lessapprox f_* \lessapprox 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
+Lackner(+12), which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \loa f_* \loa 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
 
 We also compared the stellar masses from Lackner\-(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
-\begin{figure}[htbp]
-\begin{center}
+\begin{figure}
+%\begin{center}
 \includegraphics[width=0.5\textwidth]{plots/stellar_to_halo_ratio.png}
 \caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown are examples of our rescaled stellar masses}
 \label{fig:stellar1}
-\end{center}
+%\end{center}
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}
 \begin{center}
 \caption{Galaxy characteristics at z=0}
 \begin{tabular} {|c | c | c| c|}
@@ -257,7 +263,7 @@ Figure \ref{fig:meosmbh} shows the distribution of merged, ejected and orbiting 
 
 Of the 86 SMBHs used for the simulations, 36 black holes merged with their respective host black hole within a Hubble time, 37 remained orbiting at the end of the simulations, and 13 were ejected from their galaxies as a result of sufficiently large kicks due to three-body interactions with the host and other black holes.
 
-Given the log distribution of masses, one can see the general trend of larger mass BHs ($\gtrapprox\, 10^7\, M_{\odot}$) tending to merge with their respective host BH, while lower mass BHs continue to wander at $z=0$.  However, there is some overlap with some BHs greater than $10^7\, M_{\odot}$ still orbiting and those less than $10^7\, M_{\odot}$ having merged.
+Given the log distribution of masses, one can see the general trend of larger mass BHs ($\goa\, 10^7\, M_{\odot}$) tending to merge with their respective host BH, while lower mass BHs continue to wander at $z=0$.  However, there is some overlap with some BHs greater than $10^7\, M_{\odot}$ still orbiting and those less than $10^7\, M_{\odot}$ having merged.
 
 \subsubsection{Mergers}\label{sec:mergers}
 The tendency of larger mass black holes to merge with their host can perhaps be more clearly seen by looking at the merger mass ratio between the incoming black hole and the host.  Figure \ref{fig:q_merge_fraction} displays the fraction of galaxy mergers that result in black hole mergers versus the merger mass ratio, defined as $m_2/m_1$, where $m_2$ is the orbiting black hole and $m_1$ is the host black hole.  The plot monotonically increases with increasing mass ratio, reaching nearly unity for mass ratio of $10^{-1}$, meaning nearly all galaxy mergers with a black hole mass ratio greater than $10^{-1}$ resulted in the orbiting black hole merging with the host.
@@ -267,7 +273,7 @@ In figure \ref{fig:time_to_merge} we present the time it took for the merging gu
 \subsubsection{Kicked, Ejected and Orbiting Black Holes}\label{sec:kicked_orbiting}
 Of the 37 orbiting black holes at $z=0$, 18 of them were kicked to higher orbits at some point in their traversal of their host galaxy.  If one counts the 13 ejected black holes, then of the 50 SMBHs that had not eventually merged with their host, 32 of them were kicked out of the galactic core as a result of three-body interactions.  If they did not merge, it was not for a lack of effort.
 
-Figure \ref{fig:kicked_stats} shows the mass distribution of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\gtrapprox\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
+Figure \ref{fig:kicked_stats} shows the mass distribution of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\goa\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
 
 Figure \ref{fig:mvr} is a realization of the final radii of the remaining wandering black holes at $z=0$.  There does not appear to be a correlation between mass and final radius.  However, it is evident from the plot that all but one of the black holes that had not been kicked by $z=0$ have mostly approached and entered within the galactic core radius, $r_c$.
 
@@ -303,7 +309,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Final Radius v Mass of Orbiting BHs".png}
 \caption{Final Radii of remaining orbital black holes at z=0}
@@ -311,7 +317,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}
 \vspace{20pt}%
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
@@ -387,7 +393,7 @@ The Eddington limit is defined as:
 \end{center}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
 \caption{Xray Luminosity Distribution of Orbiting BHs at z=0.}
@@ -408,7 +414,7 @@ we can integrate with respect to r, leading to
 where $\rho$ is the gas density at the location of the wandering black hole, $\rho_1$ is the density at the radius where the central black hole mass equals the galaxy mass, $r$ is the distance of the wandering black hole from the center, and $r_1$ is the radius where the central black hole mass equals the galaxy mass.
 
 Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
-\begin{figure}[H]
+\begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
 \caption{Difference in x-ray luminosity of wandering black holes within the influence radius of the central black hole.  Red dots are the originally calculated luminosity, not taking the CBH influence into account.  Green dots are the final luminosities, taking the central BH influence into account.}
