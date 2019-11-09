@@ -125,7 +125,7 @@ $^{2}$Hubble Fellow\\
 
 
 \begin{abstract}
-We perform N-body simulations on 11 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} \msun < M < 10^{13} \msun$ from $4 \ge z \ge 0$.  After mergers, we track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 86 orbiting BHs, we find that 36 merge with their host central BHs, 13 are ejected from their respective host galaxies, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BHs, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with an undetectable median value $10^{32}$ $erg\ s^{-1}$.  However, the most luminous $\sim$$5\%$ should be detectable.
+We perform N-body simulations on 11 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} M_{\sun} < M < 10^{13} M_{\sun}$ from 4 $\gid$ z $\gid$ 0.  After mergers, we track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 86 orbiting BHs, we find that 36 merge with their host central BHs, 13 are ejected from their respective host galaxies, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BHs, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with an undetectable median value $10^{32}$ $erg\ s^{-1}$.  However, the most luminous $\sim$$5\%$ should be detectable.
 \end{abstract}
 
 
@@ -143,10 +143,9 @@ There is no "final parsec problem," and the opposite problem of too many BH merg
 
 How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}, \citet{2019MNRAS.484..595M}) evolution of the size and mass of these systems, but assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018arXiv180403143I}).  However, we do not often see multiple SMBHs at the centers of massive ellipticals (but see \citet{2016MNRAS.463.2145C}).  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that, as a result of the N-body interactions among the infalling black holes, some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and some of the orbiting ones might be detectable via their ability to accrete gas and emit radiation.
 
-Here we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} \msun < M < 10^{13} \msun$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+Here we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} M_{\sun} < M < 10^{13} M_{\sun}$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
 This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
-
 
 \section{Methods}\label{sec:methods}
 %\begin{figure}
@@ -210,22 +209,22 @@ We also compared the stellar masses from Lackner\-(+12) to  observational and ab
 
 \begin{table}
 \begin{center}
-\caption{Galaxy characteristics at z=0}
+\caption{Galaxy characteristics at z=0. Units are M$\sun$.}
 \begin{tabular} {|c | c | c| c|}
 \hline
 $M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
 \hline
- \num{2.85e13} 	&	 \num{1.46e9}	&	\num{5.58e12} 	&	\num{3.30e11}  \\
- \num{2.48e13} 	&	 \num{2.40e9}	&	\num{4.80e12} 	&	\num{2.25e11}  \\
- \num{2.29e13} 	&	 \num{1.22e9}	&	\num{4.46e12} 	&	\num{2.68e11}  \\
- \num{1.18e13} 	&	 \num{3.62e9}	&	\num{2.32e12} 	&	\num{2.83e11}  \\
- \num{1.03e13} 	&	 \num{9.85e9}	&	\num{1.96e12} 	&	\num{1.62e11}  \\
- \num{1.00e13} 	&	 \num{9.32e9}	&	\num{1.95e12} 	&	\num{2.49e11}  \\
- \num{8.92e12} 	&	 \num{5.60e9}	&	\num{1.74e12} 	&	\num{3.20e11}  \\
- \num{8.56e12} 	&	 \num{6.86e9}	&	\num{1.62e12} 	&	\num{1.83e11}  \\
- \num{6.94e12} 	&	 \num{2.02e9}	&	\num{1.72e12} 	&	\num{1.51e11}  \\
- \num{6.29e12} 	&	 \num{1.22e9}	&	\num{1.23e12} 	&	\num{1.87e11}  \\
- \num{1.84e12} 	&	 \num{2.21e9}	&	\num{5.52e11} 	&	\num{6.42e10}  \\
+ 2.85 $\times 10^{13}$ 	&	 1.46 $\times 10^9$	&	5.58 $\times 10^{12}$ 	&	3.30 $\times 10^{11}$  \\
+ 2.48 $\times 10^{13}$ 	&	 2.40 $\times 10^9$	&	4.80 $\times 10^{12}$ 	&	2.25 $\times 10^{11}$  \\
+ 2.29 $\times 10^{13}$ 	&	 1.22 $\times 10^9$	&	4.46 $\times 10^{12}$ 	&	2.68 $\times 10^{11}$  \\
+ 1.18 $\times 10^{13}$ 	&	 3.62 $\times 10^9$	&	2.32 $\times 10^{12}$ 	&	2.83 $\times 10^{11}$  \\
+ 1.03 $\times 10^{13}$ 	&	 9.85 $\times 10^9$	&	1.96 $\times 10^{12}$ 	&	1.62 $\times 10^{11}$  \\
+ 1.00 $\times 10^{13}$ 	&	 9.32 $\times 10^9$	&	1.95 $\times 10^{12}$ 	&	2.49 $\times 10^{11}$  \\
+ 8.92 $\times 10^{12}$ 	&	 5.60 $\times 10^9$	&	1.74 $\times 10^{12}$ 	&	3.20 $\times 10^{11}$  \\
+ 8.56 $\times 10^{12}$ 	&	 6.86 $\times 10^9$	&	1.62 $\times 10^{12}$ 	&	1.83 $\times 10^{11}$  \\
+ 6.94 $\times 10^{12}$ 	&	 2.02 $\times 10^9$	&	1.72 $\times 10^{12}$ 	&	1.51 $\times 10^{11}$  \\
+ 6.29 $\times 10^{12}$ 	&	 1.22 $\times 10^9$	&	1.23 $\times 10^{12}$ 	&	1.87 $\times 10^{11}$  \\
+ 1.84 $\times 10^{12}$ 	&	 2.21 $\times 10^9$	&	5.52 $\times 10^{11}$ 	&	6.42 $\times 10^{10}$  \\
 \hline
 \end{tabular}
 \end{center}
@@ -388,7 +387,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
 \begin{equation}
 \begin{aligned}
-    L_x ={} \frac{\num{1.2e-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
+    L_x ={} \frac{1.2 \times 10^{-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
     \int_{0}^{\infty}\frac{r^2}{(1+r^2/r_c^2)^{3}}\;dr\text{  erg s}^{-1}.
 \end{aligned}
 \end{equation}
@@ -432,7 +431,7 @@ Finally, the black hole x-ray luminosity is estimated from:
 
 The Eddington limit is defined as:
 \begin{equation}
-    L_{edd} = \num{1.26e38} (M/M_{\odot}) \text{  erg s}^{-1}.
+    L_{edd} = 1.26 \times 10^{38} (M/M_{\odot}) \text{  erg s}^{-1}.
 \end{equation}
 
 %\begin{figure}[ht]
@@ -481,23 +480,24 @@ Figure \ref{fig:wui} shows the difference in luminosity when taking into account
 \end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
-We performed N-body simulations on 11 galaxies ranging in mass between $10^{12} \msun < M < 10^{13} \msun$, from $4 \ge z \ge 0$.  We found that $42\%$ of the orbiting black holes merged with their host galaxy, while another $43\%$ remained in orbit at $z=0$.  With an x-ray luminosity range of $10^{25}-10^{43}$ $erg\ s^{-1}$
+We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  We found that 42$\%$ of the orbiting black holes merged with their host galaxy, while another 43$\%$ remained in orbit at $z=0$.  With an x-ray luminosity range of $10^{25}-10^{43}$ $erg\ s^{-1}$.
 
 \section{Acknowledgements}
 The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
 
-\bibliographystyle{apj}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+\bibliographystyle{mnras}
 \bibliography{biblio}
 
-%\begin{thebibliography}{}
 
-%\bibitem[\protect\citeauthoryear{Aarseth}{2003}]{Aarseth03}
-%Aarseth, S.~J., 2003, Gravitational N-Body Simulations (Cambridge University Press)
-
-
-%\bibitem[\protect\citeauthoryear{K{\"u}pper et al.}{2011}]{Kupper11} 
-%K{\"u}pper, A.~H.~W., Maschberger, T., Kroupa, P., Baumgardt, H., 2011, MNRAS, 417, 2300 
-
-%\end{thebibliography}
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
 \end{document}
 
+% End of mnras_guide.tex
