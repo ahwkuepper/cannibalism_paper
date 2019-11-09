@@ -1,68 +1,126 @@
-%\documentclass[english, apj]{emulateapj}
-\documentclass[english, backref,breaklinks,colorlinks,citecolor=blue, usenatbib]{mnras}
-\usepackage{amsbsy}
-\usepackage{amsmath}
-\usepackage{amstext}
+%\documentclass[english, backref,breaklinks,colorlinks,citecolor=blue, usenatbib]{mnras}
+%\usepackage{amsbsy}
+%\usepackage{amsmath}
+%\usepackage{amstext}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin9]{inputenc}
+%%\usepackage[nobottomtitles]{titlesec}
+%\usepackage{array}
+%\usepackage{rotating}
+%\usepackage{units}
+%\usepackage{textcomp}
+%\usepackage{graphicx}
+%\usepackage{url}
+%\usepackage{babel}
+%\usepackage{float}
+%\usepackage{savesym}
+%\savesymbol{tablenum}
+%\usepackage{siunitx}
+%\restoresymbol{SIX}{tablenum}
+%%\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+%\usepackage{hyperref}
+%\usepackage{hypcap}
+
+%\makeatletter
+
+%\newcommand{\msun}{\mbox{$\,{\rm M}_\odot$}}
+
+%\sloppy
+
+
+
+
+
+
+
+
+
+% mnras_guide.tex
+%
+% MNRAS LaTeX user guide
+%
+% v3.0 released 22 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0   September 2013 - May 2015
+%    First version: complete rewrite of the user guide
+%    Basic structure taken from mnras_template.tex by the same author
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[fleqn,usenatbib,useAMS]{mnras}
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}        % Multi-column entries in tables
+\usepackage{bm}		% Bold maths symbols, including upright Greek
+\usepackage{pdflscape}	% Landscape pages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% AUTHORS - PLACE YOUR OWN MACROS HERE %%%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+\newcommand{\kms}{\,km\,s$^{-1}$} % kilometres per second
+\newcommand{\bibtex}{\textsc{Bib}\!\TeX} % bibtex. Not quite the correct typesetting, but close enough
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
-%\usepackage[nobottomtitles]{titlesec}
-\usepackage{array}
-\usepackage{rotating}
-\usepackage{units}
-\usepackage{textcomp}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage{babel}
-\usepackage{float}
-\usepackage{savesym}
-\savesymbol{tablenum}
-\usepackage{siunitx}
-\restoresymbol{SIX}{tablenum}
-%\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
-\usepackage{hyperref}
-\usepackage{hypcap}
+\usepackage{ae,aecompl}
 
-\makeatletter
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
 
-\newcommand{\msun}{\mbox{$\,{\rm M}_\odot$}}
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
 
-\sloppy
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[MNRAS]{The Fates of Merging Supermassive Black Holes and A Proposal for a New Class of X-Ray Sources}
 
-\providecommand{\tabularnewline}{\\}
-% Alter some LaTeX defaults for better treatment of figures:
-    % See p.105 of "TeX Unbound" for suggested values.
-    % See pp. 199-200 of Lamport's "LaTeX" book for details.
-    %   General parameters, for ALL pages:
-    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
-    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
-    %   Parameters for TEXT pages (not float pages):
-    \setcounter{topnumber}{2}
-    \setcounter{bottomnumber}{2}
-    \setcounter{totalnumber}{4}     % 2 may work better
-    \setcounter{dbltopnumber}{2}    % for 2-column pages
-    \renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
-    \renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
-    %   Parameters for FLOAT pages (not text pages):
-    \renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
-	% N.B.: floatpagefraction MUST be less than topfraction !!
-    \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
-
-	% remember to use [htp] or [htpb] for placement
-
-\begin{document}
-
-\title{The Fates of Merging Supermassive Black Holes and A Proposal for a New Class of X-Ray Sources}
-
-
-\author{Charles Zivancev,$^{1}$ 
-Jeremiah P. Ostriker,$^{1,3}$ 
-Andreas H.W. K\"upper$^{1,2}$
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[]{
+Charles Zivancev$^{1}$\thanks{Contact e-mail: \href{mailto:csz2104@columbia.edu}{csz2104@columbia.edu}},
+Jeremiah Ostriker$^{1}$,
+Andreas H.W. K\"upper$^{2}$
 \\
+% List of institutions
 $^{1}$Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA\\
 $^{2}$Hubble Fellow\\
-$^{3}$Princeton University, New Jersey, USA}
-\thanks{Correspondence to: csz2104@columbia.edu}
+}
+% These dates will be filled out by the publisher
+\date{Last updated 2019 Nov 09; in original form 2019 November 9}
 
+% Enter the current year, for the copyright statements etc.
+\pubyear{2019}
+
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
 
 
 
