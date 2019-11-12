@@ -262,7 +262,9 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than 1.0x the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned. [STILL NEED TO DESCRIBE KICK AFTER MERGER].
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than 1.0x the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned.
+
+A result of the anisotropic emission of gravitational waves is that the merged binary often experiences a linear kick in the opposite direction of the emission of the GW due to conservation of linear momentum. This kick can result in velocities of the merged binary from approximately $200-5000\ km s^{-1}$ (see \citet{2007PhRvL..98w1101G}, \citet{2007PhRvL..98i1101G}, \citet{2007PhRvL..98w1102C}, \citet{2011PhRvL.107w1102L}).  In our simulations, the binaries never stray more than a few tens of parsecs from the nucleus of the host galaxies.
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
@@ -370,7 +372,7 @@ The core radius of the gas model, ${r_c}$ is:
 \begin{equation}
     r_c = 10^{2.1*log(\sigma) - 5.3} \text{  kpc}.
 \end{equation}
-Local gas density ${\rho}$ is obtained from the isothermal beta model [ADD REFERENCE]:
+Local gas density ${\rho}$ is obtained from the isothermal beta model (\citet{1962AJ.....67..471K}, \citet{1976A&A....49..137C}, \citet{1978A&A....70..677C}):
 \begin{equation} \label{beta_model}
     \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}.
 \end{equation}
@@ -443,7 +445,7 @@ Figure \ref{fig:wui} shows the difference in luminosity when taking into account
 \end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
-We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  We found that 42$\%$ of the orbiting black holes merged with their host galaxy, while another 43$\%$ remained in orbit at $z=0$.  With an x-ray luminosity range of $10^{25}-10^{43}$ $erg\ s^{-1}$.
+We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had x-ray luminosities in the range of $10^{25}-10^{43}$ $erg\ s^{-1}$.  The median luminosity of $10^{32} erg\ s^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.
 
 \section{Acknowledgements}
 The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
