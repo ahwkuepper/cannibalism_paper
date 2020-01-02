@@ -59,18 +59,19 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[MNRAS]{The Fates of Merging Supermassive Black Holes and A Proposal for a New Class of X-Ray Sources}
+\title[MNRAS]{The Fates of Merging Supermassive Black Holes and a Proposal for a New Class of X-Ray Sources}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
 \author[]{
 Charles Zivancev$^{1}$\thanks{Contact e-mail: \href{mailto:csz2104@columbia.edu}{csz2104@columbia.edu}},
 Jeremiah Ostriker$^{1}$,
-Andreas H.W. K\"upper$^{2}$
+Andreas H.W. K\"upper$^{2,3}$
 \\
 % List of institutions
 $^{1}$Department of Astronomy, Columbia University, 550 West 120th Street, New York, NY 10027, USA\\
-$^{2}$Hubble Fellow\\
+$^{2}$QuantCo, 955 Massachusetts Avenue, Cambridge, MA 02139, USA
+$^{3}$Hubble Fellow\\
 }
 % These dates will be filled out by the publisher
 \date{Last updated 2019 Nov 09; in original form 2019 November 9}
@@ -88,7 +89,7 @@ $^{2}$Hubble Fellow\\
 
 
 \begin{abstract}
-We perform N-body simulations on 11 galaxies extracted from a cosmological simulation of hierarchical structure formation with total mass in the range $10^{12} M_{\sun} < M < 10^{13} M_{\sun}$ from 4 $\gid$ z $\gid$ 0.  After mergers, we track the dynamical evolution of the orbiting black holes (BHs) around their host central BHs.  Of the 86 orbiting BHs, we find that 36 merge with their host central BHs, 13 are ejected from their respective host galaxies, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BHs, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with an undetectable median value $10^{32}$ $erg\ s^{-1}$.  However, the most luminous $\sim$$5\%$ should be detectable.
+We perform follow-up N-body simulations on some of the most massive galaxies extracted from a cosmological simulation of hierarchical structure formation with total masses in the range $10^{12} M_{\sun} < M < 10^{14} M_{\sun}$ from 4 $\gid$ z $\gid$ 0.  After galactic mergers, we track the dynamical evolution of the infalling black holes (BHs) around their host's central BHs.  From 11 different simulations, we find that, of the 86 infalling BHs with masses > XYZ, 36 merge with their host's central BH, 13 are ejected from their host galaxy, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BH binary or multiple, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with an undetectable median value $10^{32}$ $erg\ s^{-1}$.  However, the most luminous $\sim$$5\%$ should be detectable by existing x-ray facilities.
 \end{abstract}
 
 
@@ -100,9 +101,11 @@ Galaxy: kinematics and dynamics
 
 
 \section{Introduction}\label{sec:introduction}
-What happens to the massive black holes centrally located in galaxies when those galaxies merge with others?  There are three possibilities: they merge, they are ejected, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with the spin induced kick at merger leading to an ejection or extended orbit of the merged black hole.  We now know from pulsar timing measurements (\citet{2008MNRAS.390..192S}, \citet{2018ApJ...856...42S}, \citet{2016APS..APRR18003T}) that the gravitational wave background is probably too low for most galaxy mergers (mass-weighted) (but see \cite{2018NatCo...9..573M}) to lead to BH mergers, but the outcome remains uncertain.  We will argue in this paper that a very common outcome--especially for the lower mass black holes--is for the injected objects to remain as orbiting X-ray sources in normal massive galaxies waiting to be identified by current observational techniques.
+Simulations of structure formation in a $\Lambda$CDM universe show us how the massive galaxies we see today were formed through a myriad of minor and major mergers between (proto) galaxies. As most galaxies are believed to contain central massive black holes even at high redshifts, each of these mergers sets the stage for a potential encounter between supermassive black holes. Here we are going to investigate what happened to those black holes over a timeframe of billions of years.
 
-There is no "final parsec problem," and the opposite problem of too many BH mergers is also avoided when it is realized that we are dealing with a small N-body system rather than a series of two-body problems (cf \citet{2018MNRAS.473.3410R}).
+What are possible outcomes for massive black holes during galaxy mergers?  There are three possibilities: they merge with the central massive black hole of the galaxy, they get ejected, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with the spin induced kick at merger leading to an ejection or extended orbit of the merged black hole.  We now know from pulsar timing measurements (\citet{2008MNRAS.390..192S}, \citet{2018ApJ...856...42S}, \citet{2016APS..APRR18003T}) that the gravitational wave background is probably too low for most galaxy mergers (mass-weighted) (but see \cite{2018NatCo...9..573M}) to lead to BH mergers, but the outcome remains uncertain.  We will argue in this paper that a very common outcome--especially for the lower mass black holes--is for the injected objects to remain as orbiting X-ray sources in normal massive galaxies waiting to be identified by current observational techniques.
+
+There is no "final parsec problem," and the opposite problem of too many BH mergers is also avoided when it is realized that we are dealing with a small N-body system rather than a series of two-body problems (cf \citealt{2018MNRAS.473.3410R}).
 
 How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}, \citet{2019MNRAS.484..595M}) evolution of the size and mass of these systems, but assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018MNRAS.479.4017I}, \citet{2018ApJ...863L..36I}).  However, we do not often see multiple SMBHs at the centers of massive ellipticals (but see \citet{2016MNRAS.463.2145C}).  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that, as a result of the N-body interactions among the infalling black holes, some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and some of the orbiting ones might be detectable via their ability to accrete gas and emit radiation.
 
