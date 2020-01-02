@@ -223,6 +223,7 @@ where $M_{tot}$ is the total dark matter mass.
 At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker based on conservation of energy.
 
 \subsubsection{Phase-space diffusion} \label{psd}
+THIS SECTION TAKEN VERBATIM FROM \citet{2017MNRAS.467.4180S}, SECTION E1.  NEED TO MODIFY.
 Weak encounters with background stars will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
 \begin{eqnarray}\label{eq:df}
 D[\Delta v_\parallel] & = & -\frac{4\pi G^2\rho(r)M_\bullet\ln\Lambda}{\sigma^2}f(\chi),\\
@@ -385,15 +386,15 @@ where $m_p$ is the proton mass.
 
 The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019MNRAS.486.5377I}:
 \begin{equation}
-    \dot{M}_{acc} = \epsilon\frac{4{\pi}G^2M^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
+    \dot{M}_{acc} = f\frac{4{\pi}G^2M^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
-where $\epsilon$ is the radiative efficiency as calculated in Equation 13 of \citet{2019MNRAS.486.5377I}, M is black hole mass, G is the gravitational constant, and v is the black hole velocity.
+where f is a factor giving the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M$ is black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
 
 Finally, the black hole x-ray luminosity is estimated from:
 \begin{equation}
-    L_x = 0.01\dot{M}_{acc}c^2 \text{  erg s}^{-1}.
+    L_x = \epsilon_{rx}\dot{M}_{acc}c^2 \text{  erg s}^{-1},
 \end{equation}
-
+where the x-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_B{\sim}L_x$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$.
 The Eddington limit is defined as:
 \begin{equation}
     L_{edd} = 1.26 \times 10^{38} (M/M_{\odot}) \text{  erg s}^{-1}.
