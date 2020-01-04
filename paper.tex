@@ -38,6 +38,7 @@
 %\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
 \newcommand{\kms}{\,km\,s$^{-1}$} % kilometres per second
 \newcommand{\bibtex}{\textsc{Bib}\!\TeX} % bibtex. Not quite the correct typesetting, but close enough
+\defcitealias{2011ApJ...741...99C}{Cen+11}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -89,7 +90,7 @@ $^{3}$Hubble Fellow\\
 
 
 \begin{abstract}
-We perform follow-up N-body simulations on some of the most massive galaxies extracted from a cosmological simulation of hierarchical structure formation with total masses in the range $10^{12} M_{\sun} < M < 10^{14} M_{\sun}$ from 4 $\gid$ z $\gid$ 0.  After galactic mergers, we track the dynamical evolution of the infalling black holes (BHs) around their host's central BHs.  From 11 different simulations, we find that, of the 86 infalling BHs with masses > XYZ, 36 merge with their host's central BH, 13 are ejected from their host galaxy, and 37 are still orbiting at the end of the simulations.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BH binary or multiple, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The x-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{25}-10^{43}$ $erg\ s^{-1}$, with an undetectable median value $10^{32}$ $erg\ s^{-1}$.  However, the most luminous $\sim$$5\%$ should be detectable by existing x-ray facilities.
+We perform follow-up N-body simulations on some of the most massive galaxies extracted from a cosmological simulation of hierarchical structure formation with total masses in the range $10^{12} M_{\sun} < M < 3\times 10^{13} M_{\sun}$ from $4\geq z \geq 0$.  After galactic mergers, we track the dynamical evolution of the infalling black holes (BHs) around their host's central BHs.  From 11 different simulations, we find that, of the 86 infalling BHs with masses > $10^4 M_{\sun}$, 36 merge with their host's central BH, 13 are ejected from their host galaxy, and 37 are still orbiting at $z=0$.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BH binary or multiple, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The X-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{27}-10^{43}$ $\mathrm{erg}~\mathrm{s}^{-1}$, with an undetectable median value $10^{32}$ $\mathrm{erg}~\mathrm{s}^{-1}$.  However, the most luminous $\sim$5\% should be detectable by existing X-ray facilities.
 \end{abstract}
 
 
@@ -101,17 +102,17 @@ Galaxy: kinematics and dynamics
 
 
 \section{Introduction}\label{sec:introduction}
-Simulations of structure formation in a $\Lambda$CDM universe show us how the massive galaxies we see today were formed through a myriad of minor and major mergers between (proto) galaxies. As most galaxies are believed to contain central massive black holes even at high redshifts, each of these mergers sets the stage for a potential encounter between supermassive black holes. Here we are going to investigate what happened to those black holes over a timeframe of billions of years.
+Simulations of structure formation in a $\Lambda$CDM universe show us how the massive galaxies we see today were formed through a myriad of minor and major mergers between (proto) galaxies. As most galaxies are believed to contain central massive black holes even at high redshifts, each of these mergers set the stage for a potential encounter between massive black holes. Here we investigate what happened to those black holes over a timeframe of billions of years.
 
-What are possible outcomes for massive black holes during galaxy mergers?  There are three possibilities: they merge with the central massive black hole of the galaxy, they get ejected, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with the spin induced kick at merger leading to an ejection or extended orbit of the merged black hole.  We now know from pulsar timing measurements (\citet{2008MNRAS.390..192S}, \citet{2018ApJ...856...42S}, \citet{2016APS..APRR18003T}) that the gravitational wave background is probably too low for most galaxy mergers (mass-weighted) (but see \cite{2018NatCo...9..573M}) to lead to BH mergers, but the outcome remains uncertain.  We will argue in this paper that a very common outcome--especially for the lower mass black holes--is for the injected objects to remain as orbiting X-ray sources in normal massive galaxies waiting to be identified by current observational techniques.
+What are possible outcomes for massive black holes during galaxy mergers?  There are three possibilities: they merge or form a binary with the central massive black hole of their new host galaxy, they get ejected through three-body interactions with an existing central black-hole binary, or they remain in orbit in the merged galaxy.  Combinations of these options are also possible with, e.g., the (spin-induced) kick at merger leading to an ejection or extended orbit of the merged black hole. We will argue in this paper that a very common outcome -- especially for lower-mass black holes -- is for the injected BHs to remain as orbiting X-ray sources in their host galaxies, waiting to be identified by current observational techniques. (check if X-1 and X-2 in NGC 1313 are candidates for such objects see https://arxiv.org/pdf/astro-ph/0608066.pdf )
 
-There is no "final parsec problem," and the opposite problem of too many BH mergers is also avoided when it is realized that we are dealing with a small N-body system rather than a series of two-body problems (cf \citealt{2018MNRAS.473.3410R}).
+But how common are encounters of massive black holes?  For galaxies, we know that minor mergers are frequent from the observed evolution of the size and mass of these systems \citep{2010ApJ...718L..73V, 2008ApJ...677L...5V, 2019MNRAS.484..595M}. However, if we assume that all galaxy mergers lead to SMBH mergers we end up overpredicting the  gravitational wave background, as constrained by observations from pulsar timing arrays (PTAs, see \citealt{2008MNRAS.390..192S, 2009MNRAS.394.2255S, 2013MNRAS.433L...1S, 2014ApJ...789..156M, 2015ApJ...799..178K, 2016APS..APRR18003T, 2018ApJ...856...42S, 2018MNRAS.479.4017I, 2018ApJ...863L..36I, 2018NatCo...9..573M}). In fact, dynamical studies of black hole encounters have shown that most encounters between two supermassive black holes will result in a stalling binary, unable to get close enough for gravitational wave emission to drive the merger (cite some papers from David Meritt here).
 
-How common are mergers of massive black holes?  For the galaxies themselves we know that minor mergers are frequent from the observed (\citet{2010ApJ...718L..73V}, \citet{2008ApJ...677L...5V}, \citet{2019MNRAS.484..595M}) evolution of the size and mass of these systems, but assuming that all galaxy mergers lead to SMBH mergers overpredicts the observations of gravitational waves from the pulsar timing arrays (PTAs) (\citet{2008MNRAS.390..192S}, \citet{2009MNRAS.394.2255S}, \citet{2013MNRAS.433L...1S}, \citet{2014ApJ...789..156M}, \citet{2015ApJ...799..178K}, \citet{2018ApJ...856...42S}, \citet{2018MNRAS.479.4017I}, \citet{2018ApJ...863L..36I}).  However, we do not often see multiple SMBHs at the centers of massive ellipticals (but see \citet{2016MNRAS.463.2145C}).  So, what does happen?  One paper (\citet{2018MNRAS.473.3410R}) has indicated that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower mass black holes that remain to be detected as they orbit in massive galaxies.  What we argue in this paper is that, as a result of the N-body interactions among the infalling black holes, some are ejected, some remain in extended orbits and some (the few most massive ones) do in fact merge, but these do not exceed the PTA limits, and some of the orbiting ones might be detectable via their ability to accrete gas and emit radiation.
+However, we do not often see SMBH binaries at the centers of massive ellipticals (but see \citealt{2016MNRAS.463.2145C}).  So, what does happen?  \cite{2018MNRAS.473.3410R} indicate that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower-mass black holes that remain to be detected as they orbit in massive galaxies.  We argue that, as a result of few-body interactions among the resident and infalling black holes, some are ejected, some remain in extended orbits, and some (the few most massive ones) do in fact merge. The merger rates we find do not exceed the PTA limits, and some of the orbiting BHs that our simulations predict to exist may actually be detectable via their ability to accrete gas and emit radiation.
 
-Here we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} M_{\sun} < M < 10^{13} M_{\sun}$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+For this study, we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} M_{\sun} < M < 3\times10^{13} M_{\sun}$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
 
-This paper is organized as follows: in Section \ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section \ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section \ref{sec:conclusions} contains a discussion of the results and our conclusions.
+This paper is organized as follows: in Section\,\ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section\,\ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section\,\ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
 \section{Methods}\label{sec:methods}
 %\begin{figure}
@@ -126,59 +127,59 @@ This paper is organized as follows: in Section \ref{sec:methods} we describe the
 %\end{figure*}
 
 \subsection{Overview of simulation}
-Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a dark matter background potential using the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form, having a profile similar to that of a truncated isothermal sphere.  The galaxies were evolved from $4 > z > 0$.  Orbiting black holes were periodically introduced into the "host" galaxy following mergers and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
+Our simulations focus on elliptical galaxies with central SMBHs. The galaxies were given a dark matter background potential using the Stone-Ostriker profile (\citet{2015ApJ...806L..28S}), which is a three-parameter potential-density pair, whose quantities such as density, potential, and binding energy can be written in closed form, having a profile similar to that of a truncated isothermal sphere.  The galaxies were evolved from $4\geq z \geq 0$.  Orbiting black holes were periodically introduced into the "host" galaxy following mergers and their dynamical interaction with the background potential and central SMBH were followed, as described further below.
 
 For the numerical simulations presented here, we used a modified version of the algorithmic chain integrator \textsc{AR-Chain} developed by \citet{2006MNRAS.372..219M}. It uses algorithmic chain regularization for high-precision integration of few-body dynamics, and is capable of handling velocity-dependent forces efficiently. It includes relativistic post-Newtonian terms up to order PN2.5 \citep{2008AJ....135.2398M}.
 
 
 \subsection{Merger tree Data}
-The merger tree data that was used as the input to our simulations is the result of previous work by \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C} (hereafter Cen(+11) and known as the LAOZI simulations \citet{2014ApJ...781...38C}), as well as  \citet{2012MNRAS.425..641L} (hereafter Lackner(+12)), and \citet{2015ApJ...799..178K} (hereafter Kulier(+15)).  A brief synopsis of the work that led to our input data is described below.
+The merger tree data that was used as the input to our simulations is the result of previous work by \citet{2011ApJ...741...99C, 2011ApJ...742L..33C, 2012ApJ...753...17C, 2012ApJ...748..121C, 2013ApJ...770..139C}  (known as the LAOZI simulations \citet{2014ApJ...781...38C}), as well as  \citet{2012MNRAS.425..641L}, and \citet{2015ApJ...799..178K}.  A brief synopsis of the work that led to our input data is described below.
 
-Cen(+11) studied the "cosmic downsizing" effect (e.g., \citet{1996AJ....112..839C}) using high-resolution large-scale hydrodynamic galaxy formation simulations.  His work produced physical parameters for galaxies such as position, velocity, total mass, stellar mass, gas mass, mean formation time, mean stellar metallicity, mean gas metallicity, SFR, luminosities, etc.
+\citet{2011ApJ...741...99C} studied the "cosmic downsizing" effect (e.g., \citet{1996AJ....112..839C}) using high-resolution large-scale hydrodynamic galaxy formation simulations.  His work produced physical parameters for galaxies such as position, velocity, total mass, stellar mass, gas mass, mean formation time, mean stellar metallicity, mean gas metallicity, star formation rate, luminosities, etc.
 
-Lackner(+12), using Cen(+11)'s work as a basis, created galactic merger trees that compared the properties of in situ and accreted stellar mass of galaxies at redshift snapshots between $4 > z > 0$.
+\citet{2012MNRAS.425..641L}, using \citet{2011ApJ...741...99C}'s work as a basis, created galactic merger trees that compared the properties of in situ and accreted stellar mass of galaxies at redshift snapshots between $4 > z > 0$.
 
-Kulier(+15) furthered the merger tree data produced by Lackner(+12) by estimating the evolution of the SMBH population, based on assumptions about the relationship between the properties of SMBHs and those of their host galaxies.
+\citet{2015ApJ...799..178K} furthered the merger tree data produced by \citet{2012MNRAS.425..641L} by estimating the evolution of the SMBH population, based on assumptions about the relationship between the properties of SMBHs and those of their host galaxies.
 
 The primary data we extracted from the above work was organized as follows:
 \begin{itemize}
-    \item Galactic properties - Each galaxy was distinguished by an id number, with properties such as stellar mass, dark matter mass, central black hole id number, and orbiting black hole id numbers, recorded at 37 redshift slices between $4 > z > 0$.
+    \item Galactic properties - Each galaxy was distinguished by an id number, with properties such as stellar mass, dark matter (DM) mass, central black hole id number, and orbiting black hole id numbers, recorded at 37 redshift slices between $4 > z > 0$.
     \item Black Hole properties - Each black hole was also distinguished by an id number, with properties such as seed mass, accreted mass, its host galaxy id number, and time after $z=4$ at which the black hole entered its host galaxy, if it was not the central black hole.
 \end{itemize}
 
-The merger tree data from Lackner(+12) and Kulier\-(+15) provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
+The merger tree data from \citet{2012MNRAS.425..641L} and \citet{2015ApJ...799..178K} provided 1,830 galaxies in total.  However, not all the galaxies were suitable for our simulations.  We placed further requirements as follows:
 \begin{itemize}
-\item The galaxies had to exist through the entire simulation ($4 > z > 0$).  If they merged with other galaxies, they had to have been the "surviving" galaxy at each merger.
+\item The galaxies had to exist through the entire simulation ($4\geq z \geq 0$).  If they merged with other galaxies, they had to have been the "surviving" galaxy at each merger.
 \item They had to have accumulated orbiting black holes by $z = 0$.
 \end{itemize}
 
-The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the top 13 galaxies in terms of number of black holes to run the simulations.  The black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
+The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the 13 galaxies that had the largest number black holes to run the simulations.  The black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
 
-The following cosmological parameters were used in our simulations, consistent with both Lackner(+12) and Kulier(+15):   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}Mpc^{-1} = 70 km s^{-1} Mpc^{-1}$, and $n = 0.96$.
+The following cosmological parameters were used in our simulations, consistent with both \citet{2012MNRAS.425..641L} and \citet{2015ApJ...799..178K}:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}\mathrm{Mpc}^{-1} = 70 \mathrm{km}\;\mathrm{s}^{-1} \mathrm{Mpc}^{-1}$, and $n = 0.96$.
 
 \subsubsection{Stellar Mass Adjustment}
-As we will explain further in Section \ref{Galaxy background potential}, in our simulations orbiting black holes are inserted into the host galaxy at the effective radius, $R_e$, which is partially dependent on stellar mass, $M_*$ (see equation \ref{re}).  For every doubling of the stellar mass, $M_*$, $R_e$ increases by a factor of 1.66.  Additionally, the velocity dispersion at the effective radius, $\sigma(R_e)$, which is used to set the parameter $r_h$ of our dark matter profile, is also dependent on $M_*$.  In this case, a doubling of $M_*$ would increase $\sigma(R_e)$ by a factor of 1.15.  These variations have direct effects on the ability of the orbiting black holes to merge with the central black hole, and thus can affect our merger statistics and resulting characteristic strain calculations, and therefore it is important to estimate our stellar masses with reasonable accuracy.
+As we will explain further in Section \ref{Galaxy background potential}, in our simulations orbiting black holes are inserted into the host galaxy at the effective radius, $R_e$, which is partially dependent on stellar mass, $M_*$ (see Eqn. \ref{re}).  For every doubling of the stellar mass, $R_e$ increases by a factor of 1.66.  Additionally, the velocity dispersion at the effective radius, $\sigma(R_e)$, which is used to set the parameter $r_h$ (see Eqn. \ref{jerry}) of our dark matter profile, is also dependent on $M_*$.  In this case, a doubling of $M_*$ would increase $\sigma(R_e)$ by a factor of 1.15.  These variations have direct effects on the ability of the orbiting black holes to merge with the central black hole, and thus can affect our merger statistics and resulting characteristic strain calculations, and therefore it is important to estimate our stellar masses with reasonable accuracy.
 
 In cosmological simulations it is common to overproduce stellar mass, with a general over-efficiency in the range of 2-4 times those measured in observations (\citet{1996ApJS..105...19K}, \citet{2010MNRAS.404.1111G}, \citet{2010ApJ...725.2312O}).  One typical reason cited for this overproduction is a lack or underestimation of supernova feedback effects in the form of thermal and/or kinetic energy.  However, even when thermal energy from supernova feedback is considered, the effects may be reduced due to the energy being quickly radiated away by rapidly cooling surrounding gas (\citet{1996ApJS..105...19K}).  A second common reason for overproduction of stars in cosmological simulations is a lack of modeling for AGN feedback, which may be responsible for solving the phenomenon called the "cooling flow paradox" (\citet{2001MNRAS.321L..20F}) that suppresses star formation. 
 
-Lackner(+12), which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_*=M_*/M_{DM}(\Omega_{DM}/\Omega_b)$, was approximately 0.6.  Compared with the expected range of $0.10 \loa f_* \loa 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
+\citet{2012MNRAS.425..641L}, which is the source of our stellar masses, noted that the efficiency of star formation in their simulations, defined as $f_\mathrm{bary}=M_*/M_{\mathrm{DM}}(\Omega_\mathrm{DM}/\Omega_\mathrm{b})$ (where $M_\mathrm{DM}$ is the mass of the dark matter halo), was approximately 0.6.  Compared with the expected range of $0.10 \loa f_\mathrm{bary} \loa 0.15$ that they referenced from \citet{2012ApJ...746...95L}, their stellar masses were a factor of roughly 4 times greater.
 
-We also compared the stellar masses from Lackner\-(+12) to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
+We also compared the stellar masses from \citet{2012MNRAS.425..641L} to  observational and abundance matching data from \citet{2018AstL...44....8K}. Figure \ref{fig:stellar1} is a partial, approximate, replication of their Figure 11 (abundance matching line).  We rescaled our stellar masses at $z=0$ in a lognormal manner about the line in order to match the observed data.  Table \ref{table:gal_char} shows the original and rescaled stellar masses.
 
 \begin{figure}
 %\begin{center}
 \includegraphics[width=0.5\textwidth]{plots/stellar_to_halo_ratio.png}
-\caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  Purple dots shown are examples of our rescaled stellar masses}
+\caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  $f_\mathrm{bary}$ is the universal baryon fraction as a function of total halo mass.  Purple dots shown are examples of our rescaled stellar masses}
 \label{fig:stellar1}
 %\end{center}
 \end{figure}
 
 \begin{table}
 \begin{center}
-\caption{Galaxy characteristics at z=0. Units are M$\sun$.}
+\caption{Galaxy characteristics at z=0. $M_\mathrm{DM}$ is dark matter mass.  $M_\mathrm{CBH}$ is central black hole mass.  Units are $M_{\odot}$.}
 \begin{tabular} {|c | c | c| c|}
 \hline
-$M_{DM}$ & $M_{CBH}$ & $M_{*} (orig.)$ & $M_{*} (rescaled)$ \\
+$M_\mathrm{DM}$ & $M_\mathrm{CBH}$ & $M_{*} \mathrm{(orig.)}$ & $M_{*} \mathrm{(rescaled)}$ \\
 \hline
  2.85 $\times 10^{13}$ 	&	 1.46 $\times 10^9$	&	5.58 $\times 10^{12}$ 	&	3.30 $\times 10^{11}$  \\
  2.48 $\times 10^{13}$ 	&	 2.40 $\times 10^9$	&	4.80 $\times 10^{12}$ 	&	2.25 $\times 10^{11}$  \\
@@ -209,19 +210,18 @@ Here $\rho_c$ is the central density, $r_c$ is the core radius, and $r_h$ is the
 
 In order to parameterize this profile, $r_c$ was given an initial value of 100 pc, which is reasonable for a cored massive system.  To calculate $r_h$, we began by using the stellar mass to calculate the velocity dispersion at the galaxy's effective radius.  In \citet{2014ApJ...789..156M}, the galaxy's effective radius $R_{e}$ and velocity dispersion $\sigma(R_e)$ at the effective radius are:
 \begin{equation} \label{re}
-R_{e} = 2.5 kpc\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98},
+R_{e} = 2.5 \mathrm{kpc}\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98},
 \end{equation}
 \begin{equation} \label{sig}
-\sigma(R_{e}) = 190km/s\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47},
+\sigma(R_{e}) = 190\mathrm{km}\;\mathrm{s}^{-1}\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47},
 \end{equation}
 
-We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma(R_{e})$ in the Stone-Ostriker profile (Eqns 9 and A1-A4).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from Stone-Ostriker is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
+We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma$ in the Stone-Ostriker profile (cf. Eqns 9 and A1-A4).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from Stone-Ostriker is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
 
 The central density, $\rho_c$, can be found from Equation 5 in Stone-Ostriker:
 \begin{equation} \label{rhoc}
-M_{tot} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c},
+M_\mathrm{DM} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c}.
 \end{equation}
-where $M_{tot}$ is the total dark matter mass.
 
 At each iteration in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker based on conservation of energy.
 
@@ -266,7 +266,7 @@ a_{new} = a\left(1+\frac{32a\,\mbox{d}W}{3\pi GM_{NSC}^2}\right)^{-1}.
 \end{equation}
 
 \subsubsection{Gravitational wave recoils}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in Kulier(+15), which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than 1.0x the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned.
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in \citet{2015ApJ...799..178K}, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than 1.0x the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned.
 
 A result of the anisotropic emission of gravitational waves is that the merged binary often experiences a linear kick in the opposite direction of the emission of the GW due to conservation of linear momentum. This kick can result in velocities of the merged binary from approximately $200-5000\ km s^{-1}$ (see \citet{2007PhRvL..98w1101G}, \citet{2007PhRvL..98i1101G}, \citet{2007PhRvL..98w1102C}, \citet{2011PhRvL.107w1102L}).  In our simulations, the binaries never stray more than a few tens of parsecs from the nucleus of the host galaxies.
 
@@ -275,7 +275,7 @@ Black holes can also eject each other via strong three-body interactions. We rem
 \subsection{Simulation setup}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
-    t_{fric} = \frac{19}{6}\left(\frac{R_e}{5kpc}\right)^2\frac{\sigma_{eff}}{200km\,s^{-1}}\frac{10^8\,M_{\odot}}{M_{bh}} \text{  Gyr}.
+    t_{fric} = \frac{19}{6}\left(\frac{R_\mathrm{e}}{5\mathrm{kpc}}\right)^2\frac{\sigma(R_\mathrm{e})}{200\mathrm{km}\,\mathrm{s}^{-1}}\frac{10^8\,M_{\odot}}{M_\mathrm{BH}} \text{  Gyr},
 \end{equation}
 The orbiting black holes were injected into their host galaxy at redshift z, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{GM(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
 
@@ -294,10 +294,10 @@ Given the log distribution of masses, one can see the general trend of larger ma
 \subsubsection{Mergers}\label{sec:mergers}
 The tendency of larger mass black holes to merge with their host can perhaps be more clearly seen by looking at the merger mass ratio between the incoming black hole and the host.  Figure \ref{fig:q_merge_fraction} displays the fraction of galaxy mergers that result in black hole mergers versus the merger mass ratio, defined as $m_2/m_1$, where $m_2$ is the orbiting black hole and $m_1$ is the host black hole.  The plot monotonically increases with increasing mass ratio, reaching nearly unity for mass ratio of $10^{-1}$, meaning nearly all galaxy mergers with a black hole mass ratio greater than $10^{-1}$ resulted in the orbiting black hole merging with the host.
 
-In figure \ref{fig:time_to_merge} we present the time it took for the merging guest black holes to merge with their host.  As can be seen in the plot, although there is a fair amount of variation, the general trend is a decreasing time to merge as orbiting black hole mass increases.
+In figure \ref{fig:time_to_merge} we present the time it took for the guest black holes to merge with their host.  As can be seen in the plot, although there is a fair amount of variation, the general trend is a decreasing time to merge as orbiting black hole mass increases.
 
 \subsubsection{Kicked, Ejected and Orbiting Black Holes}\label{sec:kicked_orbiting}
-Of the 37 orbiting black holes at $z=0$, 18 of them were kicked to higher orbits at some point in their traversal of their host galaxy.  If one counts the 13 ejected black holes, then of the 50 SMBHs that had not eventually merged with their host, 32 of them were kicked out of the galactic core as a result of three-body interactions.  If they did not merge, it was not for a lack of effort.
+Of the 37 orbiting black holes at $z=0$, 18 of them were kicked to higher orbits during traversal of their host galaxy.  If one counts the 13 ejected black holes, then of the 50 SMBHs that had not eventually merged with their host, 32 of them were kicked out of the galactic core as a result of three-body interactions.  If they did not merge, it was not for a lack of effort.
 
 Figure \ref{fig:kicked_stats} shows the mass distribution of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\goa\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
 
@@ -306,7 +306,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Summary Results All Galaxies".png}
-\caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Colored arrows along x-axis represent median masses of respective sets.}
+\caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Colored arrows along upper x-axis represent median masses of respective sets.}
 \label{fig:meosmbh}
 \end{center}
 \end{figure}
@@ -330,7 +330,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/kicked_stats.png}
-\caption{Histogram of kicked and not-kicked SMBHs at z=0.  Colored arrows along x-axis represent median masses of respective sets.}
+\caption{Histogram of kicked and not-kicked SMBHs at z=0.  Colored arrows along upper x-axis represent median masses of respective sets.}
 \label{fig:kicked_stats}
 \end{center}
 \end{figure}
@@ -364,13 +364,13 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
 
 \subsection{Black Hole Luminosity}
-The x-ray temperature versus sigma relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
+The x-ray temperature versus central velocity dispersion relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
 \begin{equation}
-    T_x = 10^{2.50*log(\sigma) - 6.06} \text{  kev}.
+    T_x = 10^{2.50*log(\sigma_c) - 6.06} \text{  keV}.
 \end{equation}
 Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ...857...32B} according to:
 \begin{equation}
-    \rho_0 = 10^{0.6*log(\sigma) - 25} \text{  g cm}^{-3}.
+    \rho_0 = 10^{0.6*log(\sigma_c) - 25} \text{  g cm}^{-3}.
 \end{equation}
 The core radius of the gas model, ${r_c}$ is:
 \begin{equation}
@@ -389,7 +389,7 @@ where $m_p$ is the proton mass.
 
 The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019MNRAS.486.5377I}:
 \begin{equation}
-    \dot{M}_{acc} = f\frac{4{\pi}G^2M^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
+    \dot{M}_{acc} = f\frac{4{\pi}G^2M_\mathrm{BH}^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
 where f is a factor giving the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M$ is black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
 
@@ -449,7 +449,7 @@ Figure \ref{fig:wui} shows the difference in luminosity when taking into account
 \end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
-We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had x-ray luminosities in the range of $10^{25}-10^{43}$ $erg\ s^{-1}$.  The median luminosity of $10^{32} erg\ s^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.
+We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < 3$\times$ $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy's resident black hole, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had x-ray luminosities in the range of $10^{25}-10^{43}$ $erg\ s^{-1}$.  The median luminosity of $10^{32} erg\ s^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.
 
 \section{Acknowledgements}
 The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
