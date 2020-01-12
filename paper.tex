@@ -272,7 +272,7 @@ A result of the anisotropic emission of gravitational waves is that the merged b
 
 Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
-\subsection{Simulation setup}
+\subsection{Simulation setup}\label{subsec:simset}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
     t_{fric} = \frac{19}{6}\left(\frac{R_\mathrm{e}}{5\mathrm{kpc}}\right)^2\frac{\sigma(R_\mathrm{e})}{200\mathrm{km}\,\mathrm{s}^{-1}}\frac{10^8\,M_{\odot}}{M_\mathrm{BH}} \text{  Gyr},
@@ -363,7 +363,10 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
 
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
 
-\subsection{Black Hole Luminosity}
+\subsection{Black Hole Xray Luminosity}
+\subsubsection{Calculations}
+As a black hole traverses through a host galaxy or other gaseous environment, it accretes 
+
 The x-ray temperature versus central velocity dispersion relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
 \begin{equation}
     T_x = 10^{2.50*log(\sigma_c) - 6.06} \text{  keV}.
@@ -397,7 +400,7 @@ Finally, the black hole x-ray luminosity is estimated from:
 \begin{equation}
     L_x = \epsilon_{rx}\dot{M}_{acc}c^2 \text{  erg s}^{-1},
 \end{equation}
-where the x-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_B{\sim}L_x$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$.
+where the x-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_x{\sim}L_{Bol}$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$.
 The Eddington limit is defined as:
 \begin{equation}
     L_{edd} = 1.26 \times 10^{38} (M/M_{\odot}) \text{  erg s}^{-1}.
