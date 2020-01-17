@@ -36,6 +36,7 @@
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
 %\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+\newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
 \newcommand{\kms}{\,km\,s$^{-1}$} % kilometres per second
 \newcommand{\bibtex}{\textsc{Bib}\!\TeX} % bibtex. Not quite the correct typesetting, but close enough
 \defcitealias{2011ApJ...741...99C}{Cen+11}
@@ -110,7 +111,7 @@ But how common are encounters of massive black holes?  For galaxies, we know tha
 
 However, we do not often see SMBH binaries at the centers of massive ellipticals (but see \citealt{2016MNRAS.463.2145C}).  So, what does happen?  \cite{2018MNRAS.473.3410R} indicate that dynamical interactions among multiple orbiting black holes, which will eject a non-negligible fraction of the mass, may solve this problem.  The present paper also addresses this purported dynamical solution, focusing attention on the large fraction of lower-mass black holes that remain to be detected as they orbit in massive galaxies.  We argue that, as a result of few-body interactions among the resident and infalling black holes, some are ejected, some remain in extended orbits, and some (the few most massive ones) do in fact merge. The merger rates we find do not exceed the PTA limits, and some of the orbiting BHs that our simulations predict to exist may actually be detectable via their ability to accrete gas and emit radiation.
 
-For this study, we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} M_{\sun} < M < 3\times10^{13} M_{\sun}$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.
+For this study, we look at the merger history of 11 exemplary galaxies across the galaxy mass spectrum extracted from a cosmological simulation of hierarchical structure formation. We investigate how, after merging with incoming galaxies, SMBHs sink into the cores of the hosts and interact with the resident black hole. We show that gravitational interactions of multiple SMBHs are most probable in high-mass galaxies with total mass $10^{12} M_{\sun} < M < 3\times10^{13} M_{\sun}$. Galaxies with lower masses have too few mergers with SMBH hosting galaxies. Galaxies with higher masses are more extended, making dynamical friction processes less efficient and hence failing to drive SMBHs into the host galaxy core.  \citep{2012MNRAS.422.1306K} and \citep{2018MNRAS.473.3410R} performed similar N-body simulations of merging galaxies and black holes, although their haloes were from dark matter-only merger trees from the Millennium Simulation \citet{2005Natur.435..629S}, which have very different merger histories compared to the hydrodynamical simulations in this study.  Additionally, most of the halo masses in the \citep{2012MNRAS.422.1306K} simulations were of mass $M_{halo} > 10^{14} M_{\odot}$.
 
 This paper is organized as follows: in Section\,\ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section\,\ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section\,\ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
@@ -306,7 +307,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Summary Results All Galaxies".png}
-\caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Colored arrows along upper x-axis represent median masses of respective sets.}
+\caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Ejected black holes span almost the entire mass range, while lower-mass black holes are orbiting and higher mass black holes tended to merge.  Colored arrows along upper x-axis represent median masses of respective sets.  Histogram bars are not stacked.}
 \label{fig:meosmbh}
 \end{center}
 \end{figure}
@@ -330,7 +331,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/kicked_stats.png}
-\caption{Histogram of kicked and not-kicked SMBHs at z=0.  Colored arrows along upper x-axis represent median masses of respective sets.}
+\caption{Histogram of kicked and not-kicked SMBHs at z=0.  Colored arrows along upper x-axis represent median masses of respective sets.  Histograms are not stacked.}
 \label{fig:kicked_stats}
 \end{center}
 \end{figure}
@@ -364,74 +365,75 @@ We compute the x-ray luminosity of the hot gas in the galaxies, adapting Equatio
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$.
 
 \subsection{Black Hole Xray Luminosity}
-\subsubsection{Calculations}
-As a black hole traverses through a host galaxy or other gaseous environment, it accretes 
+\subsubsection{Assumptions and Method Employed}
+Since we model the black holes in this work as point particles for purposes of the simulations, we don't assume any particular structure to them.  Therefore, we adopt the approach and assumptions from \citealt{2018MNRAS.476.1412I} and \citealt{2019MNRAS.486.5377I} in estimating the x-ray luminosities of the remaining black holes left wandering in our subject galaxies.  Their approach assumes rotating accretion flows in a very low-density environment.  Shear viscous forces transport angular momentum outwards, resulting in an accretion disc that forms at the bottom of the distribution.  However, due to the low density of the gas, it does not cool, and convection limits the net accretion, and subsequent radiation luminosity, of the black hole.
 
-The x-ray temperature versus central velocity dispersion relation from Table 2 of  \citet{2018ApJ...857...32B} was fitted according to:
+\subsubsection{Gas Environment Surrounding Black Holes}
+In order to model the surrounding environment of the wandering black holes, we used the data and scaling relations from \citet{2018ApJ...857...32B}, which is based on Chandra X-ray Observatory observations of 94 early-type, gas poor galaxies of several morphological types (elliptical, lenticular, SB, BCGs, and cD galaxies).  In particular, we used data from Tables 2 and 3 for temperature in xray ($T_X$) and central gas density ($\rho_0$)) to model the surrounding gas properties.  Central velocity dispersion ($\sigma_c$) was used as the independent variable, as many galactic properties co-evolve with velocity dispersion (REFERENCES TO BACK THIS UP???).  We estimate the central velocity dispersion in this work based on the potential-density profile in  \citet{2015ApJ...806L..28S} that was also used in modeling the potential in the simulations (cf their equation 11):
 \begin{equation}
-    T_x = 10^{2.50*log(\sigma_c) - 6.06} \text{  keV}.
+    \sigma^2 = \frac{6GM_{tot}(\frac{\pi^2}{8}-1)}{{\pi}r_h},
 \end{equation}
-Central gas density, ${\rho}_0$ was also fitted from Table 3 of \citet{2018ApJ...857...32B} according to:
-\begin{equation}
-    \rho_0 = 10^{0.6*log(\sigma_c) - 25} \text{  g cm}^{-3}.
-\end{equation}
-The core radius of the gas model, ${r_c}$ is:
-\begin{equation}
-    r_c = 10^{2.1*log(\sigma) - 5.3} \text{  kpc}.
-\end{equation}
-Local gas density ${\rho}$ is obtained from the isothermal beta model (\citet{1962AJ.....67..471K}, \citet{1976A&A....49..137C}, \citet{1978A&A....70..677C}):
+where G is the gravitational constant, $M_{tot}$ is the total galaxy mass (stars + DM), and $r_h$ is the outer halo radius as defined in the Stone-Ostriker profile (cf. equation 1).
+
+Figures \ref{fig:rho0_vs_sigma} and \ref{fig:Tx_vs_sigma} present the data from \citet{2018ApJ...857...32B}, along with the simple linear fits (in log-log space) and resulting gas properties used for our galaxies (red x's):
+\begin{subequations} \label{eq:gas_properties}
+\begin{eqnarray}
+    \rho_0 = 10^{0.6*log\left(\frac{\sigma_c}{g\ cm^{-3}}\right) - 25} \text{  g cm}^{-3},\\
+    T_x = 10^{2.50*log\left(\frac{\sigma_c}{g\ cm^{-3}}\right) - 6.06} \text{  keV}.
+\end{eqnarray}
+\end{subequations}
+
+The dispersion of the data around the fit for $\rho_0$ is at most 1.5-2.0 orders of magnitude.  This leads to a similar variation in the gas density surrounding the black hole, in addition to the ultimate accretion rate of the black hole, due to both having a linear dependence on the central gas density (see Eqns \eqref{beta_model} and \eqref{net_accretion} below).
+
+The dispersion of the xray temperature data around the fit is approximately 1-1.5 orders of magnitude.  The gas sound speed (see Equation \eqref{gas_sound_speed} below) has a $C_s{\sim}T_x^{0.5}$ dependence on temperature.  However, given the dependence of the accretion rate (see Equation \eqref{net_accretion} below) on gas sound speed of $\dot{M}_{acc}{\sim}C_s^3$, the accretion rate is dependent on temperature to the order of $T_x^{3/2}$.  This is another source of variation in our estimate of accretion rate.
+
+\begin{figure}
+\vspace{20pt}%
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"rho_0 vs sigma with errors".png}
+\caption{Central gas density versus central velocity dispersion.  Purple X's represent central gas densities of the galaxies in this study.  Fit in log space is $\rho_0 = 10^{0.6*log\left(\frac{\sigma_c}{g\ cm^{-3}}\right) - 25} \text{  g cm}^{-3}$.}
+\label{fig:rho0_vs_sigma}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\vspace{20pt}%
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"Tx vs sigma with errors".png}
+\caption{X-ray temperature versus central velocity dispersion.  Purple X's represent temperatures of the galaxies in this study.  Fit in log space is $T_x = 10^{2.50*log\left(\frac{\sigma_c}{g\ cm^{-3}}\right) - 6.06} \text{  keV}$.}
+\label{fig:Tx_vs_sigma}
+\end{center}
+\end{figure}
+
+The local gas density ${\rho}$ surrounding the black hole is obtained from a simple isothermal beta model (\citet{1962AJ.....67..471K}, \citet{1976A&A....49..137C}, \citet{1978A&A....70..677C}):
 \begin{equation} \label{beta_model}
-    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3}.
+    \rho = \frac{\rho_0}{(1+r^2/r_c^2)^{1.5}} \text{  g cm}^{-3},
 \end{equation}
+where $\rho_0$ is as defined above, r is the black hole's distance from the center of the galaxy, and $r_c$ is the core radius.
 
-Gas sound speed, $c_s$, was obtained from:
-\begin{equation}
-    C_s = \sqrt{1.67T_x/m_p} \text{  km s}^{-1},
+The sound speed of the gas, $C_s$, is derived from the ideal gas law:
+\begin{equation}\label{gas_sound_speed}
+    C_s = \sqrt{1.67T_x*\expnumber{1.602}{-16}/m_p} \text{  km s}^{-1},
 \end{equation}
-where $m_p$ is the proton mass.
+where $m_p$ is the proton mass in kilograms.  Since $T_x$ is in keV, the factor of $\expnumber{1.602}{-16}$ is added to convert the temperature to Joules.
 
-The net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019MNRAS.486.5377I}:
-\begin{equation}
+The resulting net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019MNRAS.486.5377I}:
+\begin{equation}\label{net_accretion}
     \dot{M}_{acc} = f\frac{4{\pi}G^2M_\mathrm{BH}^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
-where f is a factor giving the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M$ is black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
+where f is a factor giving the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M_{BH}$ is black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
 
 Finally, the black hole x-ray luminosity is estimated from:
 \begin{equation}
     L_x = \epsilon_{rx}\dot{M}_{acc}c^2 \text{  erg s}^{-1},
 \end{equation}
-where the x-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_x{\sim}L_{Bol}$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$.
+where the x-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_x{\sim}L_{Bol}$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$, due to the higher net accretion onto the black hole as a result of cooling of the accretion disc and hence higher gas density.
 The Eddington limit is defined as:
 \begin{equation}
     L_{edd} = 1.26 \times 10^{38} (M/M_{\odot}) \text{  erg s}^{-1}.
 \end{equation}
 
-%\begin{figure}
-%\begin{center}
-%\includegraphics[width=0.45\%textwidth]{plots/"Final %Luminosities of Orbiting %BHs".png}
-%\caption{Luminosities of %Orbiting BHs at z=0}
-%\label{fig:loobhs}
-%\end{center}
-%\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"luminosities_final".png}
-\caption{Luminosity of orbiting BHs at z=0 as per Inayoshi (2019).}
-\label{fig:loobhs}
-\end{center}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
-\caption{Xray Luminosity Distribution of Orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes.}
-\label{fig:ldobhs}
-\end{center}
-\end{figure}
-
-
-\subsection{Central Black Hole Influence}
+\subsubsection{Central Black Hole Influence}
 Within the influence radius of the central black hole, which is defined as the radius at which the total mass of the galaxy within that radius (stars + dark matter) equals the mass of the central black hole, the gas density is much higher than otherwise, and equation \eqref{beta_model} cannot be used in the region where the BH Kepler potential dominates.  Starting with the equation for hydrostatic equilibrium, assuming isothermality,
 \begin{equation}
     C_{s}^2\frac{dln\rho}{dr}= -\frac{GM(r)}{r^2},
@@ -442,20 +444,41 @@ we can integrate with respect to r, leading to
 \end{equation}
 where $\rho$ is the gas density at the location of the wandering black hole, $\rho_1$ is the density at the radius where the central black hole mass equals the galaxy mass, $r$ is the distance of the wandering black hole from the center, and $r_1$ is the radius where the central black hole mass equals the galaxy mass.
 
-Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
+Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the 17 wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
-\caption{Difference in x-ray luminosity of wandering black holes within the influence radius of the central black hole.  Red dots are the originally calculated luminosity, not taking the CBH influence into account.  Green dots are the final luminosities, taking the central BH influence into account.}
+\caption{Difference in x-ray luminosity of wandering black holes within the influence radius of the central black hole.  For each vertical line, red (lower) dots are the originally calculated luminosity, not taking the CBH influence into account.  Green (upper) dots are the final luminosities, taking the central BH influence into account.}
 \label{fig:wui}
 \end{center}
 \end{figure}
+
+\subsubsection{Final X-ray Luminosities of Wandering Black Holes, and Expected Detection Spectra}
+Figure \ref{fig:loobhs} is an approximation of Figure 12 from \cite{2019MNRAS.486.5377I}, along with the final $L_{Bol}/L_{Edd}$ ratio of the wandering black holes from this study, although extended below $10^{-6}$ $\dot{M}_{B}/\dot{M}_{Edd}$ for the very low accretion-rate sources.  Indeed, such low luminosity sources are common, with some estimates of $L_{Bol}/L_{Edd}$ as low as $10^{-10}$ ( e.g., \citealt{2003ApJ...598..301Y}, \citealt{2004ApJ...613..322Q}, \citealt{2008ARA&A..46..475H}, \citealt{2009ApJ...699..626H}, \citealt{2018MNRAS.476.1412I}).  ANY REFERENCES TO SUPPORT HIGHER MdotB/MdotEdd and LBOL/LEDD???  NOT SURE WHAT ELSE TO ADD HERE REGARDING POTENTIAL FOR DETECTION.
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"luminosities_final".png}
+\caption{Approximation of Figure 12 from \citealt{2019MNRAS.486.5377I}. Black "X"s represent black holes in this study.}
+\label{fig:loobhs}
+\end{center}
+\end{figure}
+
+Figure \ref{fig:ldobhs} represents a histogram of the final x-ray luminosities of the black holes, overlaid by a lognormal distribution.  
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
+\caption{Xray Luminosity Distribution of Orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes.}
+\label{fig:ldobhs}
+\end{center}
+\end{figure}
+
+The orbiting black holes should be detectable via their anomalous soft x-ray spectra.  Sgr A*, the black hole at the center of the Milky Way Galaxy, has been observed to fit a power law spectrum with photon index $\Gamma\sim2.7^{+1.3}_{-1.9}$ \citet{2003ApJ...591..891B}.  Conversely low-mass x-ray binaries (LMXRB) have been fit to a power law spectrum with $\Gamma\sim1.5-2.0$ (\citet{2018Natur.556...70H}.
 
 \section{Conclusions}\label{sec:conclusions}
 We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < 3$\times$ $10^{13}$ M$_{\sun}$, from 4 $\gid$ z $\gid$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy's resident black hole, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had x-ray luminosities in the range of $10^{25}-10^{43}$ $erg\ s^{-1}$.  The median luminosity of $10^{32} erg\ s^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.
 
 \section{Acknowledgements}
-The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
+The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. We also thank Renyue Cen, Pieter van Dokkum, Charles Hailey, Zoltan Haiman, Kohei Inayoshi, Sean McWilliams, and Taeho Ryu for useful discussions and insights.  AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
