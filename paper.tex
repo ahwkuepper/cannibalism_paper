@@ -76,7 +76,7 @@ $^{2}$QuantCo, Inc., 955 Massachusetts Avenue, Cambridge, MA 02139, USA\\
 $^{3}$Hubble Fellow\\
 }
 % These dates will be filled out by the publisher
-\date{Last updated 2020 Jan 16; in original form 2020 Jan 16}
+\date{Last updated 2020 Jan 27; in original form 2020 Jan 27}
 
 % Enter the current year, for the copyright statements etc.
 \pubyear{2019}
@@ -91,7 +91,7 @@ $^{3}$Hubble Fellow\\
 
 
 \begin{abstract}
-We perform follow-up N-body simulations on some of the most massive galaxies extracted from a cosmological simulation of hierarchical structure formation with total masses in the range $10^{12} M_{\sun} < M < 3\times 10^{13} M_{\sun}$ from $4\geq z \geq 0$.  After galactic mergers, we track the dynamical evolution of the infalling black holes (BHs) around their host's central BHs.  From 11 different simulations, we find that, of the 86 infalling BHs with masses > $10^4 M_{\sun}$, 36 merge with their host's central BH, 13 are ejected from their host galaxy, and 37 are still orbiting at $z=0$.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BH binary or multiple, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The X-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{27}-10^{43}$ $\mathrm{erg}~\mathrm{s}^{-1}$, with a currently undetectable median value of $10^{33}$ $\mathrm{erg}~\mathrm{s}^{-1}$.  However, the most luminous $\sim$5\% should be detectable by existing X-ray facilities.
+We perform follow-up N-body simulations on some of the most massive galaxies extracted from a cosmological simulation of hierarchical structure formation with total masses in the range $10^{12} M_{\sun} < M < 3\times 10^{13} M_{\sun}$ from $4\geq z \geq 0$.  After galactic mergers, we track the dynamical evolution of the infalling black holes (BHs) around their host's central BHs.  From 11 different simulations, we find that, of the 86 infalling BHs with masses > $10^4 M_{\sun}$, 36 merge with their host's central BH, 13 are ejected from their host galaxy, and 37 are still orbiting at $z=0$.  Across all galaxies, 33 BHs are kicked to a higher orbit after close interactions with the central BH binary or multiple, after which only one of them merged with their hosts.  These orbiting BHs should be detectable by their anomalous (not LMXRB) spectra.  The X-ray luminosities of the orbiting massive BHs at z=0 are in the range $10^{28}-10^{43}$ $\mathrm{erg}~\mathrm{s}^{-1}$, with a currently undetectable median value of $10^{33}$ $\mathrm{erg}~\mathrm{s}^{-1}$.  However, the most luminous $\sim$5\% should be detectable by existing X-ray facilities.
 \end{abstract}
 
 
@@ -424,17 +424,17 @@ The sound speed of the gas, $C_s$, is derived from the ideal gas law:
 \end{equation}
 where $m_p$ is the proton mass in kilograms.  Since $T_x$ is in keV, the factor of $\expnumber{1.602}{-16}$ is added to convert the temperature to Joules.
 
-The resulting net black hole mass accretion rate is approximated by \citet{2018MNRAS.476.1412I} and \citet{2019MNRAS.486.5377I}:
+The resulting net black hole mass accretion rate is approximated by \citet{1944MNRAS.104..273B} and \citet{1952MNRAS.112..195B}:
 \begin{equation}\label{net_accretion}
     \dot{M}_{acc} = f\frac{4{\pi}G^2M_\mathrm{BH}^2\rho}{(C_s^2+v^2)^{3/2}} \text{  M}_\odot \text{ Myr}^{-1},
 \end{equation}
-where f is a factor giving the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M_{BH}$ is the black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
+where the additional factor $f$ (see \cite{2018MNRAS.476.1412I} and \cite{2019MNRAS.486.5377I}) gives the decline in accretion, interior to the BH radius due to convective (i.e., inefficient) accretion, as calculated in \citet{2019MNRAS.486.5377I}, cf. eq 13.  Additionally, $M_{BH}$ is the black hole mass, $G$ is the gravitational constant, and $v$ is the black hole velocity.
 
 Finally, the black hole X-ray luminosity is estimated from:
 \begin{equation}
     L_x = \epsilon_{rx}\dot{M}_{acc}c^2 \text{  erg s}^{-1},
 \end{equation}
-where the X-ray radiative efficiency ${\epsilon}_{rx}=0.01$, and we are assuming for the low-luminosity sources that $L_x{\sim}L_{Bol}$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$, due to the higher net accretion onto the black hole as a result of cooling of the accretion disc and hence higher gas density.
+where the X-ray radiative efficiency ${\epsilon}_{rx}=0.01$ , and we are assuming for the low-luminosity sources that $L_x{\sim}L_{Bol}$.  For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$, due to the higher net accretion onto the black hole as a result of cooling of the accretion disc and hence higher gas density.
 The corresponding Eddington limit is defined as:
 \begin{equation}
     L_{edd} = 1.26 \times 10^{38} (M/M_{\odot}) \text{  erg s}^{-1}.
