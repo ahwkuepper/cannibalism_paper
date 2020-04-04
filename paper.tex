@@ -354,7 +354,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \vspace{20pt}%
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
-\caption{X-ray luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
+\caption{X-ray thermal luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
 \label{fig:galgas1}
 \end{center}
 \end{figure}
@@ -363,8 +363,8 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \section{Signatures of Orbiting Black Holes}
 The large fraction of orbiting black holes predicted by our simulations motivates a back-of-the-envelope calculation to see if orbiting black holes produce detectable signatures. In the following section, we estimate the X-ray thermal luminosities due to gas accreted by these BHs while orbiting through their host galaxies.
 
-\subsection{Galaxy Gas X-Ray Luminosity}
-First, we construct realistic X-ray luminosities for our host galaxies. We compute the X-ray luminosity of the hot gas in these galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
+\subsection{Galaxy Gas X-Ray Thermal Luminosity}
+First, we construct realistic X-ray thermal luminosities for our host galaxies. We compute the X-ray thermal luminosity of the hot gas in these galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
 \begin{equation}
 \begin{aligned}
     L_x ={} \frac{1.2 \times 10^{-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
@@ -374,7 +374,7 @@ First, we construct realistic X-ray luminosities for our host galaxies. We compu
 
 The integral evaluates to ${\pi}r_c^3/16$.  $m_p$ is the mass of a proton and $\mu$ is the mean molecular weight.  To calculate $\mu$, we use metallicity $Z=2Z_{\odot}=0.0268$, mass fraction of Helium $Y=Y_{\odot}=0.2485$, and mass fraction of Hydrogen $X=0.7247$.  This results in $\mu=0.606$. The resulting X-ray thermal luminosities are shown in Figures \ref{fig:galgas1} and compared against a sample from \citet{2018ApJ...857...32B}.
 
-\subsection{Black Hole X-Ray Luminosity}
+\subsection{Black Hole X-Ray Thermal Luminosity}
 \subsubsection{Assumptions and Method Employed}
 Since we model the black holes in this work as point particles for purposes of the simulations, we do not assume any particular structure to them.  Therefore, we adopt the approach and assumptions from \citealt{2018MNRAS.476.1412I} and \citealt{2019MNRAS.486.5377I} in estimating the X-ray luminosities of the remaining black holes left wandering in our subject galaxies.  Their approach assumes rotating accretion flows in a very low-density environment.  Shear viscous forces transport angular momentum outwards, resulting in an accretion disc that forms at the bottom of the distribution.  However, due to the low density of the gas, it does not cool, and convection limits the net accretion, and subsequent radiation luminosity, of the black hole.  In such a convective infall, the gas finally accreted onto the black hole is much less than the initially infalling gravitationally bound gas.
 
@@ -440,13 +440,13 @@ However, due to convective (i.e., inefficient) accretion interior to the Bondi r
         \frac{\dot{M}_{\bullet}}{\dot{M}_{Edd}} \simeq 1.5\times10^{-6}T_7^{-4/5}\times\left(\frac{\alpha}{0.01}\right)^{0.37}\left(\frac{\dot{m}_B}{10^{-3}}\right)^{3/5}\left(\frac{f_c}{0.1}\right)^{2/5},
     \end{equation}
     \begin{equation}\label{mdotb}
-        \dot{m}_{B} = \dot{M}_{B}/\dot{M}_{Edd},
+        \dot{m}_{B} \equiv \dot{M}_{B}/\dot{M}_{Edd},
     \end{equation}
     \begin{equation}\label{edd_acc}
-        \dot{M}_{Edd} = \frac{L_{Edd}}{0.1c^2} \text{  g} \text{ s}^{-1},
+        \dot{M}_{Edd} \equiv \frac{L_{Edd}}{0.1c^2} \text{  g} \text{ s}^{-1},
     \end{equation}
     \begin{equation}\label{edd_lum}
-        L_{Edd} = 1.26\times10^{38}\left(\frac{M_{BH}}{M_{\odot}}\right)\;\text{erg}\;\text{s}^{-1}.
+        L_{Edd} \equiv 1.26\times10^{38}\left(\frac{M_{BH}}{M_{\odot}}\right)\;\text{erg}\;\text{s}^{-1}.
     \end{equation}
 \end{subequations}
 $\dot{M}_{\bullet}$ is the net accretion to the black hole, $T_7$ is the temperature of the ambient gas in units of $10^7\;K$, $\alpha$ is the strength of viscosity (generally accepted to be 0.01; see \citet{1973A&A....24..337S}, \citet{1991ApJ...376..214B}, \citet{1995ApJ...445..767M}, \citet{1996ApJ...463..656S}, \citet{1998RvMP...70....1B}, \citet{2004PThPS.155..409S}, \cite{2018MNRAS.476.1412I}), and $f_c$ is the conductivity suppression factor (generally accepted to be 0.1; see \citet{2001ApJ...562L.129N}, \citet{2004PhRvL..92d5001M}, and \cite{2019MNRAS.486.5377I}).  The Eddington accretion rate is $\dot{M}_{Edd}$, $c$ is the speed of light, and $L_{Edd}$ is the Eddington luminosity.
@@ -486,7 +486,7 @@ Figure \ref{fig:wui} shows the difference in luminosity when taking into account
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
-\caption{Difference in X-ray luminosity of wandering black holes within the influence radius of the central black hole.  For each vertical line, red (lower) dots are the originally calculated luminosity, not taking the CBH influence into account.  Green (upper) dots are the final luminosities, taking the central BH influence into account.}
+\caption{Difference in X-ray thermal luminosity of wandering black holes within the influence radius of the central black hole.  For each vertical line, red (lower) dots are the originally calculated luminosity, not taking the CBH influence into account.  Green (upper) dots are the final luminosities, taking the central BH influence into account.}
 \label{fig:wui}
 \end{center}
 \end{figure}
@@ -505,7 +505,7 @@ Figure \ref{fig:ldobhs} represents a histogram of the final X-ray luminosities o
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
-\caption{X-ray Luminosity Distribution of Orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes. The dashed, red vertical line is the median X-ray luminosity of our sources ($1.0\times10^{33}\;\text{erg}\;\text{s}^{-1}$).}
+\caption{X-ray Thermal Luminosity Distribution of Orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes. The dashed, red vertical line is the median X-ray thermal luminosity of our sources ($1.0\times10^{33}\;\text{erg}\;\text{s}^{-1}$).}
 \label{fig:ldobhs}
 \end{center}
 \end{figure}
@@ -513,7 +513,7 @@ Figure \ref{fig:ldobhs} represents a histogram of the final X-ray luminosities o
 The orbiting black holes should be detectable via their anomalous soft X-ray spectra.  Sgr A*, the black hole at the center of the Milky Way Galaxy, has been observed to fit a power law spectrum with photon index $\Gamma\sim2.7^{+1.3}_{-1.9}$ \citet{2003ApJ...591..891B}.  Conversely low-mass X-ray binaries (LMXRB) have been fit to a power law spectrum with $\Gamma\sim1.5-2.0$ (\citet{2018Natur.556...70H}, and we expect our orbiting sources to be more similar to Sgr A* than to normal LMXRBs.
 
 \section{Conclusions}\label{sec:conclusions}
-We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < 3$\times$ $10^{13}$ M$_{\sun}$, from 4 $\geq$ z $\geq$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy's resident black hole, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had X-ray luminosities in the range of $10^{28}-10^{43}\mathrm{erg}~\mathrm{s}^{-1}$.  The median luminosity of $10^{33}\mathrm{erg}~\mathrm{s}^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.
+We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < 3$\times$ $10^{13}$ M$_{\sun}$, from 4 $\geq$ z $\geq$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy's resident black hole, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had X-ray luminosities in the range of $10^{28}-10^{43}\mathrm{erg}~\mathrm{s}^{-1}$.  The median luminosity of $10^{33}\mathrm{erg}~\mathrm{s}^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.  If detected, these orbiting massive black holes would constitute a new category of X-ray source.
 
 \section{Acknowledgements}
 The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. We also thank Renyue Cen, Pieter van Dokkum, Charles Hailey, Zoltan Haiman, Kohei Inayoshi, Sean McWilliams, Taeho Ryu and Nick Stone for useful discussions and insights.  AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
