@@ -236,7 +236,7 @@ We also give $r_c$ an initial value of 100 pc, which is reasonable for a cored m
 At each timestep in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker based on conservation of energy.
 
 \subsubsection{Phase-space diffusion} \label{psd}
-Much of this subsection was borrowed from \citet{2017MNRAS.467.4180S}, Section E1, which made use the same modified version of \textsc{AR-Chain}.
+Much of this subsection was borrowed from \citet{2017MNRAS.467.4180S}, Section E1, which made use of the same modified version of \textsc{AR-Chain}.
 
 Weak encounters with background stars and dark-matter particles will let the SMBHs diffuse through phase space while they are orbiting within the gravitational potential of the galaxy. The diffusion can be expressed as change in velocity of an SMBH by $\Delta \vec{v}$ per unit time. We can split this change into a component along the direction of motion of the SMBH, and one perpendicular to that. Following \citet{2008gady.book.....B}, the diffusion coefficients can be expressed as 
 \begin{eqnarray}\label{eq:df}
