@@ -4,11 +4,11 @@
 %
 % v3.0 released 22 May 2015
 % (version numbers match those of mnras.cls)
-%
 % Copyright (C) Royal Astronomical Society 2015
 % Authors:
 % Keith T. Smith (Royal Astronomical Society)
 
+%
 % Change log
 %
 % v3.0   September 2013 - May 2015
@@ -119,16 +119,7 @@ For this study, we look at the merger history of 11 exemplary galaxies across th
 This paper is organized as follows: in Section\,\ref{sec:methods} we describe the cosmological simulations from which we use the merger history to set up our idealized numerical simulations. We present the few-body integration code, \textsc{AR-Chain} that we used for our simulations of SMBH dynamics, and the modifications we made to this code in order to deal with a host galaxy's gravitational potential. In Section\,\ref{sec:results}, we show the results of our 11 exemplary simulations of galaxies growing with time and acquiring new SMBHs. We analyze how the SMBHs spiral into the core of their new host galaxies due to dynamical friction, and how interactions with the host black hole and other orbiting BHs leads to near-ejections or mergers. We then estimate the X-ray luminosities expected of the orbiting black holes.  The final Section\,\ref{sec:conclusions} contains a discussion of the results and our conclusions.
 
 \section{Methods}\label{sec:methods}
-%\begin{figure}
-%\begin{center}
-%\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_1.png}
-%\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_65.png}\\
-%\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_187.png}
-%\includegraphics[width=0.45\textwidth]{plots/Masses_plot_galaxy_217.png}\\
-%\caption{default}
-%\label{default1}
-%\end{center}
-%\end{figure*}
+
 
 \subsection{Overview of simulation}
 The computational challenge of this investigation is a wide range of time-scales. Galactic evolution and galactic orbits take hundreds of millions to billions of years, while orbital times of BH binaries may require time steps of years for accurate integration. We overcome this challenge by simplifying the model where possible, and by focussing on the main drivers of BH dynamics: the galactic background potential, dynamical friction, and strong BH-BH encounters.
@@ -145,7 +136,7 @@ The merger tree data we used as the input to our simulations is the result of pr
 
 \citet{2012MNRAS.425..641L}, using \citet{2011ApJ...741...99C}'s work as a basis, created galactic merger trees that compared the properties of in-situ and accreted stellar mass of galaxies at redshift snapshots between $4\geq z \geq0$.
 
-\citet{2015ApJ...799..178K} furthered the merger tree data produced by \citet{2012MNRAS.425..641L} by estimating the evolution of the SMBH population.  They assume growth of SMBHs to be proportional to that of the bulge stellar mass of the galaxies.  They further assume a constant relation between bulge and total stellar mass at all redshifts, although some observations suggest that the bulge mass fraction for a fixed stellar mass should increase with decreasing redshift (\citet{2012MNRAS.423.1992S}, \citet{2013MNRAS.428.1351G}, \citet{2014MNRAS.441..417A}), with the result that their SMBHs grow faster at high redshift than would be expected in reality.
+\citet{2015ApJ...799..178K} furthered the merger tree data produced by \citet{2012MNRAS.425..641L} by estimating the evolution of the SMBH population.  They assume growth of SMBHs to be proportional to that of the bulge stellar mass of the galaxies.  They further assume a constant relation between bulge and total stellar mass at all redshifts, although some observations suggest that the bulge mass fraction for a fixed stellar mass should increase with decreasing redshift (\citealt{2012MNRAS.423.1992S, 2013MNRAS.428.1351G, 2014MNRAS.441..417A}), with the result that their SMBHs grow faster at high redshift than would be expected in reality.
 
 The primary data we extracted from the above work was organized as follows:
 \begin{itemize}
@@ -176,7 +167,7 @@ Figure \ref{fig:stellar1} is a partial, approximate, replication of Figure 11 fr
 
 \begin{figure}
 %\begin{center}
-\includegraphics[width=0.5\textwidth]{plots/stellar_to_halo_ratio.png}
+\includegraphics[width=1.0\columnwidth]{plots/stellar_to_halo_ratio.png}
 \caption{Approximation of Figure 11 from \citet{2018AstL...44....8K}.  $f_\mathrm{bary}$ is the universal baryon fraction as a function of total halo mass.  Purple dots shown are examples of our rescaled stellar masses.  We rescaled our stellar masses at $z=0$ by using a lognormal distribution.  For a given galaxy's dark matter mass, the mean of the distribution was taken to be the point on the abundance matching line at that dark matter mass.  The standard deviation of that mean was taken arbitrarily to be 0.3.}
 \label{fig:stellar1}
 %\end{center}
@@ -216,24 +207,24 @@ To model the dark matter halo distribution in our simulations, we used the Stone
 \end{equation}
 Here $\rho_c$ is the central density, $r_c$ is the core radius, and $r_h$ is the outer halo radius.
 
-The central density, $\rho_c$, can be found from inverting Equation 5 in Stone and Ostriker 2015 for the galaxy's total mass:
+The central density, $\rho_c$, can be found from inverting Equation 5 in  \citet{2015ApJ...806L..28S} for the galaxy's total mass:
 
 \begin{equation} \label{rhoc}
 M_{DM} = \frac{2\pi^2r_{c}^2r_{h}^2\rho_c}{r_h+r_c}.
 \end{equation}
 
-In order to parameterize $r_c$ and $r_h$, we can utilize the relationship between the distribution of light and stellar velocity dispersion at the effective radius, and the shape of the dark matter profile.  The effective radius $R_{e}$ and velocity dispersion at the effective radius $\sigma(R_e)$, respectively, can be obtained from (\citet{2009ApJ...706L..86N}, \citet{2010ApJ...725.2312O}, \citet{2014ApJ...789..156M}):
+In order to parameterize $r_c$ and $r_h$, we can utilize the relationship between the distribution of light and stellar velocity dispersion at the effective radius, and the shape of the dark matter profile.  The effective radius $R_{e}$ and velocity dispersion at the effective radius $\sigma(R_e)$, respectively, can be obtained from (\citealt{2009ApJ...706L..86N, 2010ApJ...725.2312O, 2014ApJ...789..156M}):
 
 \begin{equation} \label{re}
 R_{e} = 2.5 \mathrm{kpc}\left(\frac{M_*}{10^{11}M_{\odot}}\right)^{0.73}(1+z)^{-0.98},
 \end{equation}
 \begin{equation} \label{sig}
-\sigma(R_{e}) = 190\mathrm{km}\;\mathrm{s}^{-1}\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47},
+\sigma(R_{e}) = 190\mathrm{km}\;\mathrm{s}^{-1}\left(\frac{M_{*}}{10^{11}M_{\odot}}\right)^{0.2}(1+z)^{0.47}.
 \end{equation}
 
-We also give $r_c$ an initial value of 100 pc, which is reasonable for a cored massive system.  We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma$ in the Stone-Ostriker profile (cf. Equations 9 and A1-A4 in \cite{2015ApJ...806L..28S}).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from Stone-Ostriker is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
+We also give $r_c$ an initial value of 100 pc, which is reasonable for a cored massive system.  We can then equate the value for $\sigma({R_e})$ obtained from Equation \ref{sig} to the analytic expressions for $\sigma$ in the Stone-Ostriker profile (cf. Equations 9 and A1-A4 in \citealt{2015ApJ...806L..28S}).  The only unknown is $r_h$, which we can solve for using a simple recursive Newton method.  Whether $\sigma_{near}$ or $\sigma_{far}$ is used from \cite{2015ApJ...806L..28S} is determined by whether $R_e$ is less than or greater than $\sqrt{r_c r_h}$.
 
-At each timestep in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in Stone-Ostriker based on conservation of energy.
+At each timestep in the code, $r_h$ is updated according to the stellar mass and Equations \ref{re} and \ref{sig}.  The core radius, $r_c$, is recalculated only if an orbiting black hole enters within $r_c$.  The work done by diffusion, as described in Section \ref{psd} is calculated, the total potential energy and dynamical friction are updated, and $r_c$ is solved for from Equation 8 in \citet{2015ApJ...806L..28S} based on conservation of energy.
 
 \subsubsection{Phase-space diffusion} \label{psd}
 Much of this subsection was borrowed from \citet{2017MNRAS.467.4180S}, Section E1, which made use of the same modified version of \textsc{AR-Chain}.
@@ -274,18 +265,18 @@ E &=& T + W = \frac{1}{2}W,\\
 where we made use of the virial theorem $2T+W =0$. With this change in potential energy we can calculate a new radius for the galactic background potential at each integration step. For simplicity, we assumed that the relatively low mass of the infalling black holes compared to the core mass of the host galaxies would only affect the size of the core radius, and hence ignored the feedback effect when the black holes were outside of the core radius.
 
 \subsubsection{Gravitational wave recoils and escape}
-The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in \citet{2015ApJ...799..178K}, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than the Schwarzschild radius. At the moment of the merger, we also assume that the spin vectors of the two SBHs are randomly aligned.
+The code \textsc{AR-Chain} includes post-Newtonian terms up to order 2.5. The SMBHs can therefore merge via gravitational wave emission. We include gravitational wave recoils following the prescription outlined in \citet{2015ApJ...799..178K}, which is based on the fitting formula by \citet{2012PhRvD..85h4015L}.  We assume that a merger will be inevitable when the separation between two SMBHs becomes smaller than four times the Schwarzschild radius of the more massive black hole. At the moment of the merger, we also assume that the spin vectors of the two SMBHs are randomly aligned.
 
 A result of the anisotropic emission of gravitational waves is that the merged binary often experiences a linear kick in the opposite direction of the emission of the GW due to conservation of linear momentum. This kick can result in velocities of the merged binary from approximately $200-5000\ km\ s^{-1}$ (see \citealt{2007PhRvL..98w1101G, 2007PhRvL..98i1101G, 2007PhRvL..98w1102C, 2011PhRvL.107w1102L}).  In our simulations, the binaries never stray more than a few tens of parsecs from the nucleus of the host galaxies.
 
-Black holes can also eject each other via strong three-body interactions. We remove SBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
+Black holes can also eject each other via strong three-body interactions. We remove SMBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
 \subsection{Simulation setup}\label{subsec:simset}
 For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
     t_{fric} = \frac{19}{6}\left(\frac{R_\mathrm{e}}{5\mathrm{kpc}}\right)^2\frac{\sigma(R_\mathrm{e})}{200\mathrm{km}\,\mathrm{s}^{-1}}\frac{10^8\,M_{\odot}}{M_\mathrm{BH}} \text{  Gyr},
 \end{equation}
-The orbiting black holes were injected into their host galaxy at redshift $z$, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be circular, $v_c = \sqrt{GM(R_e)/R_e}$, with $v_x$, $v_y$, and $v_z$ randomly chosen.
+The orbiting black holes were injected into their host galaxy at redshift $z$, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be the circular velocity at that radius, $v_c = \sqrt{GM(R_e)/R_e}$, with orientation, $v_x$, $v_y$, and $v_z$, randomly chosen.
 
 \section{Simulation Results}\label{sec:results}\label{sec:results_overview}
 Here we review the primary results of our simulations, focusing on the various interactions of the orbiting black holes with their host SMBHs. In the next section, we will investigate the luminosity characteristics of the orbiting black holes that did not merge at $z=0$.
@@ -312,7 +303,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Summary Results All Galaxies".png}
+\includegraphics[width=1.0\columnwidth]{plots/"Summary Results All Galaxies".png}
 \caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Ejected black holes span almost the entire mass range, while lower-mass black holes are orbiting and higher mass black holes tended to merge.  Colored arrows along upper x-axis represent median masses of respective sets.  Histogram bars are stacked.}
 \label{fig:meosmbh}
 \end{center}
@@ -320,7 +311,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/q_merger_fraction.png}
+\includegraphics[width=1.0\columnwidth]{plots/q_merger_fraction.png}
 \caption{Fraction of BHs that merge with the central BH as a function of the BH mass ratio.  Each point represents the fraction of galaxy mergers that led to BH mergers for each BH merger ratio bin.  Note that a "bin" at each point is comprised of the mass ratio at that point up to, but not including, the next point on the x-axis.}
 \label{fig:q_merge_fraction}
 \end{center}
@@ -328,7 +319,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/time_to_merge.png}
+\includegraphics[width=1.0\columnwidth]{plots/time_to_merge.png}
 \caption{Time required for BHs to merge with host SMBH after galaxy merger.  Form for fitted line is $-0.379M_{BH}+5.766$ in log-log space.}
 \label{fig:time_to_merge}
 \end{center}
@@ -336,7 +327,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/kicked_stats.png}
+\includegraphics[width=1.0\columnwidth]{plots/kicked_stats.png}
 \caption{Histogram of kicked and not-kicked SMBHs at z=0.  Colored arrows along upper x-axis represent median masses of respective sets.  Histograms are stacked.}
 \label{fig:kicked_stats}
 \end{center}
@@ -344,8 +335,8 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Final Radius v Mass of Orbiting BHs".png}
-\caption{Final Radii of remaining orbital black holes at z=0.  Kicked black holes generally had a low likelihood of finding their way back to the center by z=0.  There is a slight inverse relationship between BH mass and final distance from center (solid line).}
+\includegraphics[width=1.0\columnwidth]{plots/"Final Radius v Mass of Orbiting BHs".png}
+\caption{Final radii of remaining orbital black holes at z=0.  Kicked black holes generally had a low likelihood of finding their way back to the center by z=0.  There is a slight inverse relationship between BH mass and final distance from center (solid line).}
 \label{fig:mvr}
 \end{center}
 \end{figure}
@@ -353,7 +344,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
+\includegraphics[width=1.0\columnwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
 \caption{X-ray thermal luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
 \label{fig:galgas1}
 \end{center}
@@ -361,7 +352,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 
 \section{Signatures of Orbiting Black Holes}
-The large fraction of orbiting black holes predicted by our simulations motivates a back-of-the-envelope calculation to see if orbiting black holes produce detectable signatures. In the following section, we estimate the X-ray thermal luminosities due to gas accreted by these BHs while orbiting through their host galaxies.
+The large fraction of orbiting black holes found in our simulations motivates a back-of-the-envelope calculation to see if orbiting black holes produce detectable signatures. In the following section, we estimate the X-ray thermal luminosities due to gas accreted by these BHs while orbiting through their host galaxies.
 
 \subsection{Galaxy Gas X-Ray Thermal Luminosity}
 First, we construct realistic X-ray thermal luminosities for our host galaxies. We compute the X-ray thermal luminosity of the hot gas in these galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
@@ -400,7 +391,7 @@ The dispersion of the X-ray temperature data around the fit is approximately 1-1
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"rho_0 vs sigma with errors".png}
+\includegraphics[width=1.0\columnwidth]{plots/"rho_0 vs sigma with errors".png}
 \caption{Central gas density versus central velocity dispersion.  Purple X's represent central gas densities of the galaxies in this study.  Fit in log space is $\rho_0 = 10^{0.6*\log\left(\frac{\sigma_c}{km\ s^{-1}}\right) - 25} \text{  g cm}^{-3}$.}
 \label{fig:rho0_vs_sigma}
 \end{center}
@@ -409,7 +400,7 @@ The dispersion of the X-ray temperature data around the fit is approximately 1-1
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Tx vs sigma with errors".png}
+\includegraphics[width=1.0\columnwidth]{plots/"Tx vs sigma with errors".png}
 \caption{X-ray temperature versus central velocity dispersion.  Purple X's represent temperatures of the galaxies in this study.  Fit in log space is $T_x = 10^{2.50*\log\left(\frac{\sigma_c}{km\ s^{-1}}\right) - 6.06} \text{  keV}$.}
 \label{fig:Tx_vs_sigma}
 \end{center}
@@ -428,13 +419,13 @@ The sound speed of the gas, $C_s$, is derived from the ideal gas law:
 where $m_p$ is the proton mass in kilograms.  Since $T_x$ is in keV, the factor of $1.602\times10^{-16}$ is added to convert the temperature to Joules.
 
 \subsubsection{Black Hole Mass Accretion and Luminosity}
-At large distances, the black hole mass accretion rate is governed by the Bondi-Hoyle formula (\citet{1944MNRAS.104..273B} and \citet{1952MNRAS.112..195B}):
+At large distances, the black hole mass accretion rate is governed by the Bondi-Hoyle formula (\citealt{1944MNRAS.104..273B} and \citealt{1952MNRAS.112..195B}):
 \begin{equation}\label{net_accretion}
     \dot{M}_{B} = \frac{4{\pi}G^2M_\mathrm{BH}^2\rho}{(C_s^2+v^2)^{3/2}} \text{  g}\text{ s}^{-1},
 \end{equation}
 where $\rho$ is the density of the surrounding gas, $C_s$ is the gas sound speed, and $v$ is the velocity of the black hole.
 
-However, due to convective (i.e., inefficient) accretion interior to the Bondi radius (see \cite{2018MNRAS.476.1412I} and \cite{2019MNRAS.486.5377I}), the net accretion to the black hole is often substantially lower than the Bondi-Hoyle accretion.  It can be inferred from the fitting relation given in Equation 31 of \cite{2019MNRAS.486.5377I}:
+However, due to convective (i.e., inefficient) accretion interior to the Bondi radius (see \citealt{2018MNRAS.476.1412I} and \citealt{2019MNRAS.486.5377I}), the net accretion to the black hole is often substantially lower than the Bondi-Hoyle accretion.  It can be inferred from the fitting relation given in equation 31 of \cite{2019MNRAS.486.5377I}:
 \begin{subequations}
     \begin{equation}\label{inayoshi_accretion}
         \frac{\dot{M}_{\bullet}}{\dot{M}_{Edd}} \simeq 1.5\times10^{-6}T_7^{-4/5}\times\left(\frac{\alpha}{0.01}\right)^{0.37}\left(\frac{\dot{m}_B}{10^{-3}}\right)^{3/5}\left(\frac{f_c}{0.1}\right)^{2/5},
@@ -449,7 +440,7 @@ However, due to convective (i.e., inefficient) accretion interior to the Bondi r
         L_{Edd} \equiv 1.26\times10^{38}\left(\frac{M_{BH}}{M_{\odot}}\right)\;\text{erg}\;\text{s}^{-1}.
     \end{equation}
 \end{subequations}
-$\dot{M}_{\bullet}$ is the net accretion to the black hole, $T_7$ is the temperature of the ambient gas in units of $10^7\;K$, $\alpha$ is the strength of viscosity (generally accepted to be 0.01; see \citet{1973A&A....24..337S}, \citet{1991ApJ...376..214B}, \citet{1995ApJ...445..767M}, \citet{1996ApJ...463..656S}, \citet{1998RvMP...70....1B}, \citet{2004PThPS.155..409S}, \cite{2018MNRAS.476.1412I}), and $f_c$ is the conductivity suppression factor (generally accepted to be 0.1; see \citet{2001ApJ...562L.129N}, \citet{2004PhRvL..92d5001M}, and \cite{2019MNRAS.486.5377I}).  The Eddington accretion rate is $\dot{M}_{Edd}$, $c$ is the speed of light, and $L_{Edd}$ is the Eddington luminosity.
+$\dot{M}_{\bullet}$ is the net accretion to the black hole, $T_7$ is the temperature of the ambient gas in units of $10^7\;K$, $\alpha$ is the strength of viscosity (generally accepted to be 0.01; see \citealt{1973A&A....24..337S, 1991ApJ...376..214B, 1995ApJ...445..767M, 1996ApJ...463..656S, 1998RvMP...70....1B, 2004PThPS.155..409S, 2018MNRAS.476.1412I}), and $f_c$ is the conductivity suppression factor (generally accepted to be 0.1; see \citealt{2001ApJ...562L.129N, 2004PhRvL..92d5001M}, and \citealt{2019MNRAS.486.5377I}).  The Eddington accretion rate is $\dot{M}_{Edd}$, $c$ is the speed of light, and $L_{Edd}$ is the Eddington luminosity.
 
 Given the above, we estimate the bolometric luminosity of the black holes as:
 \begin{subequations}
@@ -466,7 +457,7 @@ Given the above, we estimate the bolometric luminosity of the black holes as:
         \end{split}
     \end{equation}
 \end{subequations}
-where $\dot{m}=\dot{M_{\bullet}}/\dot{M}_{Edd}$, and $\epsilon$ is the radiative efficiency (cf. Equation 13 in \citet{2019MNRAS.486.5377I}).  The fitted values are $a_0=-0.807$, $a_1=0.27$, $a_n=0$ ($n\geq2$), $b_0=-1.749$, $b_1=-0.267$, $b_2=-0.07492$, and $b_n=0$ ($n\geq3$).
+where $\dot{m}=\dot{M_{\bullet}}/\dot{M}_{Edd}$, and $\epsilon$ is the radiative efficiency (cf. Equation 13 in \citealt{2019MNRAS.486.5377I}).  The fitted values are $a_0=-0.807$, $a_1=0.27$, $a_n=0$ ($n\geq2$), $b_0=-1.749$, $b_1=-0.267$, $b_2=-0.07492$, and $b_n=0$ ($n\geq3$).
 
 For sources having $\dot{M}_B/\dot{M}_{Edd} > 10^{-3}$, we take $L_x=0.1L_{Bol}$, due to the higher net accretion onto the black hole as a result of cooling of the accretion disc and hence higher gas density.  For those having $\dot{M}_B/\dot{M}_{Edd} < 10^{-3}$, we take $L_x=L_{Bol}$.
 
@@ -485,7 +476,7 @@ where $\rho$ is the gas density at the location of the wandering black hole, $\r
 Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the 17 wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
+\includegraphics[width=1.0\columnwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
 \caption{Difference in X-ray thermal luminosity of wandering black holes within the influence radius of the central black hole.  For each vertical line, red (lower) dots are the originally calculated luminosity, not taking the CBH influence into account.  Green (upper) dots are the final luminosities, taking the central BH influence into account.}
 \label{fig:wui}
 \end{center}
@@ -495,28 +486,28 @@ Figure \ref{fig:wui} shows the difference in luminosity when taking into account
 Figure \ref{fig:loobhs} is an approximation to Figure 12 from \cite{2019MNRAS.486.5377I}, along with the final $L_{Bol}/L_{Edd}$ ratio of the wandering black holes from this study, although extended below $10^{-6}$ $\dot{M}_{B}/\dot{M}_{Edd}$ for the very low accretion-rate sources.  Indeed, such low luminosity sources are common, with some estimates of $L_{Bol}/L_{Edd}$ as low as $10^{-10}$ ( e.g., \citealt{2003ApJ...598..301Y}, \citealt{2004ApJ...613..322Q}, \citealt{2008ARA&A..46..475H}, \citealt{2009ApJ...699..626H}, \citealt{2018MNRAS.476.1412I}).
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"luminosities_final_final".png}
+\includegraphics[width=1.0\columnwidth]{plots/"luminosities_final_final".png}
 \caption{Approximation to Figure 12 from \citealt{2019MNRAS.486.5377I}. Black "o"s represent black holes in this study.  We also include observational results for Sgr A*, and BHs in M31 and M87.}
 \label{fig:loobhs}
 \end{center}
 \end{figure}
 
-Figure \ref{fig:ldobhs} represents a histogram of the final X-ray luminosities of the black holes, overlaid by a lognormal distribution, obtained with a mean $\mu=1.0\times10^{33}$ and standard deviation $\sigma=4.5\times10^{3}$.
+Figure \ref{fig:ldobhs} represents a histogram of the final X-ray luminosities of the black holes, overlaid by a lognormal distribution, obtained with a mean $\mu=1.0\times10^{33}\,\text{erg s}^{-1}$ and standard deviation $\sigma=4.5\times10^{3}\,\text{erg s}^{-1}$.
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{plots/"Final Luminosities using Kohei factor".png}
-\caption{X-ray Thermal Luminosity Distribution of Orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes. The dashed, red vertical line is the median X-ray thermal luminosity of our sources ($1.0\times10^{33}\;\text{erg}\;\text{s}^{-1}$).}
+\includegraphics[width=1.0\columnwidth]{plots/"Final Luminosities using Kohei factor".png}
+\caption{X-ray thermal luminosity distribution of orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes. The dashed, red vertical line is the median X-ray thermal luminosity of our sources ($1.0\times10^{33}\;\text{erg}\;\text{s}^{-1}$).}
 \label{fig:ldobhs}
 \end{center}
 \end{figure}
 
-The orbiting black holes should be detectable via their anomalous soft X-ray spectra.  Sgr A*, the black hole at the center of the Milky Way Galaxy, has been observed to fit a power law spectrum with photon index $\Gamma\sim2.7^{+1.3}_{-1.9}$ \citet{2003ApJ...591..891B}.  Conversely low-mass X-ray binaries (LMXRB) have been fit to a power law spectrum with $\Gamma\sim1.5-2.0$ (\citet{2018Natur.556...70H}, and we expect our orbiting sources to be more similar to Sgr A* than to normal LMXRBs.
+The orbiting black holes should be detectable via their anomalous soft X-ray spectra. Sgr A*, the black hole at the center of the Milky Way Galaxy, has been observed to fit a power law spectrum with photon index $\Gamma\sim2.7^{+1.3}_{-1.9}$ \citet{2003ApJ...591..891B}.  Conversely low-mass X-ray binaries (LMXRB) have been fit to a power law spectrum with $\Gamma\sim1.5-2.0$ (\citet{2018Natur.556...70H}, and we expect our orbiting sources to be more similar to Sgr A* than to normal LMXRBs.
 
 \section{Conclusions}\label{sec:conclusions}
 We performed N-body simulations on 11 galaxies ranging in mass between $10^{12}$ M$_{\sun}$ < M < 3$\times$ $10^{13}$ M$_{\sun}$, from 4 $\geq$ z $\geq$ 0.  A total of 86 orbiting black holes were followed in our simulations, resulting in 42$\%$ mergers with their host galaxy's resident black hole, while another 43$\%$ remained in orbit at $z=0$.  Those remaining orbiting black holes had X-ray luminosities in the range of $10^{28}-10^{43}\mathrm{erg}~\mathrm{s}^{-1}$.  The median luminosity of $10^{33}\mathrm{erg}~\mathrm{s}^{-1}$ would be undetectable with present instruments, although the top $5\%$ most luminous from this set could be detectable.  If detected, these orbiting massive black holes would constitute a new category of X-ray source.
 
 \section{Acknowledgements}
-The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data. We also thank Renyue Cen, Pieter van Dokkum, Charles Hailey, Zoltan Haiman, Kohei Inayoshi, Sean McWilliams, Taeho Ryu and Nick Stone for useful discussions and insights.  AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
+The authors would like to thank Andrea Kulier and Claire Lackner for providing merger tree data, and Seppo Mikkola for making his \textsc{AR-Chain} code available. We also thank Renyue Cen, Pieter van Dokkum, Charles Hailey, Zoltan Haiman, Kohei Inayoshi, Sean McWilliams, Taeho Ryu and Nick Stone for useful discussions and insights.  AHWK acknowledges support by NASA through Hubble Fellowship grant HST-HF-51323.01-A awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
