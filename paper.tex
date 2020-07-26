@@ -150,7 +150,7 @@ The merger tree data from \citet{2012MNRAS.425..641L} and \citet{2015ApJ...799..
 \item They had to have accumulated orbiting black holes by $z = 0$.
 \end{itemize}
 
-The above criteria narrowed the field of eligible galaxies down to 51.  In considering time and resources, we chose the 11 galaxies that had the largest number black holes to run the simulations.  The black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
+\textbf{The vast majority of the full set of galaxies (1,537) were eliminated because they did not come into existence until after $z=4$.  Of the remaining 293 galaxies, 67 of them existed at z=0, and 51 of them also had black holes orbiting at z=0}.  In considering time and resources, we chose the 11 galaxies that had the largest number black holes to run the simulations.  The black holes in these galaxies accounted for nearly $84{\%}$ of all orbiting black holes across all the galaxies, so it represented a reasonable balance between completeness and efficiency.
 
 The following cosmological parameters were used in our simulations, consistent with both \citet{2012MNRAS.425..641L} and \citet{2015ApJ...799..178K}:   $\Omega_M = 0.28$, $\Omega_b = 0.046$, $\Omega_\Lambda = 0.72$, $\sigma_8 = 0.82$, $H_0 = 100h^{-1}\mathrm{Mpc}^{-1} = 70 \mathrm{km}\;\mathrm{s}^{-1} \mathrm{Mpc}^{-1}$, and $n = 0.96$.
 
@@ -272,11 +272,11 @@ A result of the anisotropic emission of gravitational waves is that the merged b
 Black holes can also eject each other via strong three-body interactions. We remove SMBHs from the simulations once they move beyond $r_h$, assuming that it will take them more than a Hubble time to find their way back into the center of the host galaxy, or that they have achieved escape velocity.
 
 \subsection{Simulation setup}\label{subsec:simset}
-For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined from \citet{2008gady.book.....B} as:
+For each galaxy in the simulations, we only used black holes that would theoretically have merged with the center of the host galaxy within a dynamical friction time, $t_{fric}$, of less than 100 times a Hubble time, with $t_{fric}$ defined by the Chandrasekhar formula from \citet{2008gady.book.....B} as:
 \begin{equation}\label{tfric}
     t_{fric} = \frac{19}{6}\left(\frac{R_\mathrm{e}}{5\mathrm{kpc}}\right)^2\frac{\sigma(R_\mathrm{e})}{200\mathrm{km}\,\mathrm{s}^{-1}}\frac{10^8\,M_{\odot}}{M_\mathrm{BH}} \text{  Gyr},
 \end{equation}
-The orbiting black holes were injected into their host galaxy at redshift $z$, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be the circular velocity at that radius, $v_c = \sqrt{GM(R_e)/R_e}$, with orientation, $v_x$, $v_y$, and $v_z$, randomly chosen.
+\textbf{The formula above was not a factor during the simulations.  We used the full dynamical friction model (section \ref{psd}) during the simulations}.  The orbiting black holes were injected into their host galaxy at redshift $z$, at a distance from the galactic center of $R_{e}$ (Equation \ref{re}) following galaxy mergers.  Their initial velocity was arbitrarily chosen to be the circular velocity at that radius, $v_c = \sqrt{GM(R_e)/R_e}$, with orientation, $v_x$, $v_y$, and $v_z$, randomly chosen.
 
 \section{Simulation Results}\label{sec:results}\label{sec:results_overview}
 Here we review the primary results of our simulations, focusing on the various interactions of the orbiting black holes with their host SMBHs. In the next section, we will investigate the luminosity characteristics of the orbiting black holes that did not merge at $z=0$.
@@ -288,7 +288,7 @@ Of the 86 SMBHs used for the simulations, 36 black holes merged with their respe
 Given the log distribution of masses, one can see the general trend of larger mass BHs ($\goa\, 10^7\, M_{\odot}$) tending to merge with their respective host BH, while lower mass BHs continue to wander at $z=0$.  However, there is some overlap with some BHs greater than $10^7\, M_{\odot}$ still orbiting and those less than $10^7\, M_{\odot}$ having merged.
 
 \subsection{Mergers}\label{sec:mergers}
-The tendency of larger mass black holes to merge with their host can perhaps be more clearly seen by looking at the merger mass ratio between the incoming black hole and the host.  Figure \ref{fig:q_merge_fraction} displays the fraction of galaxy mergers that result in black hole mergers versus the merger mass ratio, defined as $m_2/m_1$, where $m_2$ is the orbiting black hole and $m_1$ is the host black hole.  The plot monotonically increases with increasing mass ratio, reaching nearly unity for mass ratio of $10^{-1}$, meaning nearly all galaxy mergers with a black hole mass ratio greater than $10^{-1}$ resulted in the orbiting black hole merging with the host.
+The tendency of larger mass black holes to merge with their host can perhaps be more clearly seen by looking at the merger mass ratio between the incoming black hole and the host.  Figure \ref{fig:q_merge_fraction} displays the fraction of galaxy mergers that result in black hole mergers versus the merger mass ratio, defined as $m_2/m_1$, where $m_2$ is the orbiting black hole and $m_1$ is the host black hole.  The plot monotonically increases with increasing mass ratio, reaching nearly unity for mass ratio of $10^{-1}$, meaning nearly all galaxy mergers with a black hole mass ratio greater than $10^{-1}$ resulted in the orbiting black hole merging with the host.  \textbf{It is worth noting that all of the mergers were due to N-body effects; without a third interacting black hole, none of the black holes that reached within $r{_c}$ merged with their host.}
 
 In figure \ref{fig:time_to_merge} we present the time it took for the guest black holes to merge with their host.  As can be seen in the plot, although there is a fair amount of variation, the general trend is a decreasing time to merge as orbiting black hole mass increases.
 
@@ -299,11 +299,11 @@ Of the 37 orbiting black holes at $z=0$, 18 of them were kicked to higher orbits
 
 Figure \ref{fig:kicked_stats} shows the mass distribution (stacked) of kicked and not-kicked black holes, including those that merged and those that did not merge.  The vast majority of larger SMBHs ($\goa\, 10^7\, M_{\odot}$) were not kicked to higher orbits nor ejected from their galaxies, which at least partly explains why most of the merged SMBHs are in the greater mass range.  In contrast, most of the SMBHs below $10^7\, M_{\odot}$ are kicked (with a few of them being ejected).  In our simulations, no black holes that are kicked to higher orbits ever returned to merge with their central host SMBH.
 
-Figure \ref{fig:mvr} is a realization of the final radii of the remaining wandering black holes at $z=0$.  There is a slight inverse relationship between black hole mass and final radius (solid line), but with a wide dispersion.  It is also evident from the plot that all but two of the black holes that had not been kicked by $z=0$ have mostly approached and entered within the galactic core radius, $r_c$ (which never exceeded 1 kpc in any of the galaxies).
+Figure \ref{fig:mvr} is a realization of the final radii of the remaining wandering black holes at $z=0$.  There is a slight inverse relationship between black hole mass and final radius (solid line), but with a wide dispersion.  It is also evident from the plot that all but two of the black holes that had not been kicked by $z=0$ have mostly approached and entered within the galactic core radius, $r_c$ (which never exceeded 1 kpc in any of the galaxies).  \textbf{The black holes that were kicked come back to the center, but due to their highly eccentric nature, they spend mos of their time far from the center.  Additionally, there are only 5 black holes within 10 pc of the center due to N-body effects and the Kozai mechanism}.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Summary Results All Galaxies".png}
+\includegraphics[width=1.0\columnwidth]{plots/Summary_Results_All_Galaxies.png}
 \caption{Histogram of merged, ejected, and orbiting SMBHs at z=0 as a function of BH mass.  Ejected black holes span almost the entire mass range, while lower-mass black holes are orbiting and higher mass black holes tended to merge.  Colored arrows along upper x-axis represent median masses of respective sets.  Histogram bars are stacked.}
 \label{fig:meosmbh}
 \end{center}
@@ -335,8 +335,8 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Final Radius v Mass of Orbiting BHs".png}
-\caption{Final radii of remaining orbital black holes at z=0.  Kicked black holes generally had a low likelihood of finding their way back to the center by z=0.  There is a slight inverse relationship between BH mass and final distance from center (solid line).}
+\includegraphics[width=1.0\columnwidth]{plots/Final_Radius_v_Mass_of_Orbiting_BHs.png}
+\caption{Final radii of remaining orbital black holes at z=0.  \textbf{Kicked black holes come back to the center, but due to their highly eccentric nature, they spend most of their time far from the center}.  There is a slight inverse relationship between BH mass and final distance from center (solid line).}
 \label{fig:mvr}
 \end{center}
 \end{figure}
@@ -344,7 +344,7 @@ Figure \ref{fig:mvr} is a realization of the final radii of the remaining wander
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Lx of our Galaxies compared to Babyk data".png}
+\includegraphics[width=1.0\columnwidth]{plots/Lx_of_our_Galaxies_compared_to_Babyk_data.png}
 \caption{X-ray thermal luminosity of hot gas in our galaxies, compared to those from \citet{2018ApJ...857...32B}.}
 \label{fig:galgas1}
 \end{center}
@@ -356,6 +356,7 @@ The large fraction of orbiting black holes found in our simulations motivates a 
 
 \subsection{Galaxy Gas X-Ray Thermal Luminosity}
 First, we construct realistic X-ray thermal luminosities for our host galaxies. We compute the X-ray thermal luminosity of the hot gas in these galaxies, adapting Equation 26 from \citet{2012ApJ...754..125C}. In lieu of summing over discrete particles, we use the beta model of the gas as defined in our equation \ref{beta_model} and integrate:
+
 \begin{equation}
 \begin{aligned}
     L_x ={} \frac{1.2 \times 10^{-24}}{(\mu m_p)^2}\left(\frac{kT_x}{1keV}\right)^{1/2}\rho_0^{2}\;4{\pi} \\
@@ -391,7 +392,7 @@ The dispersion of the X-ray temperature data around the fit is approximately 1-1
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"rho_0 vs sigma with errors".png}
+\includegraphics[width=1.0\columnwidth]{plots/rho_0_vs_sigma_with_errors.png}
 \caption{Central gas density versus central velocity dispersion.  Purple X's represent central gas densities of the galaxies in this study.  Fit in log space is $\rho_0 = 10^{0.6*\log\left(\frac{\sigma_c}{km\ s^{-1}}\right) - 25} \text{  g cm}^{-3}$.}
 \label{fig:rho0_vs_sigma}
 \end{center}
@@ -400,7 +401,7 @@ The dispersion of the X-ray temperature data around the fit is approximately 1-1
 \begin{figure}
 \vspace{20pt}%
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Tx vs sigma with errors".png}
+\includegraphics[width=1.0\columnwidth]{plots/Tx_vs_sigma_with_errors.png}
 \caption{X-ray temperature versus central velocity dispersion.  Purple X's represent temperatures of the galaxies in this study.  Fit in log space is $T_x = 10^{2.50*\log\left(\frac{\sigma_c}{km\ s^{-1}}\right) - 6.06} \text{  keV}$.}
 \label{fig:Tx_vs_sigma}
 \end{center}
@@ -476,7 +477,7 @@ where $\rho$ is the gas density at the location of the wandering black hole, $\r
 Figure \ref{fig:wui} shows the difference in luminosity when taking into account the influence of the central black hole for the 17 wandering black holes that were within the influence radius.  In all cases, the final luminosity is higher than the original luminosity.
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Comparison of L_x versus radius with and without BH Influence".png}
+\includegraphics[width=1.0\columnwidth]{plots/Comparison_of_L_x_versus_radius_with_and_without_BH_Influence.png}
 \caption{Difference in X-ray thermal luminosity of wandering black holes within the influence radius of the central black hole.  For each vertical line, red (lower) dots are the originally calculated luminosity, not taking the CBH influence into account.  Green (upper) dots are the final luminosities, taking the central BH influence into account.}
 \label{fig:wui}
 \end{center}
@@ -495,7 +496,7 @@ Figure \ref{fig:loobhs} is an approximation to Figure 12 from \cite{2019MNRAS.48
 Figure \ref{fig:ldobhs} represents a histogram of the final X-ray luminosities of the black holes, overlaid by a lognormal distribution, obtained with a mean $\mu=1.0\times10^{33}\,\text{erg s}^{-1}$ and standard deviation $\sigma=4.5\times10^{3}\,\text{erg s}^{-1}$.
 \begin{figure}
 \begin{center}
-\includegraphics[width=1.0\columnwidth]{plots/"Final Luminosities using Kohei factor".png}
+\includegraphics[width=1.0\columnwidth]{plots/Final_Luminosities_using_Kohei_factor.png}
 \caption{X-ray thermal luminosity distribution of orbiting BHs at z=0.  Green region under curve represents approximate range of detectable orbiting black holes. The dashed, red vertical line is the median X-ray thermal luminosity of our sources ($1.0\times10^{33}\;\text{erg}\;\text{s}^{-1}$).}
 \label{fig:ldobhs}
 \end{center}
